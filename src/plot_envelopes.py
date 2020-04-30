@@ -44,7 +44,7 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
 
     # Dataframe to store depth and thickness of the tremor zone
     df_width = pd.DataFrame(columns=['latitude', 'longitude', 'distance', 'ntremor', 'ratioE', 'ratioN', \
-        'time_EW', 'time_NS', 'dist_EW', 'dist_NS', 'thick_EW', 'thick_NS'])
+        'time_EW', 'time_NS', 'dist_EW', 'dist_NS', 'd_to_pb_EW', 'd_to_pb_NS', 'thick_EW', 'thick_NS'])
 
     # Loop over output files
     for i in range(-5, 6):
@@ -97,13 +97,17 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
                 distance = (time_EW / (1.0 / Vs - 1.0 / Vp)) ** 2.0 - x0 ** 2.0 - y0 ** 2.0
                 if (distance >= 0.0):
                     dist_EW = sqrt(distance)
+                    d_to_pb_EW = d0 + dist_EW
                 else:
                     dist_EW = np.nan
+                    d_to_pb_EW = np.nan
                 distance = (time_NS / (1.0 / Vs - 1.0 / Vp)) ** 2.0 - x0 ** 2.0 - y0 ** 2.0
                 if (distance >= 0.0):
                     dist_NS = sqrt(distance)
+                    d_to_pb_NS = d0 + dist_NS
                 else:
                     dist_NS = np.nan
+                    d_to_pb_NS = np.nan
                 # Time difference and depth difference
                 diff_time = time_EW - time_NS
                 diff_depth = dist_EW - dist_NS
@@ -145,7 +149,7 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
                 # Write to pandas dataframe
                 i0 = len(df_width.index)
                 df_width.loc[i0] = [latitude, longitude, sqrt(x0 ** 2 + y0 ** 2), ntremor, ratioE, ratioN, \
-                    time_EW, time_NS, dist_EW, dist_NS, thick_EW, thick_NS]
+                    time_EW, time_NS, dist_EW, dist_NS, d_to_pb_EW, d_to_pb_NS, thick_EW, thick_NS]
                 # Plot
                 plt.subplot2grid((11, 11), (5 - j, i + 5))
                 plt.axvline(time, linewidth=4, color='grey')
@@ -168,9 +172,9 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
 
 if __name__ == '__main__':
 
-#    arrayName = 'BH'
-#    lat0 = 48.0056818181818
-#    lon0 = -123.084354545455
+    arrayName = 'BH'
+    lat0 = 48.0056818181818
+    lon0 = -123.084354545455
 
 #    arrayName = 'BS'
 #    lat0 = 47.95728
@@ -196,9 +200,9 @@ if __name__ == '__main__':
 #    lat0 = 48.0549384615385
 #    lon0 = -123.464415384615
 
-    arrayName = 'TB'
-    lat0 = 47.9730357142857
-    lon0 = -123.138492857143
+#    arrayName = 'TB'
+#    lat0 = 47.9730357142857
+#    lon0 = -123.138492857143
 
     mintremor = 30
     Tmax = 15.0

@@ -1,2 +1,7 @@
-src/cc
 src/*.pkl
+src/cc/*
+src/diff_EW_NS/*
+src/map_depth/*.eps
+src/map_depth/*.txt
+src/map_thick/*.eps
+src/map_thick/*.txt
