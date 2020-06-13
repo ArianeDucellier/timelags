@@ -31,21 +31,7 @@ cat << END >> arrays.dat
 -123.138492857143 47.9730357142857
 END
 
-gmt psxy arrays.dat -R$Rop -J$Jop -Sc0.2 -Gred -O -K >> $output
-
-# Names of arrays
-cat << END >> names.dat
--123.084354545455 48.0256818181818 Burnt Hill
--122.92866 47.93728 Big Skidder
--122.969935 48.088735 Cat Lake
--123.313118181818 48.0259272727273 Danz Ranch
--123.045528571429 47.9121857142857 Gold Creek
--123.210035714286 48.0754071428571 Lost Cause
--123.464415384615 48.0749384615385 Port Angeles
--123.138492857143 47.9530357142857 Three Bumps
-END
-
-gmt pstext names.dat -R$Rop -J$Jop -F+f12p -O -K >> $output
+gmt psxy arrays.dat -R$Rop -J$Jop -St0.4 -Gblack -O -K >> $output
 
 gmt psscale -C$cpt -D7.0/-3.0/10/0.5h -O -L -B:"Uncertainty in km": >> $output
 

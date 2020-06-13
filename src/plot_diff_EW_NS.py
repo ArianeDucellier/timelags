@@ -54,7 +54,8 @@ for num, (array, lat, lon) in enumerate(zip(arrays, lats, lons)):
         pi / 180.0) * sin(lat * pi / 180.0)) ** 1.5)
     x = (df_temp['longitude'] - lon) * dx
     y = (df_temp['latitude'] - lat) * dy
-    az = (180.0 / pi) * np.arctan2(y, x)
+    az = 90.0 - (180.0 / pi) * np.arctan2(y, x)
+    az = np.where(az < 0.0, 360.0 + az, az)
     df_temp['azimut'] = pd.Series(az, index=df_temp.index)
     if (num == 0):
         df = df_temp
@@ -89,12 +90,12 @@ plt.ylabel('Depth difference (km)', fontsize=24)
 
 ax5 = plt.subplot(325)
 plt.plot(df['azimut'], df['diff_time'], 'ko')
-plt.xlabel('Azimut (from east)', fontsize=24)
+plt.xlabel('Azimuth', fontsize=24)
 plt.ylabel('Time difference (s)', fontsize=24)
 
 ax6 = plt.subplot(326)
 plt.plot(df['azimut'], df['diff_depth'], 'ko')
-plt.xlabel('Azimut (from east)', fontsize=24)
+plt.xlabel('Azimuth', fontsize=24)
 plt.ylabel('Depth difference (km)', fontsize=24)
 
 plt.tight_layout()

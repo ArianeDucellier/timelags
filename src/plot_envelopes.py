@@ -12,7 +12,10 @@ import pickle
 
 from math import cos, pi, sqrt, sin
 
-def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minratio, Tmax, amp, Vs, Vp, ds):
+from misc import centroid
+
+def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
+    minratio, Tmax, amp, Vs, Vp, ds, imin, imax, jmin, jmax, cut):
     """
     """
     # Get depth of plate boundary around the array
@@ -34,10 +37,10 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
         pi / 180.0) * sin(lat0 * pi / 180.0)) ** 1.5)
 
     # Create figure
-    params = {'xtick.labelsize':16,
-              'ytick.labelsize':16}
+    params = {'xtick.labelsize':40,
+              'ytick.labelsize':40}
     pylab.rcParams.update(params)
-    plt.figure(1, figsize=(88, 55))
+    plt.figure(1, figsize=(3 * (imax - imin + 1), 2 * (jmax - jmin + 1)))
 
     # Dataframe to store difference in time lags between EW and NS
     df_dt = pd.DataFrame(columns=['latitude', 'longitude', 'distance', 'diff_time', 'diff_depth'])
@@ -47,8 +50,8 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
         'time_EW', 'time_NS', 'dist_EW', 'dist_NS', 'd_to_pb_EW', 'd_to_pb_NS', 'thick_EW', 'thick_NS'])
 
     # Loop over output files
-    for i in range(-5, 6):
-        for j in range(-5, 6):
+    for i in range(imin, imax + 1):
+        for j in range(jmin, jmax + 1):
             x0 = i * ds
             y0 = j * ds
             # Get latitude and longitude
@@ -63,7 +66,7 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
             myx = df['x0'] == x0
             myy = df['y0'] == y0
             myline = df[myx & myy]
-            ntremor = myline['ntremor'].iloc[0]
+            ntremor = myline['ntremor_' + type_stack + '_' + cc_stack].iloc[0]
             ratioE = myline['ratio_' + type_stack + '_' + cc_stack + '_EW'].iloc[0]
             ratioN = myline['ratio_' + type_stack + '_' + cc_stack + '_NS'].iloc[0]
             # Look only at best
@@ -80,6 +83,8 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
                 npts = int((EW.stats.npts - 1) / 2)
                 dt = EW.stats.delta
                 t = dt * np.arange(- npts, npts + 1)
+                icut1 = npts + int(cut / dt)
+                icut2 = npts + int((Tmax - cut) / dt)
                 # Theoretical depth
                 dist = sqrt(d0 ** 2.0 + x0 ** 2 + y0 ** 2)
                 time = dist * (1.0 / Vs - 1.0 / Vp)
@@ -90,10 +95,12 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
                 # Maxima and corresponding times and depths
                 EWmax = np.max(np.abs(EW.data[ibegin:iend]))
                 NSmax = np.max(np.abs(NS.data[ibegin:iend]))
-                i_EW = np.argmax(np.abs(EW.data[ibegin:iend]))
-                i_NS = np.argmax(np.abs(NS.data[ibegin:iend]))
-                time_EW = t[ibegin:iend][i_EW]
-                time_NS = t[ibegin:iend][i_NS]
+#                i_EW = np.argmax(np.abs(EW.data[ibegin:iend]))
+#                i_NS = np.argmax(np.abs(NS.data[ibegin:iend]))
+#                time_EW = t[ibegin:iend][i_EW]
+#                time_NS = t[ibegin:iend][i_NS]
+                time_EW = centroid(t[ibegin:iend], EW.data[ibegin:iend])
+                time_NS = centroid(t[ibegin:iend], NS.data[ibegin:iend])
                 distance = (time_EW / (1.0 / Vs - 1.0 / Vp)) ** 2.0 - x0 ** 2.0 - y0 ** 2.0
                 if (distance >= 0.0):
                     dist_EW = sqrt(distance)
@@ -151,15 +158,28 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
                 df_width.loc[i0] = [latitude, longitude, sqrt(x0 ** 2 + y0 ** 2), ntremor, ratioE, ratioN, \
                     time_EW, time_NS, dist_EW, dist_NS, d_to_pb_EW, d_to_pb_NS, thick_EW, thick_NS]
                 # Plot
-                plt.subplot2grid((11, 11), (5 - j, i + 5))
-                plt.axvline(time, linewidth=4, color='grey')
-                plt.plot(t, EW.data, 'r-')
-                plt.plot(t, NS.data, 'b-')
-                plt.xlim(0, Tmax)
-                plt.ylim(0, amp)
-                plt.title('Tremor at {}, {} km ({}))'.format(x0, y0, ntremor), fontsize=24)
+                plt.plot([(i - imin) * Tmax + time, (i - imin) * Tmax + time], \
+                         [(j - jmin), (j - jmin + 0.8)], linewidth=3, color='grey')
+                plt.plot((i - imin) * Tmax + t[icut1 : icut2], \
+                    (j - jmin) + amp * EW.data[icut1 : icut2], 'r-')
+                plt.plot((i - imin) * Tmax + t[icut1 : icut2], \
+                    (j - jmin) + amp * NS.data[icut1 : icut2], 'b-')
+                plt.annotate('{}'.format(ntremor), \
+                    ((i - imin + 0.6) * Tmax, (j - jmin + 0.5)), fontsize=30)
 
-    # Save figure
+    # Finalize figure
+    plt.xlim(0, Tmax * (imax - imin + 1))
+    plt.ylim(-0.2, jmax - jmin + 1)
+    xlabels = []
+    for i in range(imin, imax + 1):
+        xlabels.append('{:.0f}'.format(i * ds))
+    ylabels = []
+    for j in range(jmin, jmax + 1):
+        ylabels.append('{:.0f}'.format(j * ds))
+    plt.xticks(Tmax * (0.5 + np.arange(0, imax - imin + 1)), xlabels)
+    plt.yticks(0.5 + np.arange(0, jmax - jmin + 1), ylabels)
+    plt.xlabel('Distance from the array (km) in east direction', fontsize=40)
+    plt.ylabel('Distance from the array (km) in north direction', fontsize=40)
     plt.savefig('cc/{}/{}_{}_{}.eps'.format(arrayName, arrayName, type_stack, cc_stack), format='eps')
     plt.close(1)
 
@@ -172,13 +192,13 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minra
 
 if __name__ == '__main__':
 
-    arrayName = 'BH'
-    lat0 = 48.0056818181818
-    lon0 = -123.084354545455
+#    arrayName = 'BH'
+#    lat0 = 48.0056818181818
+#    lon0 = -123.084354545455
 
-#    arrayName = 'BS'
-#    lat0 = 47.95728
-#    lon0 = -122.92866
+    arrayName = 'BS'
+    lat0 = 47.95728
+    lon0 = -122.92866
 
 #    arrayName = 'CL'
 #    lat0 = 48.068735
@@ -209,13 +229,19 @@ if __name__ == '__main__':
     Vs = 3.6
     Vp = 6.4
     ds = 5.0
+    imin = -5
+    imax = 0
+    jmin = -4
+    jmax = 2
+    cut = 2.0
 
-    plot_envelopes(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, Tmax, 0.1, Vs, Vp, ds)
-    plot_envelopes(arrayName, lon0, lat0, 'lin', 'pow', mintremor, 10.0, Tmax, 3.0, Vs, Vp, ds)
-    plot_envelopes(arrayName, lon0, lat0, 'lin', 'PWS', mintremor, 50.0, Tmax, 0.05, Vs, Vp, ds)
-    plot_envelopes(arrayName, lon0, lat0, 'pow', 'lin', mintremor, 10.0, Tmax, 0.5, Vs, Vp, ds)
-    plot_envelopes(arrayName, lon0, lat0, 'pow', 'pow', mintremor, 30.0, Tmax, 10.0, Vs, Vp, ds)
-    plot_envelopes(arrayName, lon0, lat0, 'pow', 'PWS', mintremor, 50.0, Tmax, 0.2, Vs, Vp, ds)
-    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'lin', mintremor, 15.0, Tmax, 0.05, Vs, Vp, ds)
-    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'pow', mintremor, 40.0, Tmax, 1.0, Vs, Vp, ds)
-    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'PWS', mintremor, 100.0, Tmax, 0.01, Vs, Vp, ds)
+#    plot_envelopes(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, Tmax, 0.1, Vs, Vp, ds, imin, imax, jmin, jmax)
+#    plot_envelopes(arrayName, lon0, lat0, 'lin', 'pow', mintremor, 10.0, Tmax, 3.0, Vs, Vp, ds, imin, imax, jmin, jmax)
+#    plot_envelopes(arrayName, lon0, lat0, 'lin', 'PWS', mintremor, 50.0, Tmax, 0.05, Vs, Vp, ds, imin, imax, jmin, jmax)
+#    plot_envelopes(arrayName, lon0, lat0, 'pow', 'lin', mintremor, 10.0, Tmax, 0.5, Vs, Vp, ds, imin, imax, jmin, jmax)
+#    plot_envelopes(arrayName, lon0, lat0, 'pow', 'pow', mintremor, 30.0, Tmax, 10.0, Vs, Vp, ds, imin, imax, jmin, jmax)
+#    plot_envelopes(arrayName, lon0, lat0, 'pow', 'PWS', mintremor, 50.0, Tmax, 0.2, Vs, Vp, ds, imin, imax, jmin, jmax)
+#    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'lin', mintremor, 15.0, Tmax, 0.05, Vs, Vp, ds, imin, imax, jmin, jmax)
+#    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'pow', mintremor, 40.0, Tmax, 1.0, Vs, Vp, ds, imin, imax, jmin, jmax)
+    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'PWS', mintremor, 150.0, \
+        Tmax, 100.0, Vs, Vp, ds, imin, imax, jmin, jmax, cut)

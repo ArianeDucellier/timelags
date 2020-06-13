@@ -8,6 +8,7 @@ import obspy
 from obspy.core.stream import Stream
 from obspy.signal.cross_correlation import correlate
 
+import matplotlib.pylab as pylab
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -19,7 +20,7 @@ from sklearn.cluster import AgglomerativeClustering, KMeans
 from stacking import linstack, powstack, PWstack
 
 def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
-        Tmax, RMSmin, RMSmax, xmax, ymax, typecluster, nc, palette, amp, \
+        Tmax, RMSmin, RMSmax, xmax, ymin, ymax, typecluster, nc, palette, amp, \
         n1, n2, draw_scatter=True, draw_hist=True, envelope=True, \
         draw_cc=True, draw_ac=True, draw_colored_cc=True, draw_colored_ac=True):
     """
@@ -51,6 +52,8 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         RMSmax = Maximum time lag to compute the RMS
         type xmax = float
         xmax = Horizontal axis limit for plot
+        type ymin = float
+        ymin = Vertical axis limit for plot
         type ymax = float
         ymax = Vertical axis limit for plot
         type typecluster = string
@@ -200,6 +203,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     if (draw_scatter == True):
         colors = [palette[c] for c in clusters]
         pd.plotting.scatter_matrix(df, c=colors, figsize=(20, 20))
+        plt.tight_layout()
         plt.savefig( \
             'cc/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_scatter.eps'. \
             format(arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), \
@@ -225,6 +229,10 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     pickle.dump([timelag_clust_EW, timelag_clust_NS], open(filename, 'wb'))
     # Plot histogram of timelags
     if (draw_hist == True):
+        params = {'legend.fontsize': 24, \
+                  'xtick.labelsize': 24, \
+                  'ytick.labelsize': 24}
+        pylab.rcParams.update(params)
         plt.figure(1, figsize=(10 * nc, 16))
         # EW / Vertical
         for j in range(0, nc):
@@ -251,8 +259,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             plt.axvline(m - s, color='grey', linestyle='--')
             plt.xlabel('Lag time difference (s)', fontsize=24)
         # End figure
-        plt.suptitle('{} at {} km, {} km ({} - {})'.format(arrayName, x0, y0, \
-            type_stack, cc_stack), fontsize=24)
+        plt.tight_layout()
         plt.savefig( \
             'cc/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_timelags.eps'. \
             format(arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), \
@@ -260,6 +267,10 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         plt.close(1)
     # Plot stacked cross correlation
     if (draw_cc == True):
+        params = {'legend.fontsize': 24, \
+                  'xtick.labelsize': 24, \
+                  'ytick.labelsize': 24}
+        pylab.rcParams.update(params)
         plt.figure(2, figsize=(10 * nc, 16))
     # Time function
     npts = int((EW_UD_stack.stats.npts - 1) / 2)
@@ -270,12 +281,14 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     t_clust_EW = []
     ratio_clust_EW = []
     EW_UD_stacks = Stream()
+    EW_ntremor = []
     for j in range(0, nc):
         # Stack over selected tremor windows
         EWselect = Stream()
         for i in range(0, nt):
             if (clusters[i] == j):
                 EWselect.append(EW_UD[i])
+        EW_ntremor.append(len(EWselect))
         if (cc_stack == 'lin'):
             EWselect_stack = linstack([EWselect], normalize=False)[0]
         elif (cc_stack == 'pow'):
@@ -286,26 +299,32 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             raise ValueError( \
                 'Type of stack must be lin, pow, or PWS')
         # Max cc and ratio with RMS
+        EWenvelope = obspy.signal.filter.envelope(EWselect_stack.data)
         if (envelope == True):
-            EWselect_stack.data = obspy.signal.filter.envelope(EWselect_stack.data)
-        cc_clust_EW.append(np.max(np.abs(EWselect_stack.data[ibegin:iend])))
-        i0 = np.argmax(np.abs(EWselect_stack.data[ibegin:iend]))
+            EW_data = EWenvelope
+        else:
+            EW_data = EWselect_stack.data
+        cc_clust_EW.append(np.max(np.abs(EW_data[ibegin:iend])))
+        i0 = np.argmax(np.abs(EW_data[ibegin:iend]))
         t_clust_EW.append(t[ibegin:iend][i0])
-        RMS = np.sqrt(np.mean(np.square(EWselect_stack.data[rmsb:rmse])))
-        ratio_clust_EW.append(np.max(np.abs(EWselect_stack.data[ibegin:iend])) / RMS)
+        RMS = np.sqrt(np.mean(np.square(EW_data[rmsb:rmse])))
+        ratio_clust_EW.append(np.max(np.abs(EW_data[ibegin:iend])) / RMS)
         # Plot
         if (draw_cc == True):
             plt.subplot2grid((2, nc), (0, j))
             plt.plot(t, EW_UD_stack.data, 'k-', label='All')
             plt.plot(t, EWselect_stack.data, color=palette[j], \
                 label='Cluster {:d}'.format(j))
+            plt.plot(t, EWenvelope, color=palette[j], linestyle='dashed', \
+                label='Envelope')
             plt.xlim(0, xmax)
-            plt.ylim(- ymax, ymax)
+            plt.ylim(ymin, ymax)
             plt.title('EW / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
                 len(EWselect)), fontsize=24)
             plt.xlabel('Lag time (s)', fontsize=24)
             plt.legend(loc=1)
         # Save into stream
+        EWselect_stack.data = EW_data
         EW_UD_stacks.append(EWselect_stack)
     # Get the best stack
     i0 = cc_clust_EW.index(max(cc_clust_EW))
@@ -314,17 +333,20 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     ratio_EW = ratio_clust_EW[i0]
     width_EW = width_clust_EW[i0]
     stack_EW = EW_UD_stacks[i0]
+    ntremor = EW_ntremor[i0]
     # NS / Vertical
     cc_clust_NS = []
     t_clust_NS = []
     ratio_clust_NS = []
     NS_UD_stacks = Stream()
+    NS_ntremor = []
     for j in range(0, nc):
         # Stack over selected tremor windows
         NSselect = Stream()
         for i in range(0, nt):
             if (clusters[i] == j):
                 NSselect.append(NS_UD[i])
+        NS_ntremor.append(len(NSselect))
         if (cc_stack == 'lin'):
             NSselect_stack = linstack([NSselect], normalize=False)[0]
         elif (cc_stack == 'pow'):
@@ -335,13 +357,16 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             raise ValueError( \
                 'Type of stack must be lin, pow, or PWS')
         # Max cc and ratio with RMS
+        NSenvelope = obspy.signal.filter.envelope(NSselect_stack.data)
         if (envelope == True):
-            NSselect_stack.data = obspy.signal.filter.envelope(NSselect_stack.data)
-        cc_clust_NS.append(np.max(np.abs(NSselect_stack.data[ibegin:iend])))
-        i0 = np.argmax(np.abs(NSselect_stack.data[ibegin:iend]))
+            NS_data = NSenvelope
+        else:
+            NS_data = NSselect_stack.data
+        cc_clust_NS.append(np.max(np.abs(NS_data[ibegin:iend])))
+        i0 = np.argmax(np.abs(NS_data[ibegin:iend]))
         t_clust_NS.append(t[ibegin:iend][i0])
-        RMS = np.sqrt(np.mean(np.square(NSselect_stack.data[rmsb:rmse])))
-        ratio_clust_NS.append(np.max(np.abs(NSselect_stack.data[ibegin:iend])) \
+        RMS = np.sqrt(np.mean(np.square(NS_data[rmsb:rmse])))
+        ratio_clust_NS.append(np.max(np.abs(NS_data[ibegin:iend])) \
             / RMS)  
         # Plot
         if (draw_cc == True):
@@ -349,6 +374,8 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             plt.plot(t, NS_UD_stack.data, 'k-', label='All')
             plt.plot(t, NSselect_stack.data, color=palette[j], \
                 label='Cluster {:d}'.format(j, ))
+            plt.plot(t, NSenvelope, color=palette[j], linestyle='dashed', \
+                label='Envelope')
             plt.xlim(0, xmax)
             plt.ylim(- ymax, ymax)
             plt.title('NS / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
@@ -356,6 +383,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             plt.xlabel('Lag time (s)', fontsize=24)
             plt.legend(loc=1)
         # Save into stream
+        NSselect_stack.data = NS_data
         NS_UD_stacks.append(NSselect_stack)
     # Get the best stack
     i0 = cc_clust_NS.index(max(cc_clust_NS))
@@ -364,10 +392,10 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     ratio_NS = ratio_clust_NS[i0]
     width_NS = width_clust_NS[i0]
     stack_NS = NS_UD_stacks[i0]
+    ntremor = NS_ntremor[i0]
     # End figure
     if (draw_cc == True):
-        plt.suptitle('{} at {} km, {} km ({} - {})'.format(arrayName, x0, y0, \
-            type_stack, cc_stack), fontsize=24)
+        plt.tight_layout()
         plt.savefig( \
             'cc/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_stackcc.eps'. \
             format(arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), \
@@ -381,6 +409,10 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     # Plot stacked autocorrelation
     if (draw_ac == True):
         plt.figure(3, figsize=(10 * nc, 24))
+        params = {'legend.fontsize': 24, \
+                  'xtick.labelsize': 24, \
+                  'ytick.labelsize': 24}
+        pylab.rcParams.update(params)
         npts = int((EW_stack.stats.npts - 1) / 2)
         dt = EW_stack.stats.delta
         t = dt * np.arange(- npts, npts + 1)
@@ -463,8 +495,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             plt.xlabel('Lag time (s)', fontsize=24)
             plt.legend(loc=1)
         # End figure
-        plt.suptitle('{} at {} km, {} km ({} - {})'.format(arrayName, x0, y0, \
-            type_stack, cc_stack), fontsize=24)
+        plt.tight_layout()
         plt.savefig( \
             'ac/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_stackac.eps'. \
             format(arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), \
@@ -472,17 +503,25 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         plt.close(3)
     # Plot colored cross correlation windows
     if (draw_colored_cc == True):
+        params = {'legend.fontsize': 24, \
+                  'xtick.labelsize': 24, \
+                  'ytick.labelsize': 24}
+        pylab.rcParams.update(params)
         plt.figure(4, figsize=(20, 16))
         # EW - UD cross correlation
         ax1 = plt.subplot(121)
-        for i in range(n1, n2):
-            dt = EW_UD[i].stats.delta
-            ncor = int((EW_UD[i].stats.npts - 1) / 2)
-            t = dt * np.arange(- ncor, ncor + 1)
-            plt.plot(t, (2.0 * i + 1) - 2 * n1 + amp * EW_UD[i].data, \
-                color=colors[i])
+        index = 0
+        for j in range(0, nc):
+            for i in range(n1, n2):
+                if (clusters[i] == j):
+                    dt = EW_UD[i].stats.delta
+                    ncor = int((EW_UD[i].stats.npts - 1) / 2)
+                    t = dt * np.arange(- ncor, ncor + 1)
+                    plt.plot(t, (2.0 * index + 1) + amp * EW_UD[i].data, \
+                        color=palette[j])
+                    index = index + 1
         plt.xlim(0, xmax)
-        plt.ylim(0.0, 2.0 * (n2 - n1))
+        plt.ylim(0.0, 2.0 * index)
         plt.title('East / Vertical component', fontsize=24)
         plt.xlabel('Lag time (s)', fontsize=24)
         plt.ylabel('Cross correlation', fontsize=24)
@@ -490,21 +529,25 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         ax1.tick_params(labelsize=20)
         # NS - UD cross correlation
         ax2 = plt.subplot(122)
-        for i in range(n1, n2):
-            dt = NS_UD[i].stats.delta
-            ncor = int((NS_UD[i].stats.npts - 1) / 2)
-            t = dt * np.arange(- ncor, ncor + 1)
-            plt.plot(t, (2.0 * i + 1) - 2 * n1 + amp * NS_UD[i].data, \
-                color=colors[i])
+        index = 0
+        for j in range(0, nc):
+            for i in range(n1, n2):
+                if (clusters[i] == j):
+                    dt = NS_UD[i].stats.delta
+                    ncor = int((NS_UD[i].stats.npts - 1) / 2)
+                    t = dt * np.arange(- ncor, ncor + 1)
+                    plt.plot(t, (2.0 * index + 1) + amp * NS_UD[i].data, \
+                        color=palette[j])
+                    index = index + 1
         plt.xlim(0, xmax)
-        plt.ylim(0.0, 2.0 * (n2 - n1))
+        plt.ylim(0.0, 2.0 * index)
         plt.title('North / Vertical component', fontsize=24)
         plt.xlabel('Lag time (s)', fontsize=24)
         plt.ylabel('Cross correlation', fontsize=24)
         ax2.set_yticklabels([])
         ax2.tick_params(labelsize=20)
         # End figure
-        plt.suptitle('{} at {} km, {} km'.format(arrayName, x0, y0), fontsize=24)
+        plt.tight_layout()
         plt.savefig( \
             'cc/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_ccwin.eps'. \
             format(arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), \
@@ -515,6 +558,10 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     # Plot colored autocorrelation windows
     if (draw_colored_ac == True):
         plt.figure(5, figsize=(20, 24))
+        params = {'legend.fontsize': 24, \
+                  'xtick.labelsize': 24, \
+                  'ytick.labelsize': 24}
+        pylab.rcParams.update(params)
         # EW autocorrelation
         ax1 = plt.subplot(131)
         for i in range(n1, n2):
@@ -558,7 +605,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         ax3.set_yticklabels([])
         ax3.tick_params(labelsize=20)
         # End figure and plot
-        plt.suptitle('{} at {} km, {} km'.format(arrayName, x0, y0), fontsize=24)
+        plt.tight_layout()
         plt.savefig( \
             'ac/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_acwin.eps'. \
             format(arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), \
@@ -568,7 +615,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         ax3.clear()
         plt.close(5)
     return (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, \
-        width_EW, width_NS)
+        width_EW, width_NS, ntremor)
 
 if __name__ == '__main__':
 
@@ -598,45 +645,45 @@ if __name__ == '__main__':
 
     # Linear stack
     amp = 10.0
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'lin', w, 'lin', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 0.06, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -0.06, 0.06, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'lin', w, 'pow', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 2.0, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -2.0, 2.0, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'lin', w, 'PWS', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 0.04, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -0.04, 0.04, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
 
     # Power stack
     amp = 2.0
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'pow', w, 'lin', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 0.3, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -0.3, 0.3, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'pow', w, 'pow', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 10.0, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -10.0, 10.0, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'pow', w, 'PWS', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 0.16, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -0.16, 0.16, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
 
     # Phase-weighted stack
     amp = 20.0
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'PWS', w, 'lin', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 0.02, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -0.02, 0.02, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'PWS', w, 'pow', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 0.4, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -0.4, 0.4, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
-    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS) = \
+    (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'PWS', w, 'PWS', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, 0.01, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmax, -0.01, 0.01, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)

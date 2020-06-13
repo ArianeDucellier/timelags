@@ -33,7 +33,7 @@ Vs = 3.6
 Vp = 6.4
 
 # Get depth of plate boundary around the array
-depth = pd.read_csv('depth/' + arrayName + '_depth.txt', sep=' ', header=None)
+depth = pd.read_csv('../data/depth/' + arrayName + '_depth.txt', sep=' ', header=None)
 depth.columns = ['x', 'y', 'depth']
 
 # Store results in pandas dataframe
@@ -77,7 +77,10 @@ else:
         'std_pow_lin_EW', 'std_pow_pow_EW', 'std_pow_PWS_EW', \
         'std_pow_lin_NS', 'std_pow_pow_NS', 'std_pow_PWS_NS', \
         'std_PWS_lin_EW', 'std_PWS_pow_EW', 'std_PWS_PWS_EW', \
-        'std_PWS_lin_NS', 'std_PWS_pow_NS', 'std_PWS_PWS_NS'])
+        'std_PWS_lin_NS', 'std_PWS_pow_NS', 'std_PWS_PWS_NS', \
+        'ntremor_lin_lin', 'ntremor_lin_pow', 'ntremor_lin_PWS', \
+        'ntremor_pow_lin', 'ntremor_pow_pow', 'ntremor_pow_PWS', \
+        'ntremor_PWS_lin', 'ntremor_PWS_pow', 'ntremor_PWS_PWS'])
                 
 # Loop on tremor location
 for i in range(-5, 6):
@@ -257,81 +260,81 @@ for i in range(-5, 6):
                     (clusters, t_lin_lin_EW_cluster, t_lin_lin_NS_cluster, \
                         cc_lin_lin_EW, cc_lin_lin_NS, \
                         ratio_lin_lin_EW, ratio_lin_lin_NS,
-                        std_lin_lin_EW, std_lin_lin_NS) = \
+                        std_lin_lin_EW, std_lin_lin_NS, ntremor_lin_lin) = \
                         cluster_select(arrayName, x0, y0, 'lin', w, 'lin', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 0.06, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.06, 0.06, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
                     (clusters, t_lin_pow_EW_cluster, t_lin_pow_NS_cluster, \
                         cc_lin_pow_EW, cc_lin_pow_NS, \
                         ratio_lin_pow_EW, ratio_lin_pow_NS,
-                        std_lin_pow_EW, std_lin_pow_NS) = \
+                        std_lin_pow_EW, std_lin_pow_NS, ntremor_lin_pow) = \
                         cluster_select(arrayName, x0, y0, 'lin', w, 'pow', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 2.0, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -2.0, 2.0, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
                     (clusters, t_lin_PWS_EW_cluster, t_lin_PWS_NS_cluster, \
                         cc_lin_PWS_EW, cc_lin_PWS_NS, \
                         ratio_lin_PWS_EW, ratio_lin_PWS_NS,
-                        std_lin_PWS_EW, std_lin_PWS_NS) = \
+                        std_lin_PWS_EW, std_lin_PWS_NS, ntremor_lin_PWS) = \
                         cluster_select(arrayName, x0, y0, 'lin', w, 'PWS', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 0.04, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.04, 0.04, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
 
                     # Power stack
                     amp = 2.0
                     (clusters, t_pow_lin_EW_cluster, t_pow_lin_NS_cluster, \
                         cc_pow_lin_EW, cc_pow_lin_NS, \
                         ratio_pow_lin_EW, ratio_pow_lin_NS,
-                        std_pow_lin_EW, std_pow_lin_NS) = \
+                        std_pow_lin_EW, std_pow_lin_NS, ntremor_pow_lin) = \
                         cluster_select(arrayName, x0, y0, 'pow', w, 'lin', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 0.3, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.3, 0.3, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
                     (clusters, t_pow_pow_EW_cluster, t_pow_pow_NS_cluster, \
                         cc_pow_pow_EW, cc_pow_pow_NS, \
                         ratio_pow_pow_EW, ratio_pow_pow_NS,
-                        std_pow_pow_EW, std_pow_pow_NS) = \
+                        std_pow_pow_EW, std_pow_pow_NS, ntremor_pow_pow) = \
                         cluster_select(arrayName, x0, y0, 'pow', w, 'pow', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 10.0, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -10.0, 10.0, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
                     (clusters, t_pow_PWS_EW_cluster, t_pow_PWS_NS_cluster, 
                         cc_pow_PWS_EW, cc_pow_PWS_NS, \
                         ratio_pow_PWS_EW, ratio_pow_PWS_NS,
-                        std_pow_PWS_EW, std_pow_PWS_NS) = \
+                        std_pow_PWS_EW, std_pow_PWS_NS, ntremor_pow_PWS) = \
                         cluster_select(arrayName, x0, y0, 'pow', w, 'PWS', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 0.16, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.16, 0.16, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
 
                     # Phase-weighted stack
                     amp = 20.0
                     (clusters, t_PWS_lin_EW_cluster, t_PWS_lin_NS_cluster, \
                         cc_PWS_lin_EW, cc_PWS_lin_NS, \
                         ratio_PWS_lin_EW, ratio_PWS_lin_NS,
-                        std_PWS_lin_EW, std_PWS_lin_NS) = \
+                        std_PWS_lin_EW, std_PWS_lin_NS, ntremor_PWS_lin) = \
                         cluster_select(arrayName, x0, y0, 'PWS', w, 'lin', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 0.02, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.02, 0.02, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
                     (clusters, t_PWS_pow_EW_cluster, t_PWS_pow_NS_cluster, \
                         cc_PWS_pow_EW, cc_PWS_pow_NS, \
                         ratio_PWS_pow_EW, ratio_PWS_pow_NS,
-                        std_PWS_pow_EW, std_PWS_pow_NS) = \
+                        std_PWS_pow_EW, std_PWS_pow_NS, ntremor_PWS_pow) = \
                         cluster_select(arrayName, x0, y0, 'PWS', w, 'pow', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 0.4, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.4, 0.4, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
                     (clusters, t_PWS_PWS_EW_cluster, t_PWS_PWS_NS_cluster, \
                         cc_PWS_PWS_EW, cc_PWS_PWS_NS, \
                         ratio_PWS_PWS_EW, ratio_PWS_PWS_NS,
-                        std_PWS_PWS_EW, std_PWS_PWS_NS) = \
+                        std_PWS_PWS_EW, std_PWS_PWS_NS, ntremor_PWS_PWS) = \
                         cluster_select(arrayName, x0, y0, 'PWS', w, 'PWS', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, 0.01, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.008, 0.009, \
                         'kmeans', nc, palette, amp, n1, n2, \
-                        False, True, True, True, False, False, False)
+                        True, True, True, True, False, True, False)
 
                     i0 = len(df.index)
                     df.loc[i0] = [x0, y0, ntremor, \
@@ -367,7 +370,10 @@ for i in range(-5, 6):
                         std_pow_lin_EW, std_pow_pow_EW, std_pow_PWS_EW, \
                         std_pow_lin_NS, std_pow_pow_NS, std_pow_PWS_NS, \
                         std_PWS_lin_EW, std_PWS_pow_EW, std_PWS_PWS_EW, \
-                        std_PWS_lin_NS, std_PWS_pow_NS, std_PWS_PWS_NS]
+                        std_PWS_lin_NS, std_PWS_pow_NS, std_PWS_PWS_NS, \
+                        ntremor_lin_lin, ntremor_lin_pow, ntremor_lin_PWS, \
+                        ntremor_pow_lin, ntremor_pow_pow, ntremor_pow_PWS, \
+                        ntremor_PWS_lin, ntremor_PWS_pow, ntremor_PWS_PWS]
 
                 # There is only one tremor
                 else:
@@ -405,7 +411,8 @@ for i in range(-5, 6):
                         np.nan, np.nan, np.nan, \
                         np.nan, np.nan, np.nan, \
                         np.nan, np.nan, np.nan, \
-                        np.nan, np.nan, np.nan]
+                        np.nan, np.nan, np.nan, \
+                        0, 0, 0, 0, 0, 0, 0, 0, 0]
 
             # All files do not have the same size
             else:
@@ -447,7 +454,17 @@ for i in range(-5, 6):
                 np.nan, np.nan, np.nan, \
                 np.nan, np.nan, np.nan, \
                 np.nan, np.nan, np.nan, \
-                np.nan, np.nan, np.nan]
+                np.nan, np.nan, np.nan, \
+                0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 df['ntremor'] = df['ntremor'].astype('int')
+df['ntremor_lin_lin'] = df['ntremor_lin_lin'].astype('int')
+df['ntremor_lin_pow'] = df['ntremor_lin_pow'].astype('int')
+df['ntremor_lin_PWS'] = df['ntremor_lin_PWS'].astype('int')
+df['ntremor_pow_lin'] = df['ntremor_pow_lin'].astype('int')
+df['ntremor_pow_pow'] = df['ntremor_pow_pow'].astype('int')
+df['ntremor_pow_PWS'] = df['ntremor_pow_PWS'].astype('int')
+df['ntremor_PWS_lin'] = df['ntremor_PWS_lin'].astype('int')
+df['ntremor_PWS_pow'] = df['ntremor_PWS_pow'].astype('int')
+df['ntremor_PWS_PWS'] = df['ntremor_PWS_PWS'].astype('int')
 pickle.dump(df, open(namefile, 'wb'))
