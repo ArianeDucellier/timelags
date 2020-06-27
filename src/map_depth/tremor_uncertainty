@@ -1,6 +1,6 @@
 #!/bin/csh -f
-set input = uncertainty_pow_pow.txt
-set output = uncertainty_pow_pow.eps
+set input = uncertainty_PWS_PWS.txt
+set output = uncertainty_PWS_PWS.eps
 set cpt = uncertainty.cpt
 
 # Boundaries
@@ -11,10 +11,7 @@ set y2 = 48.4
 set Rop = $x1/$x2/$y1/$y2
 set Jop = m-123.2/48.0/16.0
 
-gmt xyz2grd $input -Ghoge.grd -I0.05 -R$Rop
-gmt grdimage hoge.grd -C$cpt -R$Rop -J$Jop -Y10 -P -K >! $output
-
-gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -Df -Na -O -K >> $output
+gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -G255/255/224 -S224/255/255 -Df -Na -Y10 -P -K >! $output
 
 gmt xyz2grd plate_boundary.txt -Gplate_boundary.grd -I0.1 -R$Rop
 gmt grdcontour plate_boundary.grd -A2 -J$Jop -R$Rop -O -K >> $output
@@ -33,8 +30,8 @@ END
 
 gmt psxy arrays.dat -R$Rop -J$Jop -St0.4 -Gblack -O -K >> $output
 
+gmt psxy $input -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
+
 gmt psscale -C$cpt -D7.0/-3.0/10/0.5h -O -L -B:"Uncertainty in km": >> $output
 
-rm hoge.grd
 rm arrays.dat
-rm names.dat

@@ -1,3 +1,6 @@
+data/*.mat
+figures/*.eps
+matlab/*
 src/*.pkl
 src/cc/*
 src/diff_EW_NS/*

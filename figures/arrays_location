@@ -1,0 +1,91 @@
+#!/bin/csh -f
+
+set output = arrays_location.eps
+
+# Small map
+set x1 = -123.9
+set x2 = -122.5
+set y1 = 47.6
+set y2 = 48.4
+set Rop = $x1/$x2/$y1/$y2
+set Jop = m-123.2/48.0/18.0
+
+gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -G255/255/224 -S224/255/255 -Lf-123/47.75/48/50 -Df -Na -Y5 -P -K >! $output
+
+# Locations of arrays
+cat << END >> arrays.dat
+-123.084354545455 48.0056818181818
+-122.92866 47.95728
+-122.969935 48.068735
+-123.313118181818 48.0059272727273
+-123.045528571429 47.9321857142857
+-123.210035714286 48.0554071428571
+-123.464415384615 48.0549384615385
+-123.138492857143 47.9730357142857
+END
+
+# Names of arrays
+cat << END >> names.dat
+-123.084354545455 48.0256818181818 Burnt Hill
+-122.92866 47.93728 Big Skidder
+-122.969935 48.088735 Cat Lake
+-123.313118181818 48.0259272727273 Danz Ranch
+-123.045528571429 47.9121857142857 Gold Creek
+-123.210035714286 48.0754071428571 Lost Cause
+-123.464415384615 48.0749384615385 Port Angeles
+-123.138492857143 47.9530357142857 Three Bumps
+END
+
+gmt psxy tremor_2009-2010.dat -R$Rop -J$Jop -Sc0.03 -Ggrey -O -K >> $output
+gmt psxy tremor_2011.dat -R$Rop -J$Jop -Sc0.03 -Ggrey -O -K >> $output
+
+
+gmt xyz2grd plate_boundary.txt -Gplate_boundary.grd -I0.1 -R$Rop
+gmt grdcontour plate_boundary.grd -A2 -J$Jop -R$Rop -O -K >> $output
+
+gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -Lf-123/47.75/48/50 -Df -Na -O -K >> $output
+
+cat << END >> mytext.dat
+-123 47.78 km
+END
+
+gmt pstext mytext.dat -R$Rop -J$Jop -F+f15p -O -K >> $output
+
+rm mytext.dat
+
+gmt psxy arrays.dat -R$Rop -J$Jop -St0.4 -Gblack -O -K >> $output
+
+gmt pstext names.dat -R$Rop -J$Jop -F+f12p -O -K >> $output
+
+# Large map
+set x1 = -126
+set x2 = -120
+set y1 = 46
+set y2 = 50
+set Rop = $x1/$x2/$y1/$y2
+set Jop = m-123.2/48.0/1.5
+
+gmt pscoast -R$Rop -J$Jop -Ba2f1::WESN -W0.1p -G255/255/224 -S224/255/255 -Lf-124/46.5/48/200 -Df -Na -X-1.5 -Y-1.5 -O -K >> $output
+
+cat << END >> mytext.dat
+-124 46.75 km
+END
+
+gmt pstext mytext.dat -R$Rop -J$Jop -F+f12p -O -K >> $output
+
+rm mytext.dat
+
+# Limits of small map
+cat << END >> square.dat
+-123.9 47.6
+-123.9 48.4
+-122.5 48.4
+-122.5 47.6
+-123.9 47.6
+END
+
+gmt psxy square.dat -R$Rop -J$Jop -Wthicker,black -O >> $output
+
+rm arrays.dat
+rm names.dat
+rm square.dat

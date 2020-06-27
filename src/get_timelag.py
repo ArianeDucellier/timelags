@@ -18,7 +18,7 @@ from plot_stack_ccorr import plot_stack_ccorr
 from stacking import linstack, powstack, PWstack
 
 # Set parameters
-arrayName = 'TB'
+arrayName = 'BS'
 w = 2.0
 Tmax = 15.0
 ds = 5.0
@@ -27,13 +27,14 @@ RMSmin = 12.0
 RMSmax = 14.0
 xmax = 15.0
 nc = 2
-palette = {0: 'tomato', 1: 'royalblue', 2:'forestgreen', 3:'gold', \
-    4: 'lightpink', 5:'skyblue'}
+palette = {0: 'black', 1: 'blue'}
+#palette = {0: 'tomato', 1: 'royalblue', 2:'forestgreen', 3:'gold', \
+#    4: 'lightpink', 5:'skyblue'}
 Vs = 3.6
 Vp = 6.4
 
 # Get depth of plate boundary around the array
-depth = pd.read_csv('../data/depth/' + arrayName + '_depth.txt', sep=' ', header=None)
+depth = pd.read_csv('../data/depth/McCrory/' + arrayName + '_depth.txt', sep=' ', header=None)
 depth.columns = ['x', 'y', 'depth']
 
 # Store results in pandas dataframe
@@ -83,8 +84,8 @@ else:
         'ntremor_PWS_lin', 'ntremor_PWS_pow', 'ntremor_PWS_PWS'])
                 
 # Loop on tremor location
-for i in range(-5, 6):
-    for j in range(-5, 6):
+for i in range(0, 1):
+    for j in range(0, 1):
         x0 = i * ds
         y0 = j * ds
         print(x0, y0)
@@ -310,7 +311,7 @@ for i in range(-5, 6):
                         True, True, True, True, False, True, False)
 
                     # Phase-weighted stack
-                    amp = 20.0
+                    amp = 40.0
                     (clusters, t_PWS_lin_EW_cluster, t_PWS_lin_NS_cluster, \
                         cc_PWS_lin_EW, cc_PWS_lin_NS, \
                         ratio_PWS_lin_EW, ratio_PWS_lin_NS,

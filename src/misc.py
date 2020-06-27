@@ -3,8 +3,10 @@ Miscellaneous functions
 """
 
 import numpy as np
+import pickle
 
-from math import asin, cos, pi, sin, tan
+from math import asin, cos, pi, sin, sqrt, tan
+from scipy import interpolate
 
 def centroid(t, f):
     """
@@ -18,7 +20,7 @@ def centroid(t, f):
     """
     num = np.sum(t * f)
     denom = np.sum(f)
-    return (denom / num)    
+    return (num / denom)    
 
 def compute_time(h, v, i0):
     """
@@ -49,11 +51,14 @@ def compute_time(h, v, i0):
         l[j] = h[j] / cos(i[j] * pi / 180.0)
         t[j] = l[j] / v[j]
         if j < N - 1:
-            i[j + 1] = asin(v[j + 1] * sin(i[j] * pi / 180.0) \
-                / v[j]) * 180.0 / pi
+            if abs(v[j + 1] * sin(i[j] * pi / 180.0) / v[j]) > 1.0:
+                return (10000.0, 10000.0)
+            else:
+                i[j + 1] = asin(v[j + 1] * sin(i[j] * pi / 180.0) \
+                    / v[j]) * 180.0 / pi
     d0 = np.sum(d)
     t0 = np.sum(t)
-    return (d, t)
+    return (d0, t0)
 
 def compute_h(depth, v0, h0):
     """
@@ -84,7 +89,7 @@ def compute_h(depth, v0, h0):
             h[i] = depth - h0[i]
         else:
             h[i] = h0[i + 1] - h0[i]
-    return (h, v)
+    return (np.flip(h), np.flip(v))
         
 def get_travel_time(d0, depth0, h0, v0):
     """
@@ -108,6 +113,28 @@ def get_travel_time(d0, depth0, h0, v0):
     index = np.argmin(np.abs(d0 - d))
     t0 = t[index]
     return t0
-  
-#vp_vs=sqrt(3);
-#vel_P2=[ 5.40  0.0; 6.38  4.0; 6.59  9.0;   6.73 16.0;   6.86 20.0;   6.95 25.0;   7.80 51.0;   8.00 81.0];
+
+def get_depth_function(h0, vs0, vp0):
+    """
+    """
+    d = np.arange(0, 45, 5)
+    depth = np.arange(30, 60, 2)
+    (d, depth) = np.meshgrid(d, depth)
+    t = np.zeros((np.shape(d)[0], np.shape(d)[1]))
+    for i in range(0, np.shape(t)[0]):
+        for j in range(0, np.shape(t)[1]):
+            ts = get_travel_time(d[i, j], depth[i, j], h0, vs0)
+            tp = get_travel_time(d[i, j], depth[i, j], h0, vp0)
+            t[i, j] = ts - tp
+    f = interpolate.interp2d(d, t, depth, kind='linear')
+    return f
+
+if __name__ == '__main__':
+    
+    h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
+    vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
+    vs0 = vp0 / np.array([sqrt(3.0), sqrt(3.0), sqrt(3.0), sqrt(3.0), \
+        sqrt(3.0), 2.0, sqrt(3.0), sqrt(3.0)])
+
+    f = get_depth_function(h0, vs0, vp0)
+    pickle.dump(f, open('ttgrid.pkl', 'wb'))

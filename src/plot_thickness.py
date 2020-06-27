@@ -12,6 +12,8 @@ import pickle
 
 from math import cos, floor, pi, sin, sqrt
 
+from misc import get_travel_time
+
 def MAD(data):
     """
     Compute MAD estimator of scale
@@ -54,21 +56,24 @@ def Q(data):
     else:
         return 0.0
 
-def thickness(dt, x0, y0, time, Vs, Vp):
+def thickness(dt, x0, y0, time):
     """
     Compute corresponding thickness from time delay
     """
-    d1 = ((time + dt) / (1.0 / Vs - 1.0 / Vp)) ** 2.0 - x0 ** 2.0 - y0 ** 2.0
-    d2 = ((time - dt) / (1.0 / Vs - 1.0 / Vp)) ** 2.0 - x0 ** 2.0 - y0 ** 2.0
-    if ((d1 >= 0.0) and (d2>= 0.0)):
-        thick = sqrt(d1) - sqrt(d2)
-    else:
-        thick = np.nan
+    f = pickle.load(open('ttgrid.pkl', 'rb'))
+    d1 = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time + dt)[0]
+    d2 = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time - dt)[0]
+    thick = d1 - d2
     return thick
 
-def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minratio, Vs, Vp, ds):
+def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minratio, ds, amp, h0, vs0, vp0):
     """
     """
+    # Get depth of plate boundary around the array
+    depth_pb_M = pd.read_csv('../data/depth/McCrory/' + arrayName + '_depth.txt', sep=' ', \
+        header=None)
+    depth_pb_M.columns = ['x', 'y', 'depth']
+
     # Get number of tremor and ratio peak / RMS
     df = pickle.load(open(arrayName + '_timelag.pkl', 'rb'))
 
@@ -83,7 +88,7 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
         pi / 180.0) * sin(lat0 * pi / 180.0)) ** 1.5)
 
     # Dataframe to store depth and thickness of the tremor zone
-    df_thick = pd.DataFrame(columns=['latitude', 'longitude', 'distance', 'ntremor', 'ratioE', 'ratioN', \
+    df_thick = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', 'distance', 'ntremor', 'ratioE', 'ratioN', \
         'STD_thick_EW', 'STD_thick_NS', 'MAD_thick_EW', 'MAD_thick_NS', \
         'S_thick_EW', 'S_thick_NS', 'Q_thick_EW', 'Q_thick_NS'])
 
@@ -95,71 +100,99 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
             # Get latitude and longitude
             longitude = lon0 + x0 / dx
             latitude = lat0 + y0 / dy
+            # Get depth of plate boundary (McCrory model)
+            myx = depth_pb_M['x'] == x0
+            myy = depth_pb_M['y'] == y0
+            myline = depth_pb_M[myx & myy]
+            d0_M = - myline['depth'].iloc[0]
             # Get number of tremor and ratio
             myx = df['x0'] == x0
             myy = df['y0'] == y0
             myline = df[myx & myy]
-            ntremor = myline['ntremor'].iloc[0]
+            ntremor = myline['ntremor_' + type_stack + '_' + cc_stack].iloc[0]
             ratioE = myline['ratio_' + type_stack + '_' + cc_stack + '_EW'].iloc[0]
             ratioN = myline['ratio_' + type_stack + '_' + cc_stack + '_NS'].iloc[0]
             # Look only at best
             if ((ntremor >= mintremor) and \
                 ((ratioE >= minratio) or (ratioN >= minratio))):
                 # Get file
-                filename = 'cc/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_timelags.pkl'.format( \
+                filename = 'cc/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_stacks.pkl'.format( \
                     arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), int(y0), type_stack, cc_stack)
-                # Read timelag file
+                # Read file
                 data = pickle.load(open(filename, 'rb'))
-                timelag_clust_EW = data[0]
-                timelag_clust_NS = data[1]
-                # Initialize
-                STDs_EW = []
-                MADs_EW = []
-                Ss_EW = []
-                Qs_EW = []
-                STDs_NS = []
-                MADs_NS = []
-                Ss_NS = []
-                Qs_NS = []
-                # Loop on clusters
-                for k in range(0, len(timelag_clust_EW)):
-                    times_EW = timelag_clust_EW[k].to_numpy()
-                    times_NS = timelag_clust_NS[k].to_numpy()
-                    STDs_EW.append(np.std(times_EW))
-                    STDs_NS.append(np.std(times_NS))
-                    MADs_EW.append(MAD(times_EW))
-                    MADs_NS.append(MAD(times_NS))
-                    Ss_EW.append(S(times_EW))
-                    Ss_NS.append(S(times_NS))
-                    Qs_EW.append(Q(times_EW))
-                    Qs_NS.append(Q(times_NS))
-                # Keep minimum value
-                STD_EW = min(STDs_EW)
-                STD_NS = min(STDs_NS)
-                MAD_EW = min(MADs_EW)
-                MAD_NS = min(MADs_NS)
-                S_EW = min(Ss_EW)
-                S_NS = min(Ss_NS)
-                Q_EW = min(Qs_EW)
-                Q_NS = min(Qs_NS)
-                # Compute corresponding thickness
-                if (ratioE > ratioN):
-                    time = myline['t_' + type_stack + '_' + cc_stack + '_EW_cluster'].iloc[0]
-                else:
-                    time = myline['t_' + type_stack + '_' + cc_stack + '_NS_cluster'].iloc[0]
-                STD_thick_EW = thickness(STD_EW, x0, y0, time, Vs, Vp)
-                STD_thick_NS = thickness(STD_NS, x0, y0, time, Vs, Vp)
-                MAD_thick_EW = thickness(MAD_EW, x0, y0, time, Vs, Vp)
-                MAD_thick_NS = thickness(MAD_NS, x0, y0, time, Vs, Vp)
-                S_thick_EW = thickness(S_EW, x0, y0, time, Vs, Vp)
-                S_thick_NS = thickness(S_NS, x0, y0, time, Vs, Vp)
-                Q_thick_EW = thickness(Q_EW, x0, y0, time, Vs, Vp)
-                Q_thick_NS = thickness(Q_NS, x0, y0, time, Vs, Vp)
-                # Write to pandas dataframe
-                i0 = len(df_thick.index)
-                df_thick.loc[i0] = [latitude, longitude, sqrt(x0 ** 2 + y0 ** 2), ntremor, ratioE, ratioN, \
-                    STD_thick_EW, STD_thick_NS, MAD_thick_EW, MAD_thick_NS, \
-                    S_thick_EW, S_thick_NS, Q_thick_EW, Q_thick_NS]
+                EW = data[0]
+                NS = data[1]
+                # Corresponding cc times
+                npts = int((EW.stats.npts - 1) / 2)
+                dt = EW.stats.delta
+                t = dt * np.arange(- npts, npts + 1)
+                # Theoretical depth (= plate boundary)
+                ts = get_travel_time(sqrt(x0 ** 2 + y0 ** 2), d0_M, h0, vs0)
+                tp = get_travel_time(sqrt(x0 ** 2 + y0 ** 2), d0_M, h0, vp0)
+                time_M = ts - tp
+                tbegin = time_M - 2.0
+                tend = time_M + 2.0
+                ibegin = int(npts + tbegin / dt)
+                iend = int(npts + tend / dt)
+                # Maxima and corresponding times and depths
+                EWmax = np.max(np.abs(EW.data[ibegin:iend]))
+                NSmax = np.max(np.abs(NS.data[ibegin:iend]))
+                if ((EWmax > 0.1 / amp) or (NSmax > 0.1 / amp)):
+                    # Get file
+                    filename = 'cc/{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}_{}_{}_cluster_timelags.pkl'.format( \
+                        arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), int(y0), type_stack, cc_stack)
+                    # Read timelag file
+                    data = pickle.load(open(filename, 'rb'))
+                    timelag_clust_EW = data[0]
+                    timelag_clust_NS = data[1]
+                    # Initialize
+                    STDs_EW = []
+                    MADs_EW = []
+                    Ss_EW = []
+                    Qs_EW = []
+                    STDs_NS = []
+                    MADs_NS = []
+                    Ss_NS = []
+                    Qs_NS = []
+                    # Loop on clusters
+                    for k in range(0, len(timelag_clust_EW)):
+                        times_EW = timelag_clust_EW[k].to_numpy()
+                        times_NS = timelag_clust_NS[k].to_numpy()
+                        STDs_EW.append(np.std(times_EW))
+                        STDs_NS.append(np.std(times_NS))
+                        MADs_EW.append(MAD(times_EW))
+                        MADs_NS.append(MAD(times_NS))
+                        Ss_EW.append(S(times_EW))
+                        Ss_NS.append(S(times_NS))
+                        Qs_EW.append(Q(times_EW))
+                        Qs_NS.append(Q(times_NS))
+                    # Keep minimum value
+                    STD_EW = min(STDs_EW)
+                    STD_NS = min(STDs_NS)
+                    MAD_EW = min(MADs_EW)
+                    MAD_NS = min(MADs_NS)
+                    S_EW = min(Ss_EW)
+                    S_NS = min(Ss_NS)
+                    Q_EW = min(Qs_EW)
+                    Q_NS = min(Qs_NS)
+                    # Compute corresponding thickness
+                    if (ratioE > ratioN):
+                        time = myline['t_' + type_stack + '_' + cc_stack + '_EW_cluster'].iloc[0]
+                    else:
+                        time = myline['t_' + type_stack + '_' + cc_stack + '_NS_cluster'].iloc[0]
+                    STD_thick_EW = thickness(STD_EW, x0, y0, time)
+                    STD_thick_NS = thickness(STD_NS, x0, y0, time)
+                    MAD_thick_EW = thickness(MAD_EW, x0, y0, time)
+                    MAD_thick_NS = thickness(MAD_NS, x0, y0, time)
+                    S_thick_EW = thickness(S_EW, x0, y0, time)
+                    S_thick_NS = thickness(S_NS, x0, y0, time)
+                    Q_thick_EW = thickness(Q_EW, x0, y0, time)
+                    Q_thick_NS = thickness(Q_NS, x0, y0, time)
+                    # Write to pandas dataframe
+                    i0 = len(df_thick.index)
+                    df_thick.loc[i0] = [i, j, latitude, longitude, sqrt(x0 ** 2 + y0 ** 2), ntremor, ratioE, ratioN, \
+                        STD_thick_EW, STD_thick_NS, MAD_thick_EW, MAD_thick_NS, \
+                        S_thick_EW, S_thick_NS, Q_thick_EW, Q_thick_NS]
 
     # Save dataframe
     df_thick['ntremor'] = df_thick['ntremor'].astype('int')
@@ -188,29 +221,31 @@ if __name__ == '__main__':
 #    lat0 = 47.9321857142857
 #    lon0 = -123.045528571429
 
-#    arrayName = 'LC'
-#    lat0 = 48.0554071428571
-#    lon0 = -123.210035714286
+    arrayName = 'LC'
+    lat0 = 48.0554071428571
+    lon0 = -123.210035714286
 
 #    arrayName = 'PA'
 #    lat0 = 48.0549384615385
 #    lon0 = -123.464415384615
 
-    arrayName = 'TB'
-    lat0 = 47.9730357142857
-    lon0 = -123.138492857143
+#    arrayName = 'TB'
+#    lat0 = 47.9730357142857
+#    lon0 = -123.138492857143
 
     mintremor = 30
-    Vs = 3.6
-    Vp = 6.4
     ds = 5.0
+    h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
+    vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
+    vs0 = vp0 / np.array([sqrt(3.0), sqrt(3.0), sqrt(3.0), sqrt(3.0), \
+        sqrt(3.0), 2.0, sqrt(3.0), sqrt(3.0)])
 
-    compute_thickness(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, Vs, Vp, ds)
-    compute_thickness(arrayName, lon0, lat0, 'lin', 'pow', mintremor, 10.0, Vs, Vp, ds)
-    compute_thickness(arrayName, lon0, lat0, 'lin', 'PWS', mintremor, 50.0, Vs, Vp, ds)
-    compute_thickness(arrayName, lon0, lat0, 'pow', 'lin', mintremor, 10.0, Vs, Vp, ds)
-    compute_thickness(arrayName, lon0, lat0, 'pow', 'pow', mintremor, 30.0, Vs, Vp, ds)
-    compute_thickness(arrayName, lon0, lat0, 'pow', 'PWS', mintremor, 50.0, Vs, Vp, ds)
-    compute_thickness(arrayName, lon0, lat0, 'PWS', 'lin', mintremor, 15.0, Vs, Vp, ds)
-    compute_thickness(arrayName, lon0, lat0, 'PWS', 'pow', mintremor, 40.0, Vs, Vp, ds)
-    compute_thickness(arrayName, lon0, lat0, 'PWS', 'PWS', mintremor, 100.0, Vs, Vp, ds)
+#    compute_thickness(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, ds, 15.0, h0, vs0, vp0)
+#    compute_thickness(arrayName, lon0, lat0, 'lin', 'pow', mintremor, 50.0, ds, 0.5, h0, vs0, vp0)
+#    compute_thickness(arrayName, lon0, lat0, 'lin', 'PWS', mintremor, 100.0, ds, 50.0, h0, vs0, vp0)
+#    compute_thickness(arrayName, lon0, lat0, 'pow', 'lin', mintremor, 10.0, ds, 3.0, h0, vs0, vp0)
+#    compute_thickness(arrayName, lon0, lat0, 'pow', 'pow', mintremor, 50.0, ds, 0.1, h0, vs0, vp0)
+#    compute_thickness(arrayName, lon0, lat0, 'pow', 'PWS', mintremor, 100.0, ds, 10.0, h0, vs0, vp0)
+#    compute_thickness(arrayName, lon0, lat0, 'PWS', 'lin', mintremor, 10.0, ds, 50.0, h0, vs0, vp0)
+#    compute_thickness(arrayName, lon0, lat0, 'PWS', 'pow', mintremor, 50.0, ds, 1.0, h0, vs0, vp0)
+    compute_thickness(arrayName, lon0, lat0, 'PWS', 'PWS', mintremor, 100.0, ds, 100.0, h0, vs0, vp0)
