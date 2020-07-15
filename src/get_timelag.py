@@ -25,7 +25,8 @@ ds = 5.0
 ncor_cluster = 40
 RMSmin = 12.0
 RMSmax = 14.0
-xmax = 15.0
+xmin = 2.0
+xmax = 8.0
 nc = 2
 palette = {0: 'black', 1: 'blue'}
 #palette = {0: 'tomato', 1: 'royalblue', 2:'forestgreen', 3:'gold', \
@@ -263,7 +264,7 @@ for i in range(0, 1):
                         ratio_lin_lin_EW, ratio_lin_lin_NS,
                         std_lin_lin_EW, std_lin_lin_NS, ntremor_lin_lin) = \
                         cluster_select(arrayName, x0, y0, 'lin', w, 'lin', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.06, 0.06, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -0.06, 0.06, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
                     (clusters, t_lin_pow_EW_cluster, t_lin_pow_NS_cluster, \
@@ -271,7 +272,7 @@ for i in range(0, 1):
                         ratio_lin_pow_EW, ratio_lin_pow_NS,
                         std_lin_pow_EW, std_lin_pow_NS, ntremor_lin_pow) = \
                         cluster_select(arrayName, x0, y0, 'lin', w, 'pow', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -2.0, 2.0, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -2.0, 2.0, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
                     (clusters, t_lin_PWS_EW_cluster, t_lin_PWS_NS_cluster, \
@@ -279,7 +280,7 @@ for i in range(0, 1):
                         ratio_lin_PWS_EW, ratio_lin_PWS_NS,
                         std_lin_PWS_EW, std_lin_PWS_NS, ntremor_lin_PWS) = \
                         cluster_select(arrayName, x0, y0, 'lin', w, 'PWS', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.04, 0.04, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -0.04, 0.04, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
 
@@ -290,7 +291,7 @@ for i in range(0, 1):
                         ratio_pow_lin_EW, ratio_pow_lin_NS,
                         std_pow_lin_EW, std_pow_lin_NS, ntremor_pow_lin) = \
                         cluster_select(arrayName, x0, y0, 'pow', w, 'lin', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.3, 0.3, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -0.3, 0.3, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
                     (clusters, t_pow_pow_EW_cluster, t_pow_pow_NS_cluster, \
@@ -298,7 +299,7 @@ for i in range(0, 1):
                         ratio_pow_pow_EW, ratio_pow_pow_NS,
                         std_pow_pow_EW, std_pow_pow_NS, ntremor_pow_pow) = \
                         cluster_select(arrayName, x0, y0, 'pow', w, 'pow', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -10.0, 10.0, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -10.0, 10.0, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
                     (clusters, t_pow_PWS_EW_cluster, t_pow_PWS_NS_cluster, 
@@ -306,18 +307,18 @@ for i in range(0, 1):
                         ratio_pow_PWS_EW, ratio_pow_PWS_NS,
                         std_pow_PWS_EW, std_pow_PWS_NS, ntremor_pow_PWS) = \
                         cluster_select(arrayName, x0, y0, 'pow', w, 'PWS', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.16, 0.16, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -0.16, 0.16, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
 
                     # Phase-weighted stack
-                    amp = 40.0
+                    amp = 100.0
                     (clusters, t_PWS_lin_EW_cluster, t_PWS_lin_NS_cluster, \
                         cc_PWS_lin_EW, cc_PWS_lin_NS, \
                         ratio_PWS_lin_EW, ratio_PWS_lin_NS,
                         std_PWS_lin_EW, std_PWS_lin_NS, ntremor_PWS_lin) = \
                         cluster_select(arrayName, x0, y0, 'PWS', w, 'lin', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.02, 0.02, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -0.02, 0.02, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
                     (clusters, t_PWS_pow_EW_cluster, t_PWS_pow_NS_cluster, \
@@ -325,7 +326,7 @@ for i in range(0, 1):
                         ratio_PWS_pow_EW, ratio_PWS_pow_NS,
                         std_PWS_pow_EW, std_PWS_pow_NS, ntremor_PWS_pow) = \
                         cluster_select(arrayName, x0, y0, 'PWS', w, 'pow', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.4, 0.4, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -0.4, 0.4, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
                     (clusters, t_PWS_PWS_EW_cluster, t_PWS_PWS_NS_cluster, \
@@ -333,7 +334,7 @@ for i in range(0, 1):
                         ratio_PWS_PWS_EW, ratio_PWS_PWS_NS,
                         std_PWS_PWS_EW, std_PWS_PWS_NS, ntremor_PWS_PWS) = \
                         cluster_select(arrayName, x0, y0, 'PWS', w, 'PWS', \
-                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmax, -0.008, 0.009, \
+                        ncor_cluster, Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, -0.008, 0.009, \
                         'kmeans', nc, palette, amp, n1, n2, \
                         True, True, True, True, False, True, False)
 

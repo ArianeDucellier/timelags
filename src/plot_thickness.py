@@ -60,7 +60,7 @@ def thickness(dt, x0, y0, time):
     """
     Compute corresponding thickness from time delay
     """
-    f = pickle.load(open('ttgrid.pkl', 'rb'))
+    f = pickle.load(open('ttgrid_p1.pkl', 'rb'))
     d1 = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time + dt)[0]
     d2 = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time - dt)[0]
     thick = d1 - d2
@@ -237,8 +237,7 @@ if __name__ == '__main__':
     ds = 5.0
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
     vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
-    vs0 = vp0 / np.array([sqrt(3.0), sqrt(3.0), sqrt(3.0), sqrt(3.0), \
-        sqrt(3.0), 2.0, sqrt(3.0), sqrt(3.0)])
+    vs0 = 1.01 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
 
 #    compute_thickness(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, ds, 15.0, h0, vs0, vp0)
 #    compute_thickness(arrayName, lon0, lat0, 'lin', 'pow', mintremor, 50.0, ds, 0.5, h0, vs0, vp0)

@@ -133,8 +133,6 @@ if __name__ == '__main__':
     
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
     vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
-    vs0 = vp0 / np.array([sqrt(3.0), sqrt(3.0), sqrt(3.0), sqrt(3.0), \
-        sqrt(3.0), 2.0, sqrt(3.0), sqrt(3.0)])
-
+    vs0 = 1.01 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
     f = get_depth_function(h0, vs0, vp0)
-    pickle.dump(f, open('ttgrid.pkl', 'wb'))
+    pickle.dump(f, open('ttgrid_p1.pkl', 'wb'))

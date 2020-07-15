@@ -15,7 +15,7 @@ from math import cos, pi, sqrt, sin
 from misc import centroid, get_travel_time
 
 def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
-    minratio, Tmax, amp, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0):
+    minratio, Tmax, amp, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0):
     """
     """
     # Get depth of plate boundary around the array
@@ -57,7 +57,7 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
         'd_to_pb_NS_M', 'd_to_pb_NS_P', 'thick_EW', 'thick_NS'])
 
     # Get velocity model
-    f = pickle.load(open('ttgrid.pkl', 'rb'))
+    f = pickle.load(open('ttgrid_p1.pkl', 'rb'))
 
     # Loop over output files
     for i in range(imin, imax + 1):
@@ -98,8 +98,8 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                 npts = int((EW.stats.npts - 1) / 2)
                 dt = EW.stats.delta
                 t = dt * np.arange(- npts, npts + 1)
-                icut1 = npts + int(cut / dt)
-                icut2 = npts + int((Tmax - cut) / dt)
+                icut1 = npts + int(cutb / dt)
+                icut2 = npts + int((Tmax - cute) / dt)
                 # Theoretical depth (= plate boundary)
                 ts = get_travel_time(sqrt(x0 ** 2 + y0 ** 2), d0_M, h0, vs0)
                 tp = get_travel_time(sqrt(x0 ** 2 + y0 ** 2), d0_M, h0, vp0)
@@ -228,27 +228,27 @@ if __name__ == '__main__':
     imax = 2
     jmin = -1
     jmax = 5
-    cut = 2.0
+    cutb = 2.0
+    cute = 7.0
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
     vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
-    vs0 = vp0 / np.array([sqrt(3.0), sqrt(3.0), sqrt(3.0), sqrt(3.0), \
-        sqrt(3.0), 2.0, sqrt(3.0), sqrt(3.0)])
+    vs0 = 1.01 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
 
 #    plot_envelopes(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, \
-#        Tmax, 15.0, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+#        Tmax, 15.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
 #    plot_envelopes(arrayName, lon0, lat0, 'lin', 'pow', mintremor, 50.0, \
-#        Tmax, 0.5, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+#        Tmax, 0.5, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
 #    plot_envelopes(arrayName, lon0, lat0, 'lin', 'PWS', mintremor, 100.0, \
-#        Tmax, 50.0, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+#        Tmax, 50.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
 #    plot_envelopes(arrayName, lon0, lat0, 'pow', 'lin', mintremor, 10.0, \
-#        Tmax, 3.0, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+#        Tmax, 3.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
 #    plot_envelopes(arrayName, lon0, lat0, 'pow', 'pow', mintremor, 50.0, \
-#        Tmax, 0.1, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+#        Tmax, 0.1, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
 #    plot_envelopes(arrayName, lon0, lat0, 'pow', 'PWS', mintremor, 100.0, \
-#        Tmax, 10.0, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+#        Tmax, 10.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
 #    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'lin', mintremor, 10.0, \
-#        Tmax, 50.0, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+#        Tmax, 50.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
 #    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'pow', mintremor, 50.0, \
-#        Tmax, 1.0, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+#        Tmax, 1.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
     plot_envelopes(arrayName, lon0, lat0, 'PWS', 'PWS', mintremor, 100.0, \
-        Tmax, 100.0, ds, imin, imax, jmin, jmax, cut, h0, vs0, vp0)
+        Tmax, 100.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)

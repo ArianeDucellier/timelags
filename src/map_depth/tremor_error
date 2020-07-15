@@ -1,7 +1,7 @@
 #!/bin/csh -f
-set input = depth_PWS_PWS_p1.txt
-set output = depth_PWS_PWS_p1.eps
-set cpt = depth.cpt
+set input = error_PWS_PWS_0.txt
+set output = error_PWS_PWS_0.eps
+set cpt = error.cpt
 
 # Boundaries
 set x1 = -123.5
@@ -15,9 +15,6 @@ gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -G255/255/224 -S224/255/255
 
 gmt xyz2grd plate_boundary_M.txt -Gplate_boundary.grd -I0.1 -R$Rop
 gmt grdcontour plate_boundary.grd -A2 -J$Jop -R$Rop -O -K >> $output
-
-gmt psxy depth_sweet.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
-gmt psxy depth_chestler.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
 
 # Locations of arrays
 cat << END >> arrays.dat
@@ -35,6 +32,6 @@ gmt psxy arrays.dat -R$Rop -J$Jop -St0.4 -Gblack -O -K >> $output
 
 gmt psxy $input -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
 
-gmt psscale -C$cpt -D7.0/-3.0/10/0.5h -O -L -B:"Tremor depth in km": >> $output
+gmt psscale -C$cpt -D7.0/-3.0/10/0.5h -O -L -B:"Residuals in km": >> $output
 
 rm arrays.dat

@@ -20,7 +20,7 @@ from sklearn.cluster import AgglomerativeClustering, KMeans
 from stacking import linstack, powstack, PWstack
 
 def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
-        Tmax, RMSmin, RMSmax, xmax, ymin, ymax, typecluster, nc, palette, amp, \
+        Tmax, RMSmin, RMSmax, xmin, xmax, ymin, ymax, typecluster, nc, palette, amp, \
         n1, n2, draw_scatter=True, draw_hist=True, envelope=True, \
         draw_cc=True, draw_ac=True, draw_colored_cc=True, draw_colored_ac=True):
     """
@@ -317,7 +317,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
                 label='Cluster {:d}'.format(j))
             plt.plot(t, EWenvelope, color=palette[j], linestyle='dashed', \
                 label='Envelope')
-            plt.xlim(0, xmax)
+            plt.xlim(xmin, xmax)
             plt.ylim(ymin, ymax)
             plt.title('EW / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
                 len(EWselect)), fontsize=24)
@@ -376,7 +376,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
                 label='Cluster {:d}'.format(j, ))
             plt.plot(t, NSenvelope, color=palette[j], linestyle='dashed', \
                 label='Envelope')
-            plt.xlim(0, xmax)
+            plt.xlim(xmin, xmax)
             plt.ylim(- ymax, ymax)
             plt.title('NS / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
                 len(NSselect)), fontsize=24)
@@ -520,7 +520,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
                     plt.plot(t, (2.0 * index + 1) + amp * EW_UD[i].data, \
                         color=palette[j])
                     index = index + 1
-        plt.xlim(0, xmax)
+        plt.xlim(xmin, xmax)
         plt.ylim(0.0, 2.0 * index)
         plt.title('East / Vertical component', fontsize=24)
         plt.xlabel('Lag time (s)', fontsize=24)
@@ -539,7 +539,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
                     plt.plot(t, (2.0 * index + 1) + amp * NS_UD[i].data, \
                         color=palette[j])
                     index = index + 1
-        plt.xlim(0, xmax)
+        plt.xlim(xmin, xmax)
         plt.ylim(0.0, 2.0 * index)
         plt.title('North / Vertical component', fontsize=24)
         plt.xlabel('Lag time (s)', fontsize=24)
@@ -629,7 +629,8 @@ if __name__ == '__main__':
     Tmax = 6.0
     RMSmin = 12.0
     RMSmax = 14.0
-    xmax = 15.0
+    xmin = 2.0
+    xmax = 8.0
     nc = 2
     palette = {0: 'tomato', 1: 'royalblue', 2:'forestgreen', 3:'gold', \
         4: 'lightpink', 5:'skyblue'}
@@ -647,43 +648,43 @@ if __name__ == '__main__':
     amp = 10.0
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'lin', w, 'lin', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -0.06, 0.06, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -0.06, 0.06, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'lin', w, 'pow', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -2.0, 2.0, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -2.0, 2.0, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'lin', w, 'PWS', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -0.04, 0.04, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -0.04, 0.04, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
 
     # Power stack
     amp = 2.0
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'pow', w, 'lin', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -0.3, 0.3, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -0.3, 0.3, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'pow', w, 'pow', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -10.0, 10.0, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -10.0, 10.0, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'pow', w, 'PWS', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -0.16, 0.16, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -0.16, 0.16, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
 
     # Phase-weighted stack
     amp = 20.0
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'PWS', w, 'lin', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -0.02, 0.02, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -0.02, 0.02, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'PWS', w, 'pow', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -0.4, 0.4, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -0.4, 0.4, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)
     (clusters, t_EW, t_NS, cc_EW, cc_NS, ratio_EW, ratio_NS, std_EW, std_NS, ntremor) = \
         cluster_select(arrayName, x0, y0, 'PWS', w, 'PWS', ncor, Tmin, Tmax, \
-        RMSmin, RMSmax, xmax, -0.01, 0.01, 'kmeans', nc, palette, amp, n1, n2, \
+        RMSmin, RMSmax, xmin, xmax, -0.01, 0.01, 'kmeans', nc, palette, amp, n1, n2, \
         draw_scatter, draw_hist, envelope, draw_cc, draw_ac, draw_colored_cc, draw_colored_ac)

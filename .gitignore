@@ -1,4 +1,4 @@
-data/*.mat
+œdata/*.mat
 figures/*.eps
 matlab/*
 src/*.pkl
