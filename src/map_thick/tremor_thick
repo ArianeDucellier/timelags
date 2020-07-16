@@ -1,6 +1,6 @@
 #!/bin/csh -f
-set input = Q_PWS_PWS_0.txt
-set output = Q_PWS_PWS_0.eps
+set input = Q_PWS_PWS.txt
+set output = Q_PWS_PWS.eps
 set cpt = thick.cpt
 
 # Boundaries

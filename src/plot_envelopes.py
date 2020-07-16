@@ -57,7 +57,7 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
         'd_to_pb_NS_M', 'd_to_pb_NS_P', 'thick_EW', 'thick_NS'])
 
     # Get velocity model
-    f = pickle.load(open('ttgrid_p1.pkl', 'rb'))
+    f = pickle.load(open('ttgrid_0.pkl', 'rb'))
 
     # Loop over output files
     for i in range(imin, imax + 1):
@@ -209,30 +209,30 @@ if __name__ == '__main__':
 #    lat0 = 47.9321857142857
 #    lon0 = -123.045528571429
 
-    arrayName = 'LC'
-    lat0 = 48.0554071428571
-    lon0 = -123.210035714286
+#    arrayName = 'LC'
+#    lat0 = 48.0554071428571
+#    lon0 = -123.210035714286
 
 #    arrayName = 'PA'
 #    lat0 = 48.0549384615385
 #    lon0 = -123.464415384615
 
-#    arrayName = 'TB'
-#    lat0 = 47.9730357142857
-#    lon0 = -123.138492857143
+    arrayName = 'TB'
+    lat0 = 47.9730357142857
+    lon0 = -123.138492857143
 
     mintremor = 30
     Tmax = 15.0
     ds = 5.0
-    imin = -3
-    imax = 2
-    jmin = -1
+    imin = -5
+    imax = 5
+    jmin = -5
     jmax = 5
     cutb = 2.0
     cute = 7.0
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
     vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
-    vs0 = 1.01 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
+    vs0 = vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
 
 #    plot_envelopes(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, \
 #        Tmax, 15.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)

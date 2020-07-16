@@ -13,7 +13,7 @@ cc_stack = 'PWS'
 threshold = 4.0
 
 for num, array in enumerate(arrays):
-    df1_temp = pickle.load(open('cc/{}/{}_{}_{}_width_p1.pkl'.format( \
+    df1_temp = pickle.load(open('cc/{}/{}_{}_{}_width.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     if (num == 0):
         df1 = df1_temp
@@ -21,7 +21,7 @@ for num, array in enumerate(arrays):
         df1 = pd.concat([df1, df1_temp], ignore_index=True)
 
 for num, array in enumerate(arrays):
-    df2_temp = pickle.load(open('cc/{}/{}_{}_{}_thick_p1.pkl'.format( \
+    df2_temp = pickle.load(open('cc/{}/{}_{}_{}_thick.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     if (num == 0):
         df2 = df2_temp
@@ -54,22 +54,22 @@ for i in range(0, len(df)):
     Q[i, 0] = df['longitude'].iloc[i]
     Q[i, 1] = df['latitude'].iloc[i]
     if df['thick_EW'][i] < df['thick_NS'][i]:
-        STD[i, 2] = df['STD_thick_EW'].iloc[i]
-        MAD[i, 2] = df['MAD_thick_EW'].iloc[i]
-        S[i, 2] = df['S_thick_EW'].iloc[i]
-        Q[i, 2] = df['Q_thick_EW'].iloc[i]
+        STD[i, 2] = df['STD_EW'].iloc[i]
+        MAD[i, 2] = df['MAD_EW'].iloc[i]
+        S[i, 2] = df['S_EW'].iloc[i]
+        Q[i, 2] = df['Q_EW'].iloc[i]
     else:
-        STD[i, 2] = df['STD_thick_NS'].iloc[i]
-        MAD[i, 2] = df['MAD_thick_NS'].iloc[i]
-        S[i, 2] = df['S_thick_NS'].iloc[i]
-        Q[i, 2] = df['Q_thick_NS'].iloc[i]
+        STD[i, 2] = df['STD_NS'].iloc[i]
+        MAD[i, 2] = df['MAD_NS'].iloc[i]
+        S[i, 2] = df['S_NS'].iloc[i]
+        Q[i, 2] = df['Q_NS'].iloc[i]
 
 STD = STD[STD[:, 2] > 0.0, :]
 MAD = MAD[MAD[:, 2] > 0.0, :]
 S = S[S[:, 2] > 0.0, :]
 Q = Q[Q[:, 2] > 0.0, :]
 
-np.savetxt('map_thick/STD_{}_{}_p1.txt'.format(type_stack, cc_stack), STD, fmt='%10.5f')
-np.savetxt('map_thick/MAD_{}_{}_p1.txt'.format(type_stack, cc_stack), MAD, fmt='%10.5f')
-np.savetxt('map_thick/S_{}_{}_p1.txt'.format(type_stack, cc_stack), S, fmt='%10.5f')
-np.savetxt('map_thick/Q_{}_{}_p1.txt'.format(type_stack, cc_stack), Q, fmt='%10.5f')
+np.savetxt('map_thick/STD_{}_{}.txt'.format(type_stack, cc_stack), STD, fmt='%10.5f')
+np.savetxt('map_thick/MAD_{}_{}.txt'.format(type_stack, cc_stack), MAD, fmt='%10.5f')
+np.savetxt('map_thick/S_{}_{}.txt'.format(type_stack, cc_stack), S, fmt='%10.5f')
+np.savetxt('map_thick/Q_{}_{}.txt'.format(type_stack, cc_stack), Q, fmt='%10.5f')

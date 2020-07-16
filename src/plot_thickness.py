@@ -56,16 +56,6 @@ def Q(data):
     else:
         return 0.0
 
-def thickness(dt, x0, y0, time):
-    """
-    Compute corresponding thickness from time delay
-    """
-    f = pickle.load(open('ttgrid_p1.pkl', 'rb'))
-    d1 = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time + dt)[0]
-    d2 = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time - dt)[0]
-    thick = d1 - d2
-    return thick
-
 def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minratio, ds, amp, h0, vs0, vp0):
     """
     """
@@ -89,8 +79,10 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
 
     # Dataframe to store depth and thickness of the tremor zone
     df_thick = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', 'distance', 'ntremor', 'ratioE', 'ratioN', \
-        'STD_thick_EW', 'STD_thick_NS', 'MAD_thick_EW', 'MAD_thick_NS', \
-        'S_thick_EW', 'S_thick_NS', 'Q_thick_EW', 'Q_thick_NS'])
+        'STD_EW', 'STD_NS', 'MAD_EW', 'MAD_NS', 'S_EW', 'S_NS', 'Q_EW', 'Q_NS'])
+
+    # Get velocity model
+    f = pickle.load(open('ttgrid_0.pkl', 'rb'))
 
     # Loop over output files
     for i in range(-5, 6):
@@ -158,14 +150,20 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
                     for k in range(0, len(timelag_clust_EW)):
                         times_EW = timelag_clust_EW[k].to_numpy()
                         times_NS = timelag_clust_NS[k].to_numpy()
-                        STDs_EW.append(np.std(times_EW))
-                        STDs_NS.append(np.std(times_NS))
-                        MADs_EW.append(MAD(times_EW))
-                        MADs_NS.append(MAD(times_NS))
-                        Ss_EW.append(S(times_EW))
-                        Ss_NS.append(S(times_NS))
-                        Qs_EW.append(Q(times_EW))
-                        Qs_NS.append(Q(times_NS))
+                        depths_EW = np.zeros(np.shape(times_EW)[0])
+                        depths_NS = np.zeros(np.shape(times_NS)[0])
+                        for l in range(0, np.shape(times_EW)[0]):
+                            depths_EW[l] = f(sqrt(x0 ** 2.0 + y0 ** 2.0), times_EW[l])[0]
+                        for l in range(0, np.shape(times_NS)[0]):
+                            depths_NS[l] = f(sqrt(x0 ** 2.0 + y0 ** 2.0), times_NS[l])[0]
+                        STDs_EW.append(np.std(depths_EW))
+                        STDs_NS.append(np.std(depths_NS))
+                        MADs_EW.append(MAD(depths_EW))
+                        MADs_NS.append(MAD(depths_NS))
+                        Ss_EW.append(S(depths_EW))
+                        Ss_NS.append(S(depths_NS))
+                        Qs_EW.append(Q(depths_EW))
+                        Qs_NS.append(Q(depths_NS))
                     # Keep minimum value
                     STD_EW = min(STDs_EW)
                     STD_NS = min(STDs_NS)
@@ -175,24 +173,10 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
                     S_NS = min(Ss_NS)
                     Q_EW = min(Qs_EW)
                     Q_NS = min(Qs_NS)
-                    # Compute corresponding thickness
-                    if (ratioE > ratioN):
-                        time = myline['t_' + type_stack + '_' + cc_stack + '_EW_cluster'].iloc[0]
-                    else:
-                        time = myline['t_' + type_stack + '_' + cc_stack + '_NS_cluster'].iloc[0]
-                    STD_thick_EW = thickness(STD_EW, x0, y0, time)
-                    STD_thick_NS = thickness(STD_NS, x0, y0, time)
-                    MAD_thick_EW = thickness(MAD_EW, x0, y0, time)
-                    MAD_thick_NS = thickness(MAD_NS, x0, y0, time)
-                    S_thick_EW = thickness(S_EW, x0, y0, time)
-                    S_thick_NS = thickness(S_NS, x0, y0, time)
-                    Q_thick_EW = thickness(Q_EW, x0, y0, time)
-                    Q_thick_NS = thickness(Q_NS, x0, y0, time)
                     # Write to pandas dataframe
                     i0 = len(df_thick.index)
                     df_thick.loc[i0] = [i, j, latitude, longitude, sqrt(x0 ** 2 + y0 ** 2), ntremor, ratioE, ratioN, \
-                        STD_thick_EW, STD_thick_NS, MAD_thick_EW, MAD_thick_NS, \
-                        S_thick_EW, S_thick_NS, Q_thick_EW, Q_thick_NS]
+                        STD_EW, STD_NS, MAD_EW, MAD_NS, S_EW, S_NS, Q_EW, Q_NS]
 
     # Save dataframe
     df_thick['ntremor'] = df_thick['ntremor'].astype('int')
@@ -221,23 +205,23 @@ if __name__ == '__main__':
 #    lat0 = 47.9321857142857
 #    lon0 = -123.045528571429
 
-    arrayName = 'LC'
-    lat0 = 48.0554071428571
-    lon0 = -123.210035714286
+#    arrayName = 'LC'
+#    lat0 = 48.0554071428571
+#    lon0 = -123.210035714286
 
 #    arrayName = 'PA'
 #    lat0 = 48.0549384615385
 #    lon0 = -123.464415384615
 
-#    arrayName = 'TB'
-#    lat0 = 47.9730357142857
-#    lon0 = -123.138492857143
+    arrayName = 'TB'
+    lat0 = 47.9730357142857
+    lon0 = -123.138492857143
 
     mintremor = 30
     ds = 5.0
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
     vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
-    vs0 = 1.01 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
+    vs0 = vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
 
 #    compute_thickness(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, ds, 15.0, h0, vs0, vp0)
 #    compute_thickness(arrayName, lon0, lat0, 'lin', 'pow', mintremor, 50.0, ds, 0.5, h0, vs0, vp0)
