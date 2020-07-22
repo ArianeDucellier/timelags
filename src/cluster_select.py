@@ -20,9 +20,10 @@ from sklearn.cluster import AgglomerativeClustering, KMeans
 from stacking import linstack, powstack, PWstack
 
 def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
-        Tmax, RMSmin, RMSmax, xmin, xmax, ymin, ymax, typecluster, nc, palette, amp, \
-        n1, n2, draw_scatter=True, draw_hist=True, envelope=True, \
-        draw_cc=True, draw_ac=True, draw_colored_cc=True, draw_colored_ac=True):
+        Tmax, RMSmin, RMSmax, xmin, xmax, ymin, ymax, typecluster, nc, \
+        palette, amp, n1, n2, draw_scatter=True, draw_hist=True, \
+        envelope=True, draw_cc=True, draw_ac=True, draw_colored_cc=True, \
+        draw_colored_ac=True):
     """
     Sort the tremor windows into several clusters and stack cross and
     autocorrelation inside each cluster
@@ -143,12 +144,10 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     nt = len(EW_UD)
     ccmaxEW = np.zeros(nt)
     cc0EW = np.zeros(nt)
-    timelagEW = np.zeros(nt)
     timedelayEW = np.zeros(nt)
     rmsEW = np.zeros(nt)
     ccmaxNS = np.zeros(nt)
     cc0NS = np.zeros(nt)
-    timelagNS = np.zeros(nt)
     timedelayNS = np.zeros(nt)
     rmsNS = np.zeros(nt)
     # Windows of the cross correlation to look at
@@ -178,11 +177,6 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         ccmaxNS[i] = np.max(cc_NS)
         cc0NS[i] = cc_NS[ncor]
         timedelayNS[i] = (np.argmax(cc_NS) - ncor) * NS_UD_stack.stats.delta
-        # Time lags
-        i0 = np.argmax(np.abs(EW_UD[i].data[ibegin:iend]))
-        timelagEW[i] = t[ibegin:iend][i0]
-        i0 = np.argmax(np.abs(NS_UD[i].data[ibegin:iend]))
-        timelagNS[i] = t[ibegin:iend][i0]
     # Clustering
     df = pd.DataFrame({'ccmaxEW' : ccmaxEW, 'ccmaxNS' : ccmaxNS, \
         'cc0EW' : cc0EW, 'cc0NS' : cc0NS, 'timedelayEW' : timedelayEW, \
@@ -209,6 +203,17 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             format(arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), \
             int(y0), type_stack, cc_stack), format='eps')
         plt.close()
+    # Compute time lags
+    timelagEW = np.zeros(nt)
+    timelagNS = np.zeros(nt)
+    for i in range(0, nt):
+        # Time lags
+        EWenvelope = obspy.signal.filter.envelope(EW_UD[i].data)
+        i0 = np.argmax(EWenvelope[ibegin:iend])
+        timelagEW[i] = t[ibegin:iend][i0]
+        NSenvelope = obspy.signal.filter.envelope(NS_UD[i].data)
+        i0 = np.argmax(NSenvelope[ibegin:iend])
+        timelagNS[i] = t[ibegin:iend][i0]
     # Compute width of timelags distribution
     timelags = pd.DataFrame({'timelagEW' : timelagEW, 'timelagNS' : timelagNS})
     width_clust_EW = []
@@ -287,6 +292,8 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         EWselect = Stream()
         for i in range(0, nt):
             if (clusters[i] == j):
+                if envelope == True:
+                    EW_UD[i].data = obspy.signal.filter.envelope(EW_UD[i].data)
                 EWselect.append(EW_UD[i])
         EW_ntremor.append(len(EWselect))
         if (cc_stack == 'lin'):
@@ -299,24 +306,17 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             raise ValueError( \
                 'Type of stack must be lin, pow, or PWS')
         # Max cc and ratio with RMS
-        EWenvelope = obspy.signal.filter.envelope(EWselect_stack.data)
-        if (envelope == True):
-            EW_data = EWenvelope
-        else:
-            EW_data = EWselect_stack.data
-        cc_clust_EW.append(np.max(np.abs(EW_data[ibegin:iend])))
-        i0 = np.argmax(np.abs(EW_data[ibegin:iend]))
+        cc_clust_EW.append(np.max(np.abs(EWselect_stack.data[ibegin:iend])))
+        i0 = np.argmax(np.abs(EWselect_stack.data[ibegin:iend]))
         t_clust_EW.append(t[ibegin:iend][i0])
-        RMS = np.sqrt(np.mean(np.square(EW_data[rmsb:rmse])))
-        ratio_clust_EW.append(np.max(np.abs(EW_data[ibegin:iend])) / RMS)
+        RMS = np.sqrt(np.mean(np.square(EWselect_stack.data[rmsb:rmse])))
+        ratio_clust_EW.append(np.max(np.abs(EWselect_stack.data[ibegin:iend])) / RMS)
         # Plot
         if (draw_cc == True):
             plt.subplot2grid((2, nc), (0, j))
             plt.plot(t, EW_UD_stack.data, 'k-', label='All')
             plt.plot(t, EWselect_stack.data, color=palette[j], \
                 label='Cluster {:d}'.format(j))
-            plt.plot(t, EWenvelope, color=palette[j], linestyle='dashed', \
-                label='Envelope')
             plt.xlim(xmin, xmax)
             plt.ylim(ymin, ymax)
             plt.title('EW / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
@@ -324,7 +324,6 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             plt.xlabel('Lag time (s)', fontsize=24)
             plt.legend(loc=1)
         # Save into stream
-        EWselect_stack.data = EW_data
         EW_UD_stacks.append(EWselect_stack)
     # Get the best stack
     i0 = cc_clust_EW.index(max(cc_clust_EW))
@@ -345,6 +344,8 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         NSselect = Stream()
         for i in range(0, nt):
             if (clusters[i] == j):
+                if envelope == True:
+                    NS_UD[i].data = obspy.signal.filter.envelope(NS_UD[i].data)
                 NSselect.append(NS_UD[i])
         NS_ntremor.append(len(NSselect))
         if (cc_stack == 'lin'):
@@ -357,16 +358,11 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             raise ValueError( \
                 'Type of stack must be lin, pow, or PWS')
         # Max cc and ratio with RMS
-        NSenvelope = obspy.signal.filter.envelope(NSselect_stack.data)
-        if (envelope == True):
-            NS_data = NSenvelope
-        else:
-            NS_data = NSselect_stack.data
-        cc_clust_NS.append(np.max(np.abs(NS_data[ibegin:iend])))
-        i0 = np.argmax(np.abs(NS_data[ibegin:iend]))
+        cc_clust_NS.append(np.max(np.abs(NSselect_stack[ibegin:iend])))
+        i0 = np.argmax(np.abs(NSselect_stack[ibegin:iend]))
         t_clust_NS.append(t[ibegin:iend][i0])
-        RMS = np.sqrt(np.mean(np.square(NS_data[rmsb:rmse])))
-        ratio_clust_NS.append(np.max(np.abs(NS_data[ibegin:iend])) \
+        RMS = np.sqrt(np.mean(np.square(NSselect_stack[rmsb:rmse])))
+        ratio_clust_NS.append(np.max(np.abs(NSselect_stack[ibegin:iend])) \
             / RMS)  
         # Plot
         if (draw_cc == True):
@@ -374,8 +370,6 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             plt.plot(t, NS_UD_stack.data, 'k-', label='All')
             plt.plot(t, NSselect_stack.data, color=palette[j], \
                 label='Cluster {:d}'.format(j, ))
-            plt.plot(t, NSenvelope, color=palette[j], linestyle='dashed', \
-                label='Envelope')
             plt.xlim(xmin, xmax)
             plt.ylim(- ymax, ymax)
             plt.title('NS / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
@@ -383,7 +377,6 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             plt.xlabel('Lag time (s)', fontsize=24)
             plt.legend(loc=1)
         # Save into stream
-        NSselect_stack.data = NS_data
         NS_UD_stacks.append(NSselect_stack)
     # Get the best stack
     i0 = cc_clust_NS.index(max(cc_clust_NS))
