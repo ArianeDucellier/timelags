@@ -5,15 +5,15 @@ import numpy as np
 import pandas as pd
 import pickle
 
-arrays = ['BH', 'BS', 'GC', 'PA', 'TB']
+arrays = ['BH', 'BS', 'DR', 'GC', 'PA', 'TB']
 
 type_stack = 'PWS'
 cc_stack = 'PWS'
 
-threshold = 4.0
+threshold = 0.005
 
 for num, array in enumerate(arrays):
-    df1_temp = pickle.load(open('cc/{}/{}_{}_{}_width.pkl'.format( \
+    df1_temp = pickle.load(open('cc/{}/{}_{}_{}_width_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     if (num == 0):
         df1 = df1_temp
@@ -21,7 +21,7 @@ for num, array in enumerate(arrays):
         df1 = pd.concat([df1, df1_temp], ignore_index=True)
 
 for num, array in enumerate(arrays):
-    df2_temp = pickle.load(open('cc/{}/{}_{}_{}_thick.pkl'.format( \
+    df2_temp = pickle.load(open('cc/{}/{}_{}_{}_thick_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     if (num == 0):
         df2 = df2_temp
@@ -31,12 +31,8 @@ for num, array in enumerate(arrays):
 df = df1.merge(df2, on=['i', 'j', 'latitude', 'longitude', 'distance', \
     'ntremor', 'ratioE', 'ratioN'], how='left', indicator=True)
 
-df.drop(df[(df.thick_EW < 0.01) | (df.thick_NS < 0.01)].index, \
-    inplace=True)
-df.reset_index(drop=True, inplace=True)
-
-df.drop(df[(df.thick_EW > threshold) & (df.thick_NS > threshold)].index, \
-    inplace=True)
+# Drop values for which peak is too small
+df.drop(df[(df.maxE < threshold) & (df.maxN < threshold)].index, inplace=True)
 df.reset_index(drop=True, inplace=True)
     
 STD = np.zeros((len(df), 3))
@@ -53,7 +49,7 @@ for i in range(0, len(df)):
     S[i, 1] = df['latitude'].iloc[i]
     Q[i, 0] = df['longitude'].iloc[i]
     Q[i, 1] = df['latitude'].iloc[i]
-    if df['thick_EW'][i] < df['thick_NS'][i]:
+    if df['maxE'][i] > df['maxN'][i]:
         STD[i, 2] = df['STD_EW'].iloc[i]
         MAD[i, 2] = df['MAD_EW'].iloc[i]
         S[i, 2] = df['S_EW'].iloc[i]
@@ -64,10 +60,10 @@ for i in range(0, len(df)):
         S[i, 2] = df['S_NS'].iloc[i]
         Q[i, 2] = df['Q_NS'].iloc[i]
 
-STD = STD[STD[:, 2] > 0.0, :]
-MAD = MAD[MAD[:, 2] > 0.0, :]
-S = S[S[:, 2] > 0.0, :]
-Q = Q[Q[:, 2] > 0.0, :]
+#STD = STD[STD[:, 2] > 0.0, :]
+#MAD = MAD[MAD[:, 2] > 0.0, :]
+#S = S[S[:, 2] > 0.0, :]
+#Q = Q[Q[:, 2] > 0.0, :]
 
 np.savetxt('map_thick/STD_{}_{}.txt'.format(type_stack, cc_stack), STD, fmt='%10.5f')
 np.savetxt('map_thick/MAD_{}_{}.txt'.format(type_stack, cc_stack), MAD, fmt='%10.5f')

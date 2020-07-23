@@ -1,4 +1,4 @@
-œdata/*.mat
+data/*.mat
 figures/*.eps
 matlab/*
 src/*.pkl
@@ -8,3 +8,4 @@ src/map_depth/*.eps
 src/map_depth/*.txt
 src/map_thick/*.eps
 src/map_thick/*.txt
+src/variations/*

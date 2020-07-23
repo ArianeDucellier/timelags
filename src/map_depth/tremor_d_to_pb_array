@@ -1,14 +1,14 @@
 #!/bin/csh -f
-set output = d_to_pb_PWS_PWS_P_0.eps
+set output = d_to_pb_PWS_PWS_P.eps
 set cpt = d_to_pb.cpt
 
 # Boundaries
-set x1 = -123.5
+set x1 = -123.6
 set x2 = -122.8
 set y1 = 47.7
 set y2 = 48.3
 set Rop = $x1/$x2/$y1/$y2
-set Jop = m-123.15/48.0/25.0
+set Jop = m-123.2/48.0/25.0
 
 gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -G255/255/224 -S224/255/255 -Df -Na -Y10 -P -K >! $output
 
@@ -32,11 +32,12 @@ END
 
 gmt psxy arrays.dat -R$Rop -J$Jop -St0.4 -Gblack -O -K >> $output
 
-gmt psxy d_to_pb_PWS_PWS_BH_P_0.txt -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
-gmt psxy d_to_pb_PWS_PWS_BS_P_0.txt -R$Rop -J$Jop -Sa0.4 -C$cpt -O -K >> $output
-gmt psxy d_to_pb_PWS_PWS_GC_P_0.txt -R$Rop -J$Jop -Sc0.4 -C$cpt -O -K >> $output
-gmt psxy d_to_pb_PWS_PWS_PA_P_0.txt -R$Rop -J$Jop -Sd0.4 -C$cpt -O -K >> $output
-gmt psxy d_to_pb_PWS_PWS_TB_P_0.txt -R$Rop -J$Jop -St0.4 -C$cpt -O -K >> $output
+gmt psxy d_to_pb_PWS_PWS_BH_P.txt -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
+gmt psxy d_to_pb_PWS_PWS_BS_P.txt -R$Rop -J$Jop -Sa0.4 -C$cpt -O -K >> $output
+gmt psxy d_to_pb_PWS_PWS_DR_P.txt -R$Rop -J$Jop -Si0.4 -C$cpt -O -K >> $output
+gmt psxy d_to_pb_PWS_PWS_GC_P.txt -R$Rop -J$Jop -Sc0.4 -C$cpt -O -K >> $output
+gmt psxy d_to_pb_PWS_PWS_PA_P.txt -R$Rop -J$Jop -Sd0.4 -C$cpt -O -K >> $output
+gmt psxy d_to_pb_PWS_PWS_TB_P.txt -R$Rop -J$Jop -St0.4 -C$cpt -O -K >> $output
 
 gmt psscale -C$cpt -D7.0/-3.0/10/0.5h -O -L -B:"Distance to plate boundary in km": >> $output
 

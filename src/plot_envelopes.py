@@ -52,12 +52,12 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
 
     # Dataframe to store depth and thickness of the tremor zone
     df_width = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', \
-        'distance', 'ntremor', 'ratioE', 'ratioN', 'time_EW', 'time_NS', \
+        'distance', 'ntremor', 'ratioE', 'ratioN', 'maxE', 'maxN', 'time_EW', 'time_NS', \
         'dist_EW', 'dist_NS', 'd_to_pb_EW_M', 'd_to_pb_EW_P', \
         'd_to_pb_NS_M', 'd_to_pb_NS_P', 'thick_EW', 'thick_NS'])
 
     # Get velocity model
-    f = pickle.load(open('ttgrid_0.pkl', 'rb'))
+    f = pickle.load(open('ttgrid_p1.pkl', 'rb'))
 
     # Loop over output files
     for i in range(imin, imax + 1):
@@ -84,6 +84,8 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
             ntremor = myline['ntremor_' + type_stack + '_' + cc_stack].iloc[0]
             ratioE = myline['ratio_' + type_stack + '_' + cc_stack + '_EW'].iloc[0]
             ratioN = myline['ratio_' + type_stack + '_' + cc_stack + '_NS'].iloc[0]
+            maxE = myline['cc_' + type_stack + '_' + cc_stack + '_EW'].iloc[0]
+            maxN = myline['cc_' + type_stack + '_' + cc_stack + '_NS'].iloc[0]
             # Look only at best
             if ((ntremor >= mintremor) and \
                 ((ratioE >= minratio) or (ratioN >= minratio))):
@@ -114,7 +116,7 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                 # Maxima and corresponding times and depths
                 EWmax = np.max(np.abs(EW.data[ibegin:iend]))
                 NSmax = np.max(np.abs(NS.data[ibegin:iend]))
-                if ((EWmax > 0.1 / amp) or (NSmax > 0.1 / amp)):
+                if ((EWmax > 0.05 / amp) or (NSmax > 0.05 / amp)):
                     time_EW = centroid(t[ibegin:iend], EW.data[ibegin:iend])
                     time_NS = centroid(t[ibegin:iend], NS.data[ibegin:iend])
                     dist_EW = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time_EW)[0]
@@ -149,7 +151,7 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                     i0 = len(df_width.index)
                     df_width.loc[i0] = [i, j, latitude, longitude, \
                         sqrt(x0 ** 2 + y0 ** 2), ntremor, ratioE, ratioN, \
-                        time_EW, time_NS, dist_EW, dist_NS, \
+                        maxE, maxN, time_EW, time_NS, dist_EW, dist_NS, \
                         d_to_pb_EW_M, d_to_pb_EW_P, d_to_pb_NS_M, d_to_pb_NS_P, \
                         thick_EW, thick_NS]
                     # Plot
@@ -224,15 +226,15 @@ if __name__ == '__main__':
     mintremor = 30
     Tmax = 15.0
     ds = 5.0
-    imin = -5
-    imax = 5
+    imin = -3
+    imax = 3
     jmin = -5
-    jmax = 5
+    jmax = 1
     cutb = 2.0
     cute = 7.0
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
     vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
-    vs0 = vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
+    vs0 = 1.01 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
 
 #    plot_envelopes(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, \
 #        Tmax, 15.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
@@ -250,5 +252,5 @@ if __name__ == '__main__':
 #        Tmax, 50.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
 #    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'pow', mintremor, 50.0, \
 #        Tmax, 1.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
-    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'PWS', mintremor, 100.0, \
-        Tmax, 100.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)
+    plot_envelopes(arrayName, lon0, lat0, 'PWS', 'PWS', mintremor, 5.0, \
+        Tmax, 50.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)

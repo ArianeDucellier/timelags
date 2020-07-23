@@ -1,15 +1,15 @@
 #!/bin/csh -f
-set input = error_PWS_PWS_0.txt
-set output = error_PWS_PWS_0.eps
+set input = error_PWS_PWS.txt
+set output = error_PWS_PWS.eps
 set cpt = error.cpt
 
 # Boundaries
-set x1 = -123.5
+set x1 = -123.6
 set x2 = -122.8
 set y1 = 47.7
 set y2 = 48.3
 set Rop = $x1/$x2/$y1/$y2
-set Jop = m-123.15/48.0/25.0
+set Jop = m-123.2/48.0/25.0
 
 gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -G255/255/224 -S224/255/255 -Df -Na -Y10 -P -K >! $output
 
