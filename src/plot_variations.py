@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import pickle
 
-arrays = ['BH', 'BS', 'DR', 'GC', 'PA', 'TB']
+arrays = ['BH'] #, 'BS', 'DR', 'GC', 'PA', 'TB']
 
 type_stack = 'PWS'
 cc_stack = 'PWS'

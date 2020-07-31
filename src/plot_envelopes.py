@@ -12,7 +12,7 @@ import pickle
 
 from math import cos, pi, sqrt, sin
 
-from misc import centroid, get_travel_time
+from misc import iterate_centroid, get_travel_time
 
 def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
     minratio, Tmax, amp, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0):
@@ -86,6 +86,8 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
             ratioN = myline['ratio_' + type_stack + '_' + cc_stack + '_NS'].iloc[0]
             maxE = myline['cc_' + type_stack + '_' + cc_stack + '_EW'].iloc[0]
             maxN = myline['cc_' + type_stack + '_' + cc_stack + '_NS'].iloc[0]
+            t0_EW = myline['t_' + type_stack + '_' + cc_stack + '_EW_cluster'].iloc[0]
+            t0_NS = myline['t_' + type_stack + '_' + cc_stack + '_NS_cluster'].iloc[0]
             # Look only at best
             if ((ntremor >= mintremor) and \
                 ((ratioE >= minratio) or (ratioN >= minratio))):
@@ -109,16 +111,22 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                 ts = get_travel_time(sqrt(x0 ** 2 + y0 ** 2), d0_P, h0, vs0)
                 tp = get_travel_time(sqrt(x0 ** 2 + y0 ** 2), d0_P, h0, vp0)
                 time_P = ts - tp
-                tbegin = time_M - 2.0
-                tend = time_M + 2.0
-                ibegin = int(npts + tbegin / dt)
-                iend = int(npts + tend / dt)
+                tbegin_EW = t0_EW - 2.0
+                tend_EW = t0_EW + 2.0
+                ibegin_EW = int(npts + tbegin_EW / dt)
+                iend_EW = int(npts + tend_EW / dt)
+                tbegin_NS = t0_NS - 2.0
+                tend_NS = t0_NS + 2.0
+                ibegin_NS = int(npts + tbegin_NS / dt)
+                iend_NS = int(npts + tend_NS / dt)
                 # Maxima and corresponding times and depths
-                EWmax = np.max(np.abs(EW.data[ibegin:iend]))
-                NSmax = np.max(np.abs(NS.data[ibegin:iend]))
+                EWmax = np.max(np.abs(EW.data[ibegin_EW:iend_EW]))
+                NSmax = np.max(np.abs(NS.data[ibegin_EW:iend_EW]))
                 if ((EWmax > 0.05 / amp) or (NSmax > 0.05 / amp)):
-                    time_EW = centroid(t[ibegin:iend], EW.data[ibegin:iend])
-                    time_NS = centroid(t[ibegin:iend], NS.data[ibegin:iend])
+                    time_EW = iterate_centroid(t[npts : 2 * npts + 1], \
+                        EW.data[npts : 2 * npts + 1], t0_EW, 2.0, dt)
+                    time_NS = iterate_centroid(t[npts : 2 * npts + 1], \
+                        NS.data[npts : 2 * npts + 1], t0_NS, 2.0, dt)
                     dist_EW = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time_EW)[0]
                     dist_NS = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time_NS)[0]
                     d_to_pb_EW_M = dist_EW - d0_M
@@ -133,10 +141,10 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                         i0 = len(df_dt.index)
                         df_dt.loc[i0] = [i, j, latitude, longitude, sqrt(x0 ** 2 + y0 ** 2), diff_time, diff_depth]
                     # Compute width of envelope at half the amplitude of the maximum
-                    indEW = np.where(EW.data[ibegin:iend] > 0.5 * EWmax)[0]
-                    indNS = np.where(NS.data[ibegin:iend] > 0.5 * NSmax)[0]
-                    timerange_EW = t[ibegin:iend][indEW]
-                    timerange_NS = t[ibegin:iend][indNS]
+                    indEW = np.where(EW.data[ibegin_EW:iend_EW] > 0.5 * EWmax)[0]
+                    indNS = np.where(NS.data[ibegin_NS:iend_NS] > 0.5 * NSmax)[0]
+                    timerange_EW = t[ibegin_EW:iend_EW][indEW]
+                    timerange_NS = t[ibegin_NS:iend_NS][indNS]
                     tmax_EW = np.max(timerange_EW)
                     tmin_EW = np.min(timerange_EW)
                     tmax_NS = np.max(timerange_NS)
@@ -226,10 +234,10 @@ if __name__ == '__main__':
     mintremor = 30
     Tmax = 15.0
     ds = 5.0
-    imin = -3
-    imax = 3
+    imin = -5
+    imax = 5
     jmin = -5
-    jmax = 1
+    jmax = 5
     cutb = 2.0
     cute = 7.0
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])

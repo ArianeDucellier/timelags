@@ -371,7 +371,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             plt.plot(t, NSselect_stack.data, color=palette[j], \
                 label='Cluster {:d}'.format(j, ))
             plt.xlim(xmin, xmax)
-            plt.ylim(- ymax, ymax)
+            plt.ylim(ymin, ymax)
             plt.title('NS / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
                 len(NSselect)), fontsize=24)
             plt.xlabel('Lag time (s)', fontsize=24)

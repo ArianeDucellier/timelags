@@ -8,7 +8,7 @@ import pickle
 from math import asin, cos, pi, sin, sqrt, tan
 from scipy import interpolate
 
-def centroid(t, f):
+def centroid(t, f, t0, tlag, dt):
     """
     Compute the centroid of f(t)
 
@@ -18,10 +18,30 @@ def centroid(t, f):
         type f = 1D numpy array
         f = F(t)
     """
-    num = np.sum(t * f)
-    denom = np.sum(f)
-    return (num / denom)    
+    nmax = len(f)
+    tbegin = t0 - tlag
+    tend = t0 + tlag
+    ibegin = max(int(tbegin / dt), 0)
+    iend = min(int(tend / dt), nmax)
+    num = np.sum(t[ibegin:iend] * f[ibegin:iend])
+    denom = np.sum(f[ibegin:iend])
+    return (num / denom)
 
+def iterate_centroid(t, f, t0, tlag, dt):
+    """
+    """
+    epsilon = 10.0
+    n = 0
+    while epsilon > 0.001:
+        tnew = centroid(t, f, t0, tlag, dt)
+        epsilon = abs(tnew - t0)
+        t0 = tnew
+        n = n + 1
+        if n > 20:
+            t0 = np.nan
+            break
+    return t0
+    
 def compute_time(h, v, i0):
     """
     Compute the travel time from the
