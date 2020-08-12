@@ -1,6 +1,6 @@
 #!/bin/csh -f
-set input = section_strike_PWS_PWS.txt
-set output = section_strike_PWS_PWS.eps
+set input = section_strike_PWS_PWS_3.txt
+set output = section_strike_PWS_PWS_3.eps
 set cpt = strike.cpt
 
 # Boundaries
@@ -23,13 +23,13 @@ cat << END >> arrays.dat
 -123.138492857143 0.5
 END
 
-gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Latitude":/a20f5:"Depth (km)":WeSn -J$Jop -St0.4 -Gblack -Y10 -P -K >! $output
+gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Longitude":/a20f5:"Depth (km)":WeSn -J$Jop -St0.4 -Gblack -Y10 -P -K >! $output
 
-gmt psxy mccrory.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
-gmt psxy preston.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
+gmt psxy mccrory_3.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
+gmt psxy preston_3.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
 
-gmt psxy section_sweet.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
-gmt psxy section_chestler.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
+gmt psxy section_sweet_3.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
+gmt psxy section_chestler_3.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
 
 gmt psxy $input -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
 

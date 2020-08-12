@@ -25,11 +25,11 @@ END
 
 gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Longitude":/a20f5:"Depth (km)":WeSn -J$Jop -St0.4 -Gblack -Y10 -P -K >! $output
 
-gmt psxy mccrory.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
-gmt psxy preston.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
+gmt psxy mccrory_2.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
+gmt psxy preston_2.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
 
-gmt psxy section_sweet.txt -R$Rop -J$Jop -Sc0.2 -Gblack -W -O -K >> $output
-gmt psxy section_chestler.txt -R$Rop -J$Jop -Sc0.2 -Gblack -W -O -K >> $output
+gmt psxy section_sweet_2.txt -R$Rop -J$Jop -Sc0.2 -Gblack -W -O -K >> $output
+gmt psxy section_chestler_2.txt -R$Rop -J$Jop -Sc0.2 -Gblack -W -O -K >> $output
 
 gmt psxy $input -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
 

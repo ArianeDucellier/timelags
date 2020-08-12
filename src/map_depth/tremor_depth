@@ -16,9 +16,9 @@ gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -G255/255/224 -S224/255/255
 gmt xyz2grd plate_boundary_M.txt -Gplate_boundary.grd -I0.1 -R$Rop
 gmt grdcontour plate_boundary.grd -A2 -J$Jop -R$Rop -O -K >> $output
 
-gmt psxy crosssection1.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
-gmt psxy crosssection2.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
-gmt psxy crosssection3.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
+gmt psxy crosssection_1.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
+gmt psxy crosssection_2.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
+gmt psxy crosssection_3.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
 
 gmt psxy depth_sweet.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
 gmt psxy depth_chestler.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output

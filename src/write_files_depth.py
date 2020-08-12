@@ -7,7 +7,7 @@ import pickle
 
 from math import cos, pi, sin, sqrt
 
-arrays = ['BH', 'BS', 'DR', 'GC', 'PA', 'TB']
+arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
 
 type_stack = 'PWS'
 cc_stack = 'PWS'
@@ -41,6 +41,9 @@ m_3 = 0.2 * dy_3 / dx_3
 for num, array in enumerate(arrays):
     df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
+    quality = pickle.load(open('cc/{}/quality_{}_{}.pkl'.format( \
+        array, type_stack, cc_stack), 'rb'))
+    df_temp = df_temp.merge(quality, on=['i', 'j'], how='left', indicator=True)
     if (num == 0):
         df = df_temp
     else:
@@ -77,6 +80,10 @@ df['strike_3'] = strike_3
 
 # Drop values for which peak is too small
 df.drop(df[(df.maxE < threshold) & (df.maxN < threshold)].index, inplace=True)
+df.reset_index(drop=True, inplace=True)
+
+# Drop values with bad quality
+df.drop(df[df.quality != 1].index, inplace=True)
 df.reset_index(drop=True, inplace=True)
 
 # Initialization
@@ -154,30 +161,54 @@ np.savetxt('map_depth/section_strike_{}_{}_3.txt'.format(type_stack, cc_stack), 
 df = pickle.load(open('../data/depth/McCrory/LFEs_Sweet_2014.pkl', 'rb'))
 
 depth = np.zeros((len(df), 3))
-section = np.zeros((len(df), 3))
+section_1 = np.zeros((len(df), 3))
+section_2 = np.zeros((len(df), 3))
+section_3 = np.zeros((len(df), 3))
 d_to_pb = np.zeros((len(df), 3))
 
 for i in range(0, len(df)):
     depth[i, 0] = df['longitude'][i]
     depth[i, 1] = df['latitude'][i]
     depth[i, 2] = df['depth'][i]
-    section[i, 0] = df['longitude'][i]
-    section[i, 1] = - df['depth'][i]
+    section_1[i, 0] = df['longitude'][i]
+    section_2[i, 0] = df['longitude'][i]
+    section_3[i, 0] = df['longitude'][i]
+    section_1[i, 1] = - df['depth'][i]
+    section_2[i, 1] = - df['depth'][i]
+    section_3[i, 1] = - df['depth'][i]
     d_to_pb[i, 0] = df['longitude'][i]
     d_to_pb[i, 1] = df['latitude'][i]
     d_to_pb[i, 2] = df['depth'][i] - df['depth_pb'][i]
 
     latitude = df['latitude'][i]
     longitude = df['longitude'][i]
-    x0 = (longitude - lon0) * dx
-    y0 = (latitude - lat0) * dy
-    x1 = (x0 + m * y0) / (1 + m ** 2.0)
-    y1 = m * x1
-    distance = np.sign(y0 - m * x0) * sqrt((x1 - x0) ** 2.0 + (y1 - y0) ** 2.0)
-    section[i, 2] = distance
+    x0 = (longitude - lon0) * dx_1
+    y0 = (latitude - lat0_1) * dy_1
+    x1 = (x0 + m_1 * y0) / (1 + m_1 ** 2.0)
+    y1 = m_1 * x1
+    distance = np.sign(y0 - m_1 * x0) * sqrt((x1 - x0) ** 2.0 + (y1 - y0) ** 2.0)
+    section_1[i, 2] = distance
+    x0 = (longitude - lon0) * dx_2
+    y0 = (latitude - lat0_2) * dy_2
+    x1 = (x0 + m_2 * y0) / (1 + m_2 ** 2.0)
+    y1 = m_2 * x1
+    distance = np.sign(y0 - m_2 * x0) * sqrt((x1 - x0) ** 2.0 + (y1 - y0) ** 2.0)
+    section_2[i, 2] = distance
+    x0 = (longitude - lon0) * dx_3
+    y0 = (latitude - lat0_3) * dy_3
+    x1 = (x0 + m_3 * y0) / (1 + m_3 ** 2.0)
+    y1 = m_3 * x1
+    distance = np.sign(y0 - m_3 * x0) * sqrt((x1 - x0) ** 2.0 + (y1 - y0) ** 2.0)
+    section_3[i, 2] = distance
+
+section_1 = section_1[np.abs(section_1[:, 2]) <= 10, :]
+section_2 = section_2[np.abs(section_2[:, 2]) <= 10, :]
+section_3 = section_3[np.abs(section_3[:, 2]) <= 10, :]
 
 np.savetxt('map_depth/depth_sweet.txt', depth, fmt='%10.5f')
-np.savetxt('map_depth/section_sweet.txt', section, fmt='%10.5f')
+np.savetxt('map_depth/section_sweet_1.txt', section_1, fmt='%10.5f')
+np.savetxt('map_depth/section_sweet_2.txt', section_2, fmt='%10.5f')
+np.savetxt('map_depth/section_sweet_3.txt', section_3, fmt='%10.5f')
 np.savetxt('map_depth/d_to_pb_sweet_M.txt', d_to_pb, fmt='%10.5f')
 
 df = pickle.load(open('../data/depth/Preston/LFEs_Sweet_2014.pkl', 'rb'))
@@ -194,30 +225,54 @@ np.savetxt('map_depth/d_to_pb_sweet_P.txt', d_to_pb, fmt='%10.5f')
 df = pickle.load(open('../data/depth/McCrory/LFEs_Chestler_2017.pkl', 'rb'))
 
 depth = np.zeros((len(df), 3))
-section = np.zeros((len(df), 3))
+section_1 = np.zeros((len(df), 3))
+section_2 = np.zeros((len(df), 3))
+section_3 = np.zeros((len(df), 3))
 d_to_pb = np.zeros((len(df), 3))
 
 for i in range(0, len(df)):
     depth[i, 0] = df['longitude'][i]
     depth[i, 1] = df['latitude'][i]
     depth[i, 2] = df['depth'][i]
-    section[i, 0] = df['longitude'][i]
-    section[i, 1] = - df['depth'][i]
+    section_1[i, 0] = df['longitude'][i]
+    section_2[i, 0] = df['longitude'][i]
+    section_3[i, 0] = df['longitude'][i]
+    section_1[i, 1] = - df['depth'][i]
+    section_2[i, 1] = - df['depth'][i]
+    section_3[i, 1] = - df['depth'][i]
     d_to_pb[i, 0] = df['longitude'][i]
     d_to_pb[i, 1] = df['latitude'][i]
     d_to_pb[i, 2] = df['depth'][i] - df['depth_pb'][i]
 
     latitude = df['latitude'][i]
     longitude = df['longitude'][i]
-    x0 = (longitude - lon0) * dx
-    y0 = (latitude - lat0) * dy
-    x1 = (x0 + m * y0) / (1 + m ** 2.0)
-    y1 = m * x1
-    distance = np.sign(y0 - m * x0) * sqrt((x1 - x0) ** 2.0 + (y1 - y0) ** 2.0)
-    section[i, 2] = distance
+    x0 = (longitude - lon0) * dx_1
+    y0 = (latitude - lat0_1) * dy_1
+    x1 = (x0 + m_1 * y0) / (1 + m_1 ** 2.0)
+    y1 = m_1 * x1
+    distance = np.sign(y0 - m_1 * x0) * sqrt((x1 - x0) ** 2.0 + (y1 - y0) ** 2.0)
+    section_1[i, 2] = distance
+    x0 = (longitude - lon0) * dx_2
+    y0 = (latitude - lat0_2) * dy_2
+    x1 = (x0 + m_2 * y0) / (1 + m_2 ** 2.0)
+    y1 = m_2 * x1
+    distance = np.sign(y0 - m_2 * x0) * sqrt((x1 - x0) ** 2.0 + (y1 - y0) ** 2.0)
+    section_2[i, 2] = distance
+    x0 = (longitude - lon0) * dx_3
+    y0 = (latitude - lat0_3) * dy_3
+    x1 = (x0 + m_3 * y0) / (1 + m_3 ** 2.0)
+    y1 = m_3 * x1
+    distance = np.sign(y0 - m_3 * x0) * sqrt((x1 - x0) ** 2.0 + (y1 - y0) ** 2.0)
+    section_3[i, 2] = distance
+
+section_1 = section_1[np.abs(section_1[:, 2]) <= 10, :]
+section_2 = section_2[np.abs(section_2[:, 2]) <= 10, :]
+section_3 = section_3[np.abs(section_3[:, 2]) <= 10, :]
 
 np.savetxt('map_depth/depth_chestler.txt', depth, fmt='%10.5f')
-np.savetxt('map_depth/section_chestler.txt', section, fmt='%10.5f')
+np.savetxt('map_depth/section_chestler_1.txt', section_1, fmt='%10.5f')
+np.savetxt('map_depth/section_chestler_2.txt', section_2, fmt='%10.5f')
+np.savetxt('map_depth/section_chestler_3.txt', section_3, fmt='%10.5f')
 np.savetxt('map_depth/d_to_pb_chestler_M.txt', d_to_pb, fmt='%10.5f')
 
 df = pickle.load(open('../data/depth/Preston/LFEs_Chestler_2017.pkl', 'rb'))

@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import pickle
 
-arrays = ['BH', 'BS', 'DR', 'GC', 'PA', 'TB']
+arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
 
 type_stack = 'PWS'
 cc_stack = 'PWS'
@@ -15,7 +15,12 @@ threshold = 0.005
 for num, array in enumerate(arrays):
     df = pickle.load(open('cc/{}/{}_{}_{}_width_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
+    quality = pickle.load(open('cc/{}/quality_{}_{}.pkl'.format( \
+        array, type_stack, cc_stack), 'rb'))
+    df = df.merge(quality, on=['i', 'j'], how='left', indicator=True)
     df.drop(df[(df.maxE < threshold) & (df.maxN < threshold)].index, inplace=True)
+    df.reset_index(drop=True, inplace=True)
+    df.drop(df[df.quality != 1].index, inplace=True)
     df.reset_index(drop=True, inplace=True)
 
     d_to_pb_M = np.zeros((len(df), 3))

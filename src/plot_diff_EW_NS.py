@@ -64,16 +64,16 @@ for num, (array, lat, lon) in enumerate(zip(arrays, lats, lons)):
 
 ax1 = plt.subplot(321)
 plt.hist(df['diff_time'], \
-    bins=[-0.4, -0.35, -0.3, -0.25, -0.2, -0.15, -0.1, -0.05, 0, 0.05, 0.1, \
-        0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7])
+    bins=[-0.6, -0.5, -0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, \
+        0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8])
 plt.xlabel('Time difference (s)', fontsize=24)
 plt.ylabel('Number of grid points', fontsize=24)
 plt.title('EW and NS time lags', fontsize=30)
 
 ax2 = plt.subplot(322)
 plt.hist(df['diff_depth'], \
-    bins=[-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, \
-        5.5, 6, 6.5, 7])
+    bins=[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, \
+        13, 14, 15, 16, 17])
 plt.xlabel('Depth difference (km)', fontsize=24)
 plt.ylabel('Number of grid points', fontsize=24)
 plt.title('EW and NS depth difference', fontsize=30)

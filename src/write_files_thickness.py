@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import pickle
 
-arrays = ['BH', 'BS', 'DR', 'GC', 'PA', 'TB']
+arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
 
 type_stack = 'PWS'
 cc_stack = 'PWS'
@@ -15,13 +15,16 @@ threshold = 0.005
 for num, array in enumerate(arrays):
     df1_temp = pickle.load(open('cc/{}/{}_{}_{}_width_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
+    quality = pickle.load(open('cc/{}/quality_{}_{}.pkl'.format( \
+        array, type_stack, cc_stack), 'rb'))
+    df1_temp = df1_temp.merge(quality, on=['i', 'j'], how='left', indicator=True)
     if (num == 0):
         df1 = df1_temp
     else:
         df1 = pd.concat([df1, df1_temp], ignore_index=True)
 
 for num, array in enumerate(arrays):
-    df2_temp = pickle.load(open('cc/{}/{}_{}_{}_thick_0.pkl'.format( \
+    df2_temp = pickle.load(open('cc/{}/keep/{}_{}_{}_thick_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     if (num == 0):
         df2 = df2_temp
@@ -29,12 +32,16 @@ for num, array in enumerate(arrays):
         df2 = pd.concat([df2, df2_temp], ignore_index=True)
 
 df = df1.merge(df2, on=['i', 'j', 'latitude', 'longitude', 'distance', \
-    'ntremor', 'ratioE', 'ratioN'], how='left', indicator=True)
+    'ntremor', 'ratioE', 'ratioN'], how='left', indicator='merge2')
 
 # Drop values for which peak is too small
 df.drop(df[(df.maxE < threshold) & (df.maxN < threshold)].index, inplace=True)
 df.reset_index(drop=True, inplace=True)
-    
+
+# Drop values with bad quality
+df.drop(df[df.quality != 1].index, inplace=True)
+df.reset_index(drop=True, inplace=True)
+
 STD = np.zeros((len(df), 3))
 MAD = np.zeros((len(df), 3))
 S = np.zeros((len(df), 3))
