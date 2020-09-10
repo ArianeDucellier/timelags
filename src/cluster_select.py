@@ -326,13 +326,13 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         # Save into stream
         EW_UD_stacks.append(EWselect_stack)
     # Get the best stack
-    i0 = cc_clust_EW.index(max(cc_clust_EW))
-    t_EW = t_clust_EW[i0]
+    i0_EW = cc_clust_EW.index(max(cc_clust_EW))
+    t_EW = t_clust_EW[i0_EW]
     cc_EW = max(cc_clust_EW)
-    ratio_EW = ratio_clust_EW[i0]
-    width_EW = width_clust_EW[i0]
-    stack_EW = EW_UD_stacks[i0]
-    ntremor = EW_ntremor[i0]
+    ratio_EW = ratio_clust_EW[i0_EW]
+    width_EW = width_clust_EW[i0_EW]
+    stack_EW = EW_UD_stacks[i0_EW]
+    ntremor = EW_ntremor[i0_EW]
     # NS / Vertical
     cc_clust_NS = []
     t_clust_NS = []
@@ -379,13 +379,13 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         # Save into stream
         NS_UD_stacks.append(NSselect_stack)
     # Get the best stack
-    i0 = cc_clust_NS.index(max(cc_clust_NS))
-    t_NS = t_clust_NS[i0]
+    i0_NS = cc_clust_NS.index(max(cc_clust_NS))
+    t_NS = t_clust_NS[i0_NS]
     cc_NS = max(cc_clust_NS)
-    ratio_NS = ratio_clust_NS[i0]
-    width_NS = width_clust_NS[i0]
-    stack_NS = NS_UD_stacks[i0]
-    ntremor = NS_ntremor[i0]
+    ratio_NS = ratio_clust_NS[i0_NS]
+    width_NS = width_clust_NS[i0_NS]
+    stack_NS = NS_UD_stacks[i0_NS]
+    ntremor = NS_ntremor[i0_NS]
     # End figure
     if (draw_cc == True):
         plt.tight_layout()
@@ -394,6 +394,11 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             format(arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), \
                 int(y0), type_stack, cc_stack), format='eps')
         plt.close(2)
+    # Save clusters into file
+    filename = 'cc/{}/{}_{:03d}_{:03d}/'.format(arrayName, arrayName, \
+        int(x0), int(y0)) + '{}_{:03d}_{:03d}_{}_{}_clusters.pkl'. \
+        format(arrayName, int(x0), int(y0), type_stack, cc_stack)
+    pickle.dump([i0_EW, i0_NS, clusters], open(filename, 'wb'))
     # Save best stacks into file
     filename = 'cc/{}/{}_{:03d}_{:03d}/'.format(arrayName, arrayName, \
         int(x0), int(y0)) + '{}_{:03d}_{:03d}_{}_{}_cluster_stacks.pkl'. \
