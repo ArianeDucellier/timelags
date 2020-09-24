@@ -398,7 +398,8 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
     filename = 'cc/{}/{}_{:03d}_{:03d}/'.format(arrayName, arrayName, \
         int(x0), int(y0)) + '{}_{:03d}_{:03d}_{}_{}_clusters.pkl'. \
         format(arrayName, int(x0), int(y0), type_stack, cc_stack)
-    pickle.dump([i0_EW, i0_NS, clusters], open(filename, 'wb'))
+    pickle.dump([data[0], data[1], data[2], data[3], data[4], data[5], \
+        clusters, i0_EW, i0_NS], open(filename, 'wb'))
     # Save best stacks into file
     filename = 'cc/{}/{}_{:03d}_{:03d}/'.format(arrayName, arrayName, \
         int(x0), int(y0)) + '{}_{:03d}_{:03d}_{}_{}_cluster_stacks.pkl'. \

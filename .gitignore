@@ -3,6 +3,7 @@ figures/*.eps
 matlab/*
 src/*.pkl
 src/cc/*
+src/clusters/*
 src/diff_EW_NS/*
 src/map_depth/*.eps
 src/map_depth/*.txt

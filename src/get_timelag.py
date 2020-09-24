@@ -19,7 +19,7 @@ from stacking import linstack, powstack, PWstack
 
 # Set parameters
 #arrayNames = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
-arrayNames = ['BH']
+arrayNames = ['BS']
 w = 2.0
 Tmax = 15.0
 ds = 5.0
