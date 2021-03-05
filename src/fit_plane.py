@@ -8,7 +8,8 @@ import pickle
 from sklearn import linear_model
 from sklearn.metrics import r2_score, mean_squared_error
 
-arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
+#arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
+arrays = ['BH', 'BS', 'DR', 'GC', 'LC', 'PA', 'TB']
 
 type_stack = 'PWS'
 cc_stack = 'PWS'
@@ -16,7 +17,7 @@ cc_stack = 'PWS'
 threshold = 0.005
 
 for num, array in enumerate(arrays):
-    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_0.pkl'.format( \
+    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_reloc.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     quality = pickle.load(open('cc/{}/quality_{}_{}.pkl'.format( \
         array, type_stack, cc_stack), 'rb'))
@@ -52,7 +53,7 @@ prediction[:, 2] = regr.predict(prediction[:, 0:2])
 R2 = r2_score(error[:, 2], prediction[:, 2])
 error[:, 2] = prediction[:, 2] - error[:, 2]
 
-np.savetxt('map_depth/error_{}_{}.txt'.format(type_stack, cc_stack), error, fmt='%10.5f')
-np.savetxt('map_depth/prediction_{}_{}.txt'.format(type_stack, cc_stack), prediction, fmt='%10.5f')
+np.savetxt('map_depth/error_{}_{}_reloc.txt'.format(type_stack, cc_stack), error, fmt='%10.5f')
+np.savetxt('map_depth/prediction_{}_{}_reloc.txt'.format(type_stack, cc_stack), prediction, fmt='%10.5f')
 
 print(R2)

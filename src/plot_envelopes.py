@@ -18,15 +18,28 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
     minratio, Tmax, amp, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0):
     """
     """
+    # Get relocated tremor locations
+    locations = pd.read_csv('../data/Clusters/txt_files/Trem1_Cl2_' + arrayName + '.txt', \
+        '\s+', header=None)
+    locations.columns = ['longitude', 'latitude', 'lon_reloc', 'lat_reloc']
+
     # Get depth of plate boundary around the array
     # McCrory model
     depth_pb_M = pd.read_csv('../data/depth/McCrory/' + arrayName + '_depth.txt', sep=' ', \
         header=None)
     depth_pb_M.columns = ['x', 'y', 'depth']
+    # Relocated McCrory model
+    depth_pb_M_reloc = pd.read_csv('../data/depth/McCrory/' + arrayName + '_depth_reloc.txt', sep=' ', \
+        header=None)
+    depth_pb_M_reloc.columns = ['longitude', 'latitude', 'lon_reloc', 'lat_reloc', 'depth']
     # Preston model
     depth_pb_P = pd.read_csv('../data/depth/Preston/' + arrayName + '_depth.txt', sep=' ', \
         header=None)
     depth_pb_P.columns = ['x', 'y', 'depth']
+    # Relocated Preston model
+    depth_pb_P_reloc = pd.read_csv('../data/depth/Preston/' + arrayName + '_depth_reloc.txt', sep=' ', \
+        header=None)
+    depth_pb_P_reloc.columns = ['longitude', 'latitude', 'lon_reloc', 'lat_reloc', 'depth']
 
     # Get number of tremor and ratio peak / RMS
     df = pickle.load(open(arrayName + '_timelag.pkl', 'rb'))
@@ -49,15 +62,20 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
 
     # Dataframe to store difference in time lags between EW and NS
     df_dt = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', 'distance', 'diff_time', 'diff_depth'])
+    df_dt_reloc = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', 'distance', 'diff_time', 'diff_depth'])
 
     # Dataframe to store depth and thickness of the tremor zone
     df_width = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', \
         'distance', 'ntremor', 'ratioE', 'ratioN', 'maxE', 'maxN', 'time_EW', 'time_NS', \
         'dist_EW', 'dist_NS', 'd_to_pb_EW_M', 'd_to_pb_EW_P', \
         'd_to_pb_NS_M', 'd_to_pb_NS_P', 'thick_EW', 'thick_NS'])
+    df_width_reloc = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', \
+        'distance', 'ntremor', 'ratioE', 'ratioN', 'maxE', 'maxN', 'time_EW', 'time_NS', \
+        'dist_EW', 'dist_NS', 'd_to_pb_EW_M', 'd_to_pb_EW_P', \
+        'd_to_pb_NS_M', 'd_to_pb_NS_P', 'thick_EW', 'thick_NS'])
 
     # Get velocity model
-    f = pickle.load(open('ttgrid_p1.pkl', 'rb'))
+    f = pickle.load(open('ttgrid_0.pkl', 'rb'))
 
     # Loop over output files
     for i in range(imin, imax + 1):
@@ -67,16 +85,45 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
             # Get latitude and longitude
             longitude = lon0 + x0 / dx
             latitude = lat0 + y0 / dy
+            # Relocate latitude and longitude
+            myx = (locations['longitude'] - longitude > -0.001) & \
+                  (locations['longitude'] - longitude < 0.001)
+            myy = (locations['latitude'] - latitude > -0.001) & \
+                  (locations['latitude'] - latitude < 0.001)
+            myline = locations[myx & myy]
+            if len(myline > 0):
+                lon_reloc = myline['lon_reloc'].iloc[0]
+                lat_reloc = myline['lat_reloc'].iloc[0]
+                reloc_exist = True
+                print(x0, y0, latitude, longitude, lat_reloc, lon_reloc)
+            else:
+                reloc_exist = False
             # Get depth of plate boundary (McCrory model)
             myx = depth_pb_M['x'] == x0
             myy = depth_pb_M['y'] == y0
             myline = depth_pb_M[myx & myy]
             d0_M = - myline['depth'].iloc[0]
+            # Get relocated depth of plate boundary (McCrory model)
+            myx = (depth_pb_M_reloc['longitude'] - longitude > -0.001) & \
+                  (depth_pb_M_reloc['longitude'] - longitude < 0.001)
+            myy = (depth_pb_M_reloc['latitude'] - latitude > -0.001) & \
+                  (depth_pb_M_reloc['latitude'] - latitude < 0.001)
+            myline = depth_pb_M_reloc[myx & myy]
+            if len(myline > 0):
+                d0_M_reloc = - myline['depth'].iloc[0]
             # Get depth of plate boundary (Preston model)
             myx = depth_pb_P['x'] == x0
             myy = depth_pb_P['y'] == y0
             myline = depth_pb_P[myx & myy]
             d0_P = - myline['depth'].iloc[0]
+            # Get relocated depth of plate boundary (Preston model)
+            myx = (depth_pb_P_reloc['longitude'] - longitude > -0.001) & \
+                  (depth_pb_P_reloc['longitude'] - longitude < 0.001)
+            myy = (depth_pb_P_reloc['latitude'] - latitude > -0.001) & \
+                  (depth_pb_P_reloc['latitude'] - latitude < 0.001)
+            myline = depth_pb_P_reloc[myx & myy]
+            if len(myline > 0):
+                d0_P_reloc = - myline['depth'].iloc[0]
             # Get number of tremor and ratio
             myx = df['x0'] == x0
             myy = df['y0'] == y0
@@ -121,25 +168,42 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                 iend_NS = int(npts + tend_NS / dt)
                 # Maxima and corresponding times and depths
                 EWmax = np.max(np.abs(EW.data[ibegin_EW:iend_EW]))
-                NSmax = np.max(np.abs(NS.data[ibegin_EW:iend_EW]))
+                NSmax = np.max(np.abs(NS.data[ibegin_NS:iend_NS]))
                 if ((EWmax > 0.05 / amp) or (NSmax > 0.05 / amp)):
                     time_EW = iterate_centroid(t[npts : 2 * npts + 1], \
                         EW.data[npts : 2 * npts + 1], t0_EW, 2.0, dt)
                     time_NS = iterate_centroid(t[npts : 2 * npts + 1], \
                         NS.data[npts : 2 * npts + 1], t0_NS, 2.0, dt)
+                    # Depth from A. Ghosh's catalog
                     dist_EW = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time_EW)[0]
                     dist_NS = f(sqrt(x0 ** 2.0 + y0 ** 2.0), time_NS)[0]
+                    # Depth from A. Wech's catalog
+                    if reloc_exist == True:
+                        x0_reloc = (lon_reloc - lon0) * dx
+                        y0_reloc = (lat_reloc - lat0) * dy
+                        dist_EW_reloc = f(sqrt(x0_reloc ** 2.0 + y0_reloc ** 2.0), time_EW)[0]
+                        dist_NS_reloc = f(sqrt(x0_reloc ** 2.0 + y0_reloc ** 2.0), time_NS)[0]
                     d_to_pb_EW_M = dist_EW - d0_M
                     d_to_pb_NS_M = dist_NS - d0_M
                     d_to_pb_EW_P = dist_EW - d0_P
                     d_to_pb_NS_P = dist_NS - d0_P
+                    if reloc_exist == True:
+                        d_to_pb_EW_M_reloc = dist_EW_reloc - d0_M_reloc
+                        d_to_pb_NS_M_reloc = dist_NS_reloc - d0_M_reloc
+                        d_to_pb_EW_P_reloc = dist_EW_reloc - d0_P_reloc
+                        d_to_pb_NS_P_reloc = dist_NS_reloc - d0_P_reloc
                     # Time difference and depth difference
                     diff_time = time_EW - time_NS
                     diff_depth = dist_EW - dist_NS
+                    if reloc_exist == True:
+                        diff_depth_reloc = dist_EW_reloc - dist_NS_reloc
                     # Write to pandas dataframe
                     if ((ratioE >= minratio) and (ratioN >= minratio)):
                         i0 = len(df_dt.index)
                         df_dt.loc[i0] = [i, j, latitude, longitude, sqrt(x0 ** 2 + y0 ** 2), diff_time, diff_depth]
+                        if reloc_exist == True:
+                            i0 = len(df_dt_reloc.index)
+                            df_dt_reloc.loc[i0] = [i, j, lat_reloc, lon_reloc, sqrt(x0_reloc ** 2 + y0_reloc ** 2), diff_time, diff_depth_reloc]
                     # Compute width of envelope at half the amplitude of the maximum
                     indEW = np.where(EW.data[ibegin_EW:iend_EW] > 0.5 * EWmax)[0]
                     indNS = np.where(NS.data[ibegin_NS:iend_NS] > 0.5 * NSmax)[0]
@@ -149,12 +213,21 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                     tmin_EW = np.min(timerange_EW)
                     tmax_NS = np.max(timerange_NS)
                     tmin_NS = np.min(timerange_NS)
+                    # Uncertainty from A. Ghosh's catalog
                     dmax_EW = f(sqrt(x0 ** 2.0 + y0 ** 2.0), tmax_EW)[0]
                     dmin_EW = f(sqrt(x0 ** 2.0 + y0 ** 2.0), tmin_EW)[0]
                     dmax_NS = f(sqrt(x0 ** 2.0 + y0 ** 2.0), tmax_NS)[0]
                     dmin_NS = f(sqrt(x0 ** 2.0 + y0 ** 2.0), tmin_NS)[0]
                     thick_EW = dmax_EW - dmin_EW
                     thick_NS = dmax_NS - dmin_NS
+                    # Uncertainty from A. Wech's catalog
+                    if reloc_exist == True:
+                        dmax_EW_reloc = f(sqrt(x0_reloc ** 2.0 + y0_reloc ** 2.0), tmax_EW)[0]
+                        dmin_EW_reloc = f(sqrt(x0_reloc ** 2.0 + y0_reloc ** 2.0), tmin_EW)[0]
+                        dmax_NS_reloc = f(sqrt(x0_reloc ** 2.0 + y0_reloc ** 2.0), tmax_NS)[0]
+                        dmin_NS_reloc = f(sqrt(x0_reloc ** 2.0 + y0_reloc ** 2.0), tmin_NS)[0]
+                        thick_EW_reloc = dmax_EW_reloc - dmin_EW_reloc
+                        thick_NS_reloc = dmax_NS_reloc - dmin_NS_reloc 
                     # Write to pandas dataframe
                     i0 = len(df_width.index)
                     df_width.loc[i0] = [i, j, latitude, longitude, \
@@ -162,6 +235,13 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                         maxE, maxN, time_EW, time_NS, dist_EW, dist_NS, \
                         d_to_pb_EW_M, d_to_pb_EW_P, d_to_pb_NS_M, d_to_pb_NS_P, \
                         thick_EW, thick_NS]
+                    if reloc_exist == True:
+                        i0 = len(df_width_reloc.index)
+                        df_width_reloc.loc[i0] = [i, j, lat_reloc, lon_reloc, \
+                            sqrt(x0_reloc ** 2 + y0_reloc ** 2), ntremor, ratioE, ratioN, \
+                            maxE, maxN, time_EW, time_NS, dist_EW_reloc, dist_NS_reloc, \
+                            d_to_pb_EW_M_reloc, d_to_pb_EW_P_reloc, d_to_pb_NS_M_reloc, d_to_pb_NS_P_reloc, \
+                            thick_EW_reloc, thick_NS_reloc]
                     # Plot
                     plt.plot([(i - imin) * Tmax + time_M, (i - imin) * Tmax + time_M], \
                         [(j - jmin), (j - jmin + 0.8)], linewidth=2, linestyle='-', color='grey')
@@ -193,9 +273,14 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
     # Save dataframe
     namefile = 'cc/{}/{}_{}_{}_diff_EW_NS.pkl'.format(arrayName, arrayName, type_stack, cc_stack)
     pickle.dump(df_dt, open(namefile, 'wb'))
+    namefile = 'cc/{}/{}_{}_{}_diff_EW_NS_reloc.pkl'.format(arrayName, arrayName, type_stack, cc_stack)
+    pickle.dump(df_dt_reloc, open(namefile, 'wb'))
     df_width['ntremor'] = df_width['ntremor'].astype('int')
     namefile = 'cc/{}/{}_{}_{}_width.pkl'.format(arrayName, arrayName, type_stack, cc_stack)
     pickle.dump(df_width, open(namefile, 'wb'))
+    df_width_reloc['ntremor'] = df_width_reloc['ntremor'].astype('int')
+    namefile = 'cc/{}/{}_{}_{}_width_reloc.pkl'.format(arrayName, arrayName, type_stack, cc_stack)
+    pickle.dump(df_width_reloc, open(namefile, 'wb'))
 
 if __name__ == '__main__':
 
@@ -234,15 +319,15 @@ if __name__ == '__main__':
     mintremor = 30
     Tmax = 15.0
     ds = 5.0
-    imin = -5
-    imax = 5
+    imin = -3
+    imax = 3
     jmin = -5
-    jmax = 5
+    jmax = 1
     cutb = 2.0
     cute = 7.0
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
     vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
-    vs0 = 1.01 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
+    vs0 = 1.00 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
 
 #    plot_envelopes(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, \
 #        Tmax, 15.0, ds, imin, imax, jmin, jmax, cutb, cute, h0, vs0, vp0)

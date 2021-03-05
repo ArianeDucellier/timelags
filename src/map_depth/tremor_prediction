@@ -1,6 +1,6 @@
 #!/bin/csh -f
-set input = prediction_PWS_PWS.txt
-set output = prediction_PWS_PWS.eps
+set input = prediction_PWS_PWS_reloc.txt
+set output = prediction_PWS_PWS_reloc.eps
 set cpt = depth.cpt
 
 # Boundaries

@@ -82,7 +82,7 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
         'STD_EW', 'STD_NS', 'MAD_EW', 'MAD_NS', 'S_EW', 'S_NS', 'Q_EW', 'Q_NS'])
 
     # Get velocity model
-    f = pickle.load(open('ttgrid_p1.pkl', 'rb'))
+    f = pickle.load(open('ttgrid_0.pkl', 'rb'))
 
     # Loop over output files
     for i in range(-5, 6):
@@ -221,7 +221,7 @@ if __name__ == '__main__':
     ds = 5.0
     h0 = np.array([0.0, 4.0, 9.0, 16.0, 20.0, 25.0, 51.0, 81.0])
     vp0 = np.array([5.40, 6.38, 6.59, 6.73, 6.86, 6.95, 7.80, 8.00])
-    vs0 = 1.01 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
+    vs0 = 1.00 * vp0 / np.array([1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77])
 
 #    compute_thickness(arrayName, lon0, lat0, 'lin', 'lin', mintremor, 10.0, ds, 15.0, h0, vs0, vp0)
 #    compute_thickness(arrayName, lon0, lat0, 'lin', 'pow', mintremor, 50.0, ds, 0.5, h0, vs0, vp0)

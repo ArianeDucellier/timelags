@@ -1,6 +1,6 @@
 #!/bin/csh -f
-set input = error_PWS_PWS.txt
-set output = error_PWS_PWS.eps
+set input = error_PWS_PWS_reloc.txt
+set output = error_PWS_PWS_reloc.eps
 set cpt = error.cpt
 
 # Boundaries

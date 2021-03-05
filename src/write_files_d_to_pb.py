@@ -5,7 +5,8 @@ import numpy as np
 import pandas as pd
 import pickle
 
-arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
+#arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
+arrays = ['BH', 'BS', 'DR', 'GC', 'LC', 'PA', 'TB']
 
 type_stack = 'PWS'
 cc_stack = 'PWS'
@@ -13,7 +14,7 @@ cc_stack = 'PWS'
 threshold = 0.005
 
 for num, array in enumerate(arrays):
-    df = pickle.load(open('cc/{}/{}_{}_{}_width_0.pkl'.format( \
+    df = pickle.load(open('cc/{}/{}_{}_{}_width_reloc.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     quality = pickle.load(open('cc/{}/quality_{}_{}.pkl'.format( \
         array, type_stack, cc_stack), 'rb'))
@@ -38,5 +39,5 @@ for num, array in enumerate(arrays):
             d_to_pb_M[i, 2] = df['d_to_pb_NS_M'][i]
             d_to_pb_P[i, 2] = df['d_to_pb_NS_P'][i]
 
-    np.savetxt('map_depth/d_to_pb_{}_{}_{}_M.txt'.format(type_stack, cc_stack, array), d_to_pb_M, fmt='%10.5f')
-    np.savetxt('map_depth/d_to_pb_{}_{}_{}_P.txt'.format(type_stack, cc_stack, array), d_to_pb_P, fmt='%10.5f')
+    np.savetxt('map_depth/d_to_pb_{}_{}_{}_M_reloc.txt'.format(type_stack, cc_stack, array), d_to_pb_M, fmt='%10.5f')
+    np.savetxt('map_depth/d_to_pb_{}_{}_{}_P_reloc.txt'.format(type_stack, cc_stack, array), d_to_pb_P, fmt='%10.5f')
