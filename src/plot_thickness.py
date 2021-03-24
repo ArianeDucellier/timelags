@@ -59,10 +59,20 @@ def Q(data):
 def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, minratio, ds, amp, h0, vs0, vp0):
     """
     """
+    # Get relocated tremor locations
+    locations = pd.read_csv('../data/Clusters/txt_files/Trem1_Cl2_' + arrayName + '.txt', \
+        '\s+', header=None)
+    locations.columns = ['longitude', 'latitude', 'lon_reloc', 'lat_reloc']
+
     # Get depth of plate boundary around the array
+    # McCrory model
     depth_pb_M = pd.read_csv('../data/depth/McCrory/' + arrayName + '_depth.txt', sep=' ', \
         header=None)
     depth_pb_M.columns = ['x', 'y', 'depth']
+    # Relocated McCrory model
+    depth_pb_M_reloc = pd.read_csv('../data/depth/McCrory/' + arrayName + '_depth_reloc.txt', sep=' ', \
+        header=None)
+    depth_pb_M_reloc.columns = ['longitude', 'latitude', 'lon_reloc', 'lat_reloc', 'depth']
 
     # Get number of tremor and ratio peak / RMS
     df = pickle.load(open(arrayName + '_timelag.pkl', 'rb'))
@@ -80,6 +90,8 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
     # Dataframe to store depth and thickness of the tremor zone
     df_thick = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', 'distance', 'ntremor', 'ratioE', 'ratioN', \
         'STD_EW', 'STD_NS', 'MAD_EW', 'MAD_NS', 'S_EW', 'S_NS', 'Q_EW', 'Q_NS'])
+    df_thick_reloc = pd.DataFrame(columns=['i', 'j', 'latitude', 'longitude', 'distance', 'ntremor', 'ratioE', 'ratioN', \
+        'STD_EW', 'STD_NS', 'MAD_EW', 'MAD_NS', 'S_EW', 'S_NS', 'Q_EW', 'Q_NS'])
 
     # Get velocity model
     f = pickle.load(open('ttgrid_0.pkl', 'rb'))
@@ -92,11 +104,31 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
             # Get latitude and longitude
             longitude = lon0 + x0 / dx
             latitude = lat0 + y0 / dy
+            # Relocate latitude and longitude
+            myx = (locations['longitude'] - longitude > -0.001) & \
+                  (locations['longitude'] - longitude < 0.001)
+            myy = (locations['latitude'] - latitude > -0.001) & \
+                  (locations['latitude'] - latitude < 0.001)
+            myline = locations[myx & myy]
+            if len(myline > 0):
+                lon_reloc = myline['lon_reloc'].iloc[0]
+                lat_reloc = myline['lat_reloc'].iloc[0]
+                reloc_exist = True
+            else:
+                reloc_exist = False
             # Get depth of plate boundary (McCrory model)
             myx = depth_pb_M['x'] == x0
             myy = depth_pb_M['y'] == y0
             myline = depth_pb_M[myx & myy]
             d0_M = - myline['depth'].iloc[0]
+            # Get relocated depth of plate boundary (McCrory model)
+            myx = (depth_pb_M_reloc['longitude'] - longitude > -0.001) & \
+                  (depth_pb_M_reloc['longitude'] - longitude < 0.001)
+            myy = (depth_pb_M_reloc['latitude'] - latitude > -0.001) & \
+                  (depth_pb_M_reloc['latitude'] - latitude < 0.001)
+            myline = depth_pb_M_reloc[myx & myy]
+            if len(myline > 0):
+                d0_M_reloc = - myline['depth'].iloc[0]
             # Get number of tremor and ratio
             myx = df['x0'] == x0
             myy = df['y0'] == y0
@@ -146,6 +178,15 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
                     MADs_NS = []
                     Ss_NS = []
                     Qs_NS = []
+                    if reloc_exist == True:
+                        STDs_EW_reloc = []
+                        MADs_EW_reloc = []
+                        Ss_EW_reloc = []
+                        Qs_EW_reloc = []
+                        STDs_NS_reloc = []
+                        MADs_NS_reloc = []
+                        Ss_NS_reloc = []
+                        Qs_NS_reloc = []
                     # Loop on clusters
                     for k in range(0, len(timelag_clust_EW)):
                         times_EW = timelag_clust_EW[k].to_numpy()
@@ -156,6 +197,16 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
                             depths_EW[l] = f(sqrt(x0 ** 2.0 + y0 ** 2.0), times_EW[l])[0]
                         for l in range(0, np.shape(times_NS)[0]):
                             depths_NS[l] = f(sqrt(x0 ** 2.0 + y0 ** 2.0), times_NS[l])[0]
+                        # Depth from A. Wech's catalog
+                        if reloc_exist == True:
+                            x0_reloc = (lon_reloc - lon0) * dx
+                            y0_reloc = (lat_reloc - lat0) * dy
+                            depths_EW_reloc = np.zeros(np.shape(times_EW)[0])
+                            depths_NS_reloc = np.zeros(np.shape(times_NS)[0])
+                            for l in range(0, np.shape(times_EW)[0]):
+                                depths_EW_reloc[l] = f(sqrt(x0_reloc ** 2.0 + y0_reloc ** 2.0), times_EW[l])[0]
+                            for l in range(0, np.shape(times_NS)[0]):
+                                depths_NS_reloc[l] = f(sqrt(x0_reloc ** 2.0 + y0_reloc ** 2.0), times_NS[l])[0]
                         STDs_EW.append(np.std(depths_EW))
                         STDs_NS.append(np.std(depths_NS))
                         MADs_EW.append(MAD(depths_EW))
@@ -164,6 +215,15 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
                         Ss_NS.append(S(depths_NS))
                         Qs_EW.append(Q(depths_EW))
                         Qs_NS.append(Q(depths_NS))
+                        if reloc_exist == True:
+                            STDs_EW_reloc.append(np.std(depths_EW_reloc))
+                            STDs_NS_reloc.append(np.std(depths_NS_reloc))
+                            MADs_EW_reloc.append(MAD(depths_EW_reloc))
+                            MADs_NS_reloc.append(MAD(depths_NS_reloc))
+                            Ss_EW_reloc.append(S(depths_EW_reloc))
+                            Ss_NS_reloc.append(S(depths_NS_reloc))
+                            Qs_EW_reloc.append(Q(depths_EW_reloc))
+                            Qs_NS_reloc.append(Q(depths_NS_reloc))
                     # Keep minimum value
                     STD_EW = min(STDs_EW)
                     STD_NS = min(STDs_NS)
@@ -173,15 +233,31 @@ def compute_thickness(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, mi
                     S_NS = min(Ss_NS)
                     Q_EW = min(Qs_EW)
                     Q_NS = min(Qs_NS)
+                    if reloc_exist == True:
+                        STD_EW_reloc = min(STDs_EW_reloc)
+                        STD_NS_reloc = min(STDs_NS_reloc)
+                        MAD_EW_reloc = min(MADs_EW_reloc)
+                        MAD_NS_reloc = min(MADs_NS_reloc)
+                        S_EW_reloc = min(Ss_EW_reloc)
+                        S_NS_reloc = min(Ss_NS_reloc)
+                        Q_EW_reloc = min(Qs_EW_reloc)
+                        Q_NS_reloc = min(Qs_NS_reloc)
                     # Write to pandas dataframe
                     i0 = len(df_thick.index)
                     df_thick.loc[i0] = [i, j, latitude, longitude, sqrt(x0 ** 2 + y0 ** 2), ntremor, ratioE, ratioN, \
                         STD_EW, STD_NS, MAD_EW, MAD_NS, S_EW, S_NS, Q_EW, Q_NS]
+                    if reloc_exist == True:
+                        i0 = len(df_thick_reloc.index)
+                        df_thick_reloc.loc[i0] = [i, j, lat_reloc, lon_reloc, sqrt(x0_reloc ** 2 + y0_reloc ** 2), ntremor, ratioE, ratioN, \
+                            STD_EW_reloc, STD_NS_reloc, MAD_EW_reloc, MAD_NS_reloc, S_EW_reloc, S_NS_reloc, Q_EW_reloc, Q_NS_reloc]
 
     # Save dataframe
     df_thick['ntremor'] = df_thick['ntremor'].astype('int')
     namefile = 'cc/{}/{}_{}_{}_thick.pkl'.format(arrayName, arrayName, type_stack, cc_stack)
     pickle.dump(df_thick, open(namefile, 'wb'))
+    df_thick_reloc['ntremor'] = df_thick_reloc['ntremor'].astype('int')
+    namefile = 'cc/{}/{}_{}_{}_thick_reloc.pkl'.format(arrayName, arrayName, type_stack, cc_stack)
+    pickle.dump(df_thick_reloc, open(namefile, 'wb'))
 
 if __name__ == '__main__':
 

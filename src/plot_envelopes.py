@@ -95,7 +95,6 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                 lon_reloc = myline['lon_reloc'].iloc[0]
                 lat_reloc = myline['lat_reloc'].iloc[0]
                 reloc_exist = True
-                print(x0, y0, latitude, longitude, lat_reloc, lon_reloc)
             else:
                 reloc_exist = False
             # Get depth of plate boundary (McCrory model)

@@ -30,7 +30,7 @@ for num, array in enumerate(arrays):
 df.drop(df[(df.maxE < threshold) & (df.maxN < threshold)].index, inplace=True)
 df.reset_index(drop=True, inplace=True)
 
-df.drop(df[df.quality != 1].index, inplace=True)
+df.drop(df[df.quality > 2].index, inplace=True)
 df.reset_index(drop=True, inplace=True)
 
 prediction = np.zeros((len(df), 3))
