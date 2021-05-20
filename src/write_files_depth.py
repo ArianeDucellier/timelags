@@ -7,8 +7,8 @@ import pickle
 
 from math import cos, pi, sin, sqrt
 
-#arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
-arrays = ['BH', 'BS', 'DR', 'GC', 'LC', 'PA', 'TB']
+arrays = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
+#arrays = ['BH', 'BS', 'DR', 'GC', 'LC', 'PA', 'TB']
 
 type_stack = 'PWS'
 cc_stack = 'PWS'
@@ -40,7 +40,7 @@ m_3 = 0.2 * dy_3 / dx_3
 
 # Read output files
 for num, array in enumerate(arrays):
-    df = pickle.load(open('cc/{}/{}_{}_{}_width_reloc.pkl'.format( \
+    df = pickle.load(open('cc/{}/{}_{}_{}_width.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     quality = pickle.load(open('cc/{}/quality_{}_{}.pkl'.format( \
         array, type_stack, cc_stack), 'rb'))
@@ -140,20 +140,20 @@ for num, array in enumerate(arrays):
             section_strike_2[i, 2] = df['strike_2'][i]
             section_strike_3[i, 2] = df['strike_3'][i]
 
-    np.savetxt('map_depth/uncertainty_{}_{}_{}_reloc.txt'.format(type_stack, cc_stack, array), uncertainty, fmt='%10.5f')
-    np.savetxt('map_depth/depth_{}_{}_{}_reloc.txt'.format(type_stack, cc_stack, array), depth, fmt='%10.5f')
-    np.savetxt('map_depth/d_to_pb_{}_{}_{}_M_reloc.txt'.format(type_stack, cc_stack, array), d_to_pb_M, fmt='%10.5f')
-    np.savetxt('map_depth/d_to_pb_{}_{}_{}_P_reloc.txt'.format(type_stack, cc_stack, array), d_to_pb_P, fmt='%10.5f')
-    np.savetxt('map_depth/section_uncertainty_{}_{}_{}_reloc.txt'.format(type_stack, cc_stack, array), section_uncertainty, fmt='%10.5f')
-    np.savetxt('map_depth/section_peak_{}_{}_{}_reloc.txt'.format(type_stack, cc_stack, array), section_peak, fmt='%10.5f')
+    np.savetxt('map_depth/uncertainty_{}_{}_{}.txt'.format(type_stack, cc_stack, array), uncertainty, fmt='%10.5f')
+    np.savetxt('map_depth/depth_{}_{}_{}.txt'.format(type_stack, cc_stack, array), depth, fmt='%10.5f')
+    np.savetxt('map_depth/d_to_pb_{}_{}_{}_M.txt'.format(type_stack, cc_stack, array), d_to_pb_M, fmt='%10.5f')
+    np.savetxt('map_depth/d_to_pb_{}_{}_{}_P.txt'.format(type_stack, cc_stack, array), d_to_pb_P, fmt='%10.5f')
+    np.savetxt('map_depth/section_uncertainty_{}_{}_{}.txt'.format(type_stack, cc_stack, array), section_uncertainty, fmt='%10.5f')
+    np.savetxt('map_depth/section_peak_{}_{}_{}.txt'.format(type_stack, cc_stack, array), section_peak, fmt='%10.5f')
 
     section_strike_1 = section_strike_1[np.abs(section_strike_1[:, 2]) <= 10, :]
     section_strike_2 = section_strike_2[np.abs(section_strike_2[:, 2]) <= 10, :]
     section_strike_3 = section_strike_3[np.abs(section_strike_3[:, 2]) <= 10, :]
 
-    np.savetxt('map_depth/section_strike_{}_{}_{}_1_reloc.txt'.format(type_stack, cc_stack, array), section_strike_1, fmt='%10.5f')
-    np.savetxt('map_depth/section_strike_{}_{}_{}_2_reloc.txt'.format(type_stack, cc_stack, array), section_strike_2, fmt='%10.5f')
-    np.savetxt('map_depth/section_strike_{}_{}_{}_3_reloc.txt'.format(type_stack, cc_stack, array), section_strike_3, fmt='%10.5f')
+    np.savetxt('map_depth/section_strike_{}_{}_{}_1.txt'.format(type_stack, cc_stack, array), section_strike_1, fmt='%10.5f')
+    np.savetxt('map_depth/section_strike_{}_{}_{}_2.txt'.format(type_stack, cc_stack, array), section_strike_2, fmt='%10.5f')
+    np.savetxt('map_depth/section_strike_{}_{}_{}_3.txt'.format(type_stack, cc_stack, array), section_strike_3, fmt='%10.5f')
 
 #df = pickle.load(open('../data/depth/McCrory/LFEs_Sweet_2014.pkl', 'rb'))
 
