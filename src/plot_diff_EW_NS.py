@@ -47,7 +47,7 @@ pylab.rcParams.update(params)
 plt.figure(1, figsize=(15, 15))
 
 for num, (array, lat, lon) in enumerate(zip(arrays, lats, lons)):
-    df_temp = pickle.load(open('cc/{}/{}_{}_{}_diff_EW_NS_reloc.pkl'.format( \
+    df_temp = pickle.load(open('cc/{}/{}_{}_{}_diff_EW_NS_reloc_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     dx = (pi / 180.0) * a * cos(lat * pi / 180.0) / sqrt(1.0 - e * e * \
         sin(lat * pi / 180.0) * sin(lat * pi / 180.0))
@@ -100,7 +100,7 @@ plt.xlabel('Azimuth', fontsize=24)
 plt.ylabel('Depth difference (km)', fontsize=24)
 
 plt.tight_layout()
-plt.savefig('diff_EW_NS/{}_{}_reloc.eps'.format(type_stack, cc_stack), format='eps')
+plt.savefig('diff_EW_NS/{}_{}_reloc_0.eps'.format(type_stack, cc_stack), format='eps')
 ax1.clear()
 ax2.clear()
 ax3.clear()

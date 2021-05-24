@@ -15,7 +15,7 @@ threshold = 0.005
 
 # Read output files
 for num, array in enumerate(arrays):
-    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_0.pkl'.format( \
+    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_reloc_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     if (num == 0):
         df0 = df_temp
@@ -23,7 +23,7 @@ for num, array in enumerate(arrays):
         df0 = pd.concat([df0, df_temp], ignore_index=True)
 
 for num, array in enumerate(arrays):
-    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_m1.pkl'.format( \
+    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_reloc_m1.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     if (num == 0):
         df1 = df_temp
@@ -31,7 +31,7 @@ for num, array in enumerate(arrays):
         df1 = pd.concat([df1, df_temp], ignore_index=True)
 
 for num, array in enumerate(arrays):
-    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_p1.pkl'.format( \
+    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_reloc_p1.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     if (num == 0):
         df2 = df_temp
@@ -108,7 +108,7 @@ plt.ylabel('Depth difference (km)', fontsize=20)
 plt.title('Larger Vp / Vs', fontsize=20)
 
 plt.tight_layout()
-plt.savefig('variations/{}_{}.eps'.format(type_stack, cc_stack), format='eps')
+plt.savefig('variations/{}_{}_reloc.eps'.format(type_stack, cc_stack), format='eps')
 ax1.clear()
 ax2.clear()
 #ax3.clear()

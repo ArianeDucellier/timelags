@@ -17,7 +17,7 @@ cc_stack = 'PWS'
 threshold = 0.005
 
 for num, array in enumerate(arrays):
-    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_reloc.pkl'.format( \
+    df_temp = pickle.load(open('cc/{}/{}_{}_{}_width_reloc_0.pkl'.format( \
         array, array, type_stack, cc_stack), 'rb'))
     quality = pickle.load(open('cc/{}/quality_{}_{}.pkl'.format( \
         array, type_stack, cc_stack), 'rb'))

@@ -1,15 +1,6 @@
 data/*.mat
 data/Clusters/*
 data/Clusters2/*
-figures/*.eps
 matlab/*
-src/*.pkl
 src/cc/*
-src/clusters/*
-src/diff_EW_NS/*
-src/map_depth/*.eps
-src/map_depth/*.txt
-src/map_depth/keep/*
-src/map_thick/*.eps
-src/map_thick/*.txt
-src/variations/*
+
