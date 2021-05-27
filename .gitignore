@@ -1,6 +1,12 @@
-data/*.mat
 data/Clusters/*
 data/Clusters2/*
 matlab/*
-src/cc/*
+src/cc/BH/BH_*/*
+src/cc/BS/BS_*/*
+src/cc/CL/CL_*/*
+src/cc/DR/DR_*/*
+src/cc/GC/GC_*/*
+src/cc/LC/LC_*/*
+src/cc/PA/PA_*/*
+src/cc/TB/TB_*/*
 
