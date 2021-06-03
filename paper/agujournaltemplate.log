@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  2 JUN 2021 23:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  3 JUN 2021 06:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2707,18 +2707,12 @@ Package epstopdf Info: Source file: <figures/depth_PWS_PWS.eps>
 (epstopdf)                    size: 69936 bytes
 (epstopdf)             Output file: <figures/depth_PWS_PWS-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2021-05-26 19:54:59
-(epstopdf)                    size: 19819 bytes
+(epstopdf)                    date: 2021-06-02 23:17:46
+(epstopdf)                    size: 20235 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/depth_PWS_PWS-eps-
 converted-to.pdf figures/depth_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 286.
-runsystem(repstopdf --outfile=figures/depth_PWS_PWS-eps-converted-to.pdf figure
-s/depth_PWS_PWS.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <figures/depth_PWS_PWS-eps-converted-to.pdf
->
-(epstopdf)                    date: 2021-06-02 23:17:46
-(epstopdf)                    size: 20235 bytes.
+Package epstopdf Info: Output file is already uptodate.
 
 <figures/depth_PWS_PWS-eps-converted-to.pdf, id=193, 597.23125pt x 845.1575pt>
 File: figures/depth_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
@@ -3440,17 +3434,12 @@ Package epstopdf Info: Source file: <figures/Q_PWS_PWS.eps>
 (epstopdf)                    date: 2021-06-02 23:14:42
 (epstopdf)                    size: 65149 bytes
 (epstopdf)             Output file: <figures/Q_PWS_PWS-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-05-26 20:23:35
-(epstopdf)                    size: 16068 bytes
+(epstopdf)                    date: 2021-06-02 23:17:47
+(epstopdf)                    size: 16120 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/Q_PWS_PWS-eps-conv
 erted-to.pdf figures/Q_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 342.
-runsystem(repstopdf --outfile=figures/Q_PWS_PWS-eps-converted-to.pdf figures/Q_
-PWS_PWS.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <figures/Q_PWS_PWS-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-06-02 23:17:47
-(epstopdf)                    size: 16120 bytes.
+Package epstopdf Info: Output file is already uptodate.
 <figures/Q_PWS_PWS-eps-converted-to.pdf, id=322, 597.23125pt x 845.1575pt>
 File: figures/Q_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -3517,12 +3506,12 @@ the tremor ap-pears to co-in-
  []
 
 Package epstopdf Info: Source file: <figures/error_PWS_PWS.eps>
-(epstopdf)                    date: 2021-05-24 15:39:08
-(epstopdf)                    size: 62820 bytes
+(epstopdf)                    date: 2021-06-03 06:41:23
+(epstopdf)                    size: 65672 bytes
 (epstopdf)             Output file: <figures/error_PWS_PWS-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2021-05-26 20:23:36
-(epstopdf)                    size: 15367 bytes
+(epstopdf)                    date: 2021-06-03 06:48:43
+(epstopdf)                    size: 16517 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/error_PWS_PWS-eps-
 converted-to.pdf figures/error_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 353.
@@ -3535,6 +3524,18 @@ File: figures/error_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/error_PWS_PWS-eps-converted-to.pdf used on inp
 ut line 353.
 (pdftex.def)             Requested size: 397.48499pt x 499.05078pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+[]\OT1/cmr/bx/n/9 Figure  15. \OT1/cmr/m/n/9 Map of the resid-u-als from the li
+n-ear re-gres-sion fit-ting all the depths to a plane.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+\OT1/cmr/m/n/9 Resid-u-als are from ar-rays Burnt Hill (squares), Big Skid-der 
+(stars), Danz Ranch (in-verted tri-an-
+ []
+
 
 Overfull \hbox (14.59895pt too wide) in paragraph at lines 360--361
 []\OT1/cmr/m/n/10 We de-vel-oped a method to es-ti-mate the depth of the source
@@ -3839,7 +3840,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  3509 strings out of 493117
  50463 string characters out of 6135433
- 129806 words of memory out of 5000000
+ 129786 words of memory out of 5000000
  6901 multiletter control sequences out of 15000+600000
  9230 words of font info for 33 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
@@ -3861,7 +3862,7 @@ ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2014/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on agujournaltemplate.pdf (26 pages, 2709010 bytes).
+Output written on agujournaltemplate.pdf (26 pages, 2710463 bytes).
 PDF statistics:
  458 PDF objects out of 1000 (max. 8388607)
  190 compressed objects within 2 object streams

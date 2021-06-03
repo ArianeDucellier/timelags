@@ -1,5 +1,4 @@
 #!/bin/csh -f
-set input = error_PWS_PWS_reloc.txt
 set output = error_PWS_PWS_reloc.eps
 set cpt = error.cpt
 
@@ -30,7 +29,12 @@ END
 
 gmt psxy arrays.dat -R$Rop -J$Jop -St0.4 -Gblack -O -K >> $output
 
-gmt psxy $input -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
+gmt psxy error_PWS_PWS_BH_reloc.txt -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
+gmt psxy error_PWS_PWS_BS_reloc.txt -R$Rop -J$Jop -Sa0.4 -C$cpt -O -K >> $output
+gmt psxy error_PWS_PWS_DR_reloc.txt -R$Rop -J$Jop -Si0.4 -C$cpt -O -K >> $output
+#gmt psxy error_PWS_PWS_GC_reloc.txt -R$Rop -J$Jop -Sc0.4 -C$cpt -O -K >> $output
+gmt psxy error_PWS_PWS_PA_reloc.txt -R$Rop -J$Jop -Sd0.4 -C$cpt -O -K >> $output
+gmt psxy error_PWS_PWS_TB_reloc.txt -R$Rop -J$Jop -St0.4 -C$cpt -O -K >> $output
 
 gmt psscale -C$cpt -D7.0/-3.0/10/0.5h -O -L -B:"Residuals in km": >> $output
 
