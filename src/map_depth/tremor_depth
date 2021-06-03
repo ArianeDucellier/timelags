@@ -1,5 +1,5 @@
 #!/bin/csh -f
-set output = depth_PWS_PWS_reloc.eps
+set output = depth_PWS_PWS.eps
 set cpt = depth.cpt
 
 # Boundaries
@@ -19,6 +19,17 @@ gmt psxy crosssection_1.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
 gmt psxy crosssection_2.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
 gmt psxy crosssection_3.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
 
+cat << END >> mytext.dat
+-123.55 47.80 A
+-122.85 47.93 A'
+-123.55 47.90 B
+-122.85 48.03 B'
+-123.55 48.00 C
+-122.85 48.13 C'
+END
+
+gmt pstext mytext.dat -R$Rop -J$Jop -F+f15p -O -K >> $output
+
 gmt psxy depth_sweet.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
 gmt psxy depth_chestler.txt -R$Rop -J$Jop -Sc0.2 -C$cpt -W -O -K >> $output
 
@@ -36,13 +47,14 @@ END
 
 gmt psxy arrays.dat -R$Rop -J$Jop -St0.4 -Gblack -O -K >> $output
 
-gmt psxy depth_PWS_PWS_BH_reloc.txt -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
-gmt psxy depth_PWS_PWS_BS_reloc.txt -R$Rop -J$Jop -Sa0.4 -C$cpt -O -K >> $output
-gmt psxy depth_PWS_PWS_DR_reloc.txt -R$Rop -J$Jop -Si0.4 -C$cpt -O -K >> $output
-gmt psxy depth_PWS_PWS_GC_reloc.txt -R$Rop -J$Jop -Sc0.4 -C$cpt -O -K >> $output
-gmt psxy depth_PWS_PWS_PA_reloc.txt -R$Rop -J$Jop -Sd0.4 -C$cpt -O -K >> $output
-gmt psxy depth_PWS_PWS_TB_reloc.txt -R$Rop -J$Jop -St0.4 -C$cpt -O -K >> $output
+gmt psxy depth_PWS_PWS_BH.txt -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
+gmt psxy depth_PWS_PWS_BS.txt -R$Rop -J$Jop -Sa0.4 -C$cpt -O -K >> $output
+gmt psxy depth_PWS_PWS_DR.txt -R$Rop -J$Jop -Si0.4 -C$cpt -O -K >> $output
+gmt psxy depth_PWS_PWS_GC.txt -R$Rop -J$Jop -Sc0.4 -C$cpt -O -K >> $output
+gmt psxy depth_PWS_PWS_PA.txt -R$Rop -J$Jop -Sd0.4 -C$cpt -O -K >> $output
+gmt psxy depth_PWS_PWS_TB.txt -R$Rop -J$Jop -St0.4 -C$cpt -O -K >> $output
 
 gmt psscale -C$cpt -D7.0/-3.0/12/0.5h -O -L -B:"Tremor depth in km": >> $output
 
 rm arrays.dat
+rm mytext.dat
