@@ -1,5 +1,5 @@
 #!/bin/csh -f
-set output = uncertainty_PWS_PWS_reloc.eps
+set output = uncertainty_PWS_PWS.eps
 set cpt = uncertainty.cpt
 
 # Boundaries
@@ -12,7 +12,7 @@ set Jop = m-123.2/48.0/25.0
 
 gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -G255/255/224 -S224/255/255 -Df -Na -Y10 -P -K >! $output
 
-gmt xyz2grd plate_boundary_M.txt -Gplate_boundary.grd -I0.1 -R$Rop
+gmt xyz2grd plate_boundary_P.txt -Gplate_boundary.grd -I0.1 -R$Rop
 gmt grdcontour plate_boundary.grd -A2 -J$Jop -R$Rop -O -K >> $output
 
 # Locations of arrays
@@ -29,12 +29,12 @@ END
 
 gmt psxy arrays.dat -R$Rop -J$Jop -St0.4 -Gblack -O -K >> $output
 
-gmt psxy uncertainty_PWS_PWS_BH_reloc.txt -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
-gmt psxy uncertainty_PWS_PWS_BS_reloc.txt -R$Rop -J$Jop -Sa0.4 -C$cpt -O -K >> $output
-gmt psxy uncertainty_PWS_PWS_DR_reloc.txt -R$Rop -J$Jop -Si0.4 -C$cpt -O -K >> $output
-gmt psxy uncertainty_PWS_PWS_GC_reloc.txt -R$Rop -J$Jop -Sc0.4 -C$cpt -O -K >> $output
-gmt psxy uncertainty_PWS_PWS_PA_reloc.txt -R$Rop -J$Jop -Sd0.4 -C$cpt -O -K >> $output
-gmt psxy uncertainty_PWS_PWS_TB_reloc.txt -R$Rop -J$Jop -St0.4 -C$cpt -O -K >> $output
+gmt psxy uncertainty_PWS_PWS_BH.txt -R$Rop -J$Jop -Ss0.4 -C$cpt -O -K >> $output
+gmt psxy uncertainty_PWS_PWS_BS.txt -R$Rop -J$Jop -Sa0.4 -C$cpt -O -K >> $output
+gmt psxy uncertainty_PWS_PWS_DR.txt -R$Rop -J$Jop -Si0.4 -C$cpt -O -K >> $output
+gmt psxy uncertainty_PWS_PWS_GC.txt -R$Rop -J$Jop -Sc0.4 -C$cpt -O -K >> $output
+gmt psxy uncertainty_PWS_PWS_PA.txt -R$Rop -J$Jop -Sd0.4 -C$cpt -O -K >> $output
+gmt psxy uncertainty_PWS_PWS_TB.txt -R$Rop -J$Jop -St0.4 -C$cpt -O -K >> $output
 
 gmt psscale -C$cpt -D7.0/-3.0/10/0.5h -O -L -B:"Uncertainty in km": >> $output
 

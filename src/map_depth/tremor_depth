@@ -12,7 +12,7 @@ set Jop = m-123.2/48.0/25.0
 
 gmt pscoast -R$Rop -J$Jop -Ba0.25f0.125::WESN -W0.1p -G255/255/224 -S224/255/255 -Df -Na -Y10 -P -K >! $output
 
-gmt xyz2grd plate_boundary_M.txt -Gplate_boundary.grd -I0.1 -R$Rop
+gmt xyz2grd plate_boundary_P.txt -Gplate_boundary.grd -I0.1 -R$Rop
 gmt grdcontour plate_boundary.grd -A2 -J$Jop -R$Rop -O -K >> $output
 
 gmt psxy crosssection_1.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
