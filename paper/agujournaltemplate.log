@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  21 JUN 2021 22:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  26 JUN 2021 06:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -418,39 +418,45 @@ ted to be S mi-nus P times.
  []
 
 
-Overfull \hbox (14.76561pt too wide) in paragraph at lines 165--167
+Overfull \hbox (2.51556pt too wide) in paragraph at lines 165--167
 \OT1/cmr/m/n/10 Tremor depths are es-ti-mated from these S mi-nus P times us-in
-g epi-cen-ters from a tremor 
+g epi-cen-ters from a pre- 
  []
 
 
-Overfull \hbox (7.04347pt too wide) in paragraph at lines 165--167
-\OT1/cmr/m/n/10 cat-a-log. The tremor is lo-cated close to the plate bound-ary 
-in a re-gion no more than 2- 
+Overfull \hbox (3.26573pt too wide) in paragraph at lines 165--167
+\OT1/cmr/m/n/10 vi-ous study us-ing a multi-beam back-pro-jec-tion method. The 
+tremor is lo-cated close to 
  []
 
 
-Overfull \hbox (29.18233pt too wide) in paragraph at lines 165--167
-\OT1/cmr/m/n/10 3 kilo-me-ters thick and is very close to the depths of low-fre
-quency earth-quakes. The tremor 
+Overfull \hbox (0.15459pt too wide) in paragraph at lines 165--167
+\OT1/cmr/m/n/10 the plate bound-ary in a re-gion no more than 2-3 kilo-me-ters 
+thick and is very close to 
  []
 
 
-Overfull \hbox (3.26561pt too wide) in paragraph at lines 165--167
-\OT1/cmr/m/n/10 is dis-tributed over a wider depth range than the low-frequency
- earth-quakes. How-ever, 
+Overfull \hbox (6.65451pt too wide) in paragraph at lines 165--167
+\OT1/cmr/m/n/10 the depths of low-frequency earth-quakes. The tremor is dis-tri
+buted over a wider depth 
  []
 
 
-Overfull \hbox (11.71008pt too wide) in paragraph at lines 165--167
-\OT1/cmr/m/n/10 due to the un-cer-tainty on the depth, it is dif-fi-cult to con
--clude whether the source of the 
+Overfull \hbox (20.32123pt too wide) in paragraph at lines 165--167
+\OT1/cmr/m/n/10 range than the low-frequency earth-quakes. How-ever, due to the
+ un-cer-tainty on the depth, 
  []
 
 
-Overfull \hbox (22.98788pt too wide) in paragraph at lines 165--167
-\OT1/cmr/m/n/10 tremor is lo-cated at the top of the sub-duct-ing oceanic crust
-, in the lower con-ti-nen-tal crust 
+Overfull \hbox (1.51561pt too wide) in paragraph at lines 165--167
+\OT1/cmr/m/n/10 it is dif-fi-cult to con-clude whether the source of the tremor
+ is lo-cated at the top of the 
+ []
+
+
+Overfull \hbox (6.84903pt too wide) in paragraph at lines 165--167
+\OT1/cmr/m/n/10 sub-duct-ing oceanic crust, in the lower con-ti-nen-tal crust j
+ust above the plate bound-ary, 
  []
 
 
@@ -492,51 +498,57 @@ e of the LFEs is lo-cated
  []
 
 
-Overfull \hbox (3.04344pt too wide) in paragraph at lines 205--205
-\OT1/cmr/m/n/10 on the plate bound-ary, and their fo-cal mech-a-nisms rep-re-se
-nt shear slip on a low-angle 
+Overfull \hbox (14.76566pt too wide) in paragraph at lines 205--205
+\OT1/cmr/m/n/10 on or near the plate bound-ary, and their fo-cal mech-a-nisms r
+ep-re-sent shear slip on a low- 
  []
 
 
-Overfull \hbox (11.099pt too wide) in paragraph at lines 205--205
-\OT1/cmr/m/n/10 thrust fault dip-ping in the same di-rec-tion as the plate in-t
-er-face  []Ide et al.[], 2007; Royer 
+Overfull \hbox (8.43236pt too wide) in paragraph at lines 205--205
+\OT1/cmr/m/n/10 angle thrust fault dip-ping in the same di-rec-tion as the plat
+e in-ter-face  []Ide et al.[], 2007; 
  []
 
 
-Overfull \hbox (1.65456pt too wide) in paragraph at lines 205--205
-\OT1/cmr/m/n/10 & Bo-stock, 2014). Due to the lack of clear im-pul-sive phases 
+Overfull \hbox (1.90459pt too wide) in paragraph at lines 205--205
+\OT1/cmr/m/n/10 Royer & Bo-stock, 2014). The po-lar-iza-tion of tremor in north
+-ern Cas-ca-dia is also con- 
+ []
+
+
+Overfull \hbox (4.82124pt too wide) in paragraph at lines 205--205
+\OT1/cmr/m/n/10 sis-tent with slip on the pate bound-ary in the di-rec-tion of 
+rel-a-tive plate mo-tion  []Wech 
+ []
+
+
+Overfull \hbox (0.96007pt too wide) in paragraph at lines 205--205
+\OT1/cmr/m/n/10 & Crea-ger, 2007). Due to the lack of clear im-pul-sive phases 
 in the tremor sig-nal, it is 
  []
 
 
-Overfull \hbox (20.48787pt too wide) in paragraph at lines 205--205
+Overfull \hbox (1.32117pt too wide) in paragraph at lines 205--205
 \OT1/cmr/m/n/10 dif-fi-cult to de-ter-mine the depth of the tremor source with 
-the same pre-ci-sion. The tremor 
+the same pre-ci-sion. In sub- 
  []
 
 
-Overfull \hbox (4.23785pt too wide) in paragraph at lines 205--205
-\OT1/cmr/m/n/10 source is as-sumed to be lo-cated close to the plate bound-ary.
- In sub-duc-tion zones such 
+Overfull \hbox (3.96014pt too wide) in paragraph at lines 205--205
+\OT1/cmr/m/n/10 duc-tion zones such as Nankai and Cas-ca-dia, tec-tonic tremor 
+ob-ser-va-tions are spa-tially 
  []
 
 
-Overfull \hbox (8.62688pt too wide) in paragraph at lines 205--205
-\OT1/cmr/m/n/10 as Nankai and Cas-ca-dia, tec-tonic tremor ob-ser-va-tions are 
-spa-tially and tem-po-rally cor- 
+Overfull \hbox (10.09906pt too wide) in paragraph at lines 205--205
+\OT1/cmr/m/n/10 and tem-po-rally cor-re-lated with geode-t-i-cally ob-served sl
+ow slip  []Obara, 2002; Rogers & 
  []
 
 
-Overfull \hbox (11.32124pt too wide) in paragraph at lines 205--205
-\OT1/cmr/m/n/10 re-lated with slow slip ob-ser-va-tions  []Obara, 2002; Rogers 
-& Dragert, 2003). Due to this 
- []
-
-
-Overfull \hbox (8.71014pt too wide) in paragraph at lines 205--205
-\OT1/cmr/m/n/10 cor-re-la-tion, these paired phe-nom-ena have been called Episo
-dic Tremor and Slip (ETS).  
+Overfull \hbox (24.18239pt too wide) in paragraph at lines 205--205
+\OT1/cmr/m/n/10 Dragert, 2003). Due to this cor-re-la-tion, these paired phe-no
+m-ena have been called Episodic 
  []
 
 
@@ -630,51 +642,39 @@ e stress (CFS) and CFS rate.
  []
 
 
-Overfull \hbox (0.46005pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 How-ever, they noted that tremor oc-cur-rences are ad-vanced by
- a few hours rel-a-tive to 
+Overfull \hbox (6.18227pt too wide) in paragraph at lines 207--207
+\OT1/cmr/m/n/10 How-ever, tremor oc-cur-rences are ad-vanced by a few hours rel
+-a-tive to CFS, from which 
  []
 
 
-Overfull \hbox (11.65462pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 CFS, from which they con-clude that a sim-ple Coulomb thresh-ol
-d model is not suf-fi-cient 
+Overfull \hbox (13.76575pt too wide) in paragraph at lines 207--207
+\OT1/cmr/m/n/10 they con-clude that a sim-ple Coulomb thresh-old model is not s
+uf-fi-cient to ex-plain tremor 
  []
 
 
-Overfull \hbox (7.9046pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 to ex-plain tremor oc-cur-rence. In-stead they point out that t
-he cor-re-la-tion of tremor oc- 
+Overfull \hbox (16.04341pt too wide) in paragraph at lines 207--207
+\OT1/cmr/m/n/10 oc-cur-rence. This dis-crep-ancy can be ex-plained by us-ing a 
+rate- and state-dependent fric- 
  []
 
 
-Overfull \hbox (8.57114pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 cur-rence and the CFS rate as well as the time de-lay be-tween 
-both could be re-pro-duced 
+Overfull \hbox (7.09897pt too wide) in paragraph at lines 207--207
+\OT1/cmr/m/n/10 tion law.  []Thomas et al.[] (2009) have also ob-served that tr
+emor oc-cur-rence on the deep 
  []
 
 
-Overfull \hbox (12.07123pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 by us-ing the rate- and state-dependent fric-tion law.  []Thoma
-s et al.[] (2009) have also ob- 
+Overfull \hbox (9.01566pt too wide) in paragraph at lines 207--207
+\OT1/cmr/m/n/10 San An-dreas fault are cor-re-lated with small, tidal shear str
+ess changes. They ex-plain it 
  []
 
 
-Overfull \hbox (9.98785pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 served that tremor oc-cur-rence on the deep San An-dreas fault 
-are cor-re-lated with small, 
- []
-
-
-Overfull \hbox (6.59894pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 tidal shear stress changes. They ex-plain it by a very weak fau
-lt zone with low ef-fec-tive 
- []
-
-
-Overfull \hbox (14.65457pt too wide) in paragraph at lines 207--207
-\OT1/cmr/m/n/10 nor-mal stress, prob-a-bly due to near-lithostatic pore pres-su
-res at the depth of the tremor 
+Overfull \hbox (24.93237pt too wide) in paragraph at lines 207--207
+\OT1/cmr/m/n/10 by a very weak fault zone with low ef-fec-tive nor-mal stress, 
+prob-a-bly due to near-lithostatic 
  []
 
 
@@ -963,33 +963,33 @@ about 0.1), which led them
  []
 
 
-Overfull \hbox (9.96024pt too wide) in paragraph at lines 215--215
+Overfull \hbox (0.51578pt too wide) in paragraph at lines 215--215
 \OT1/cmr/m/n/10 to con-clude that there may be a sig-nif-i-cant amount of quart
-z (about 10% in vol-ume) in 
+z (about 10% by vol-ume) 
  []
 
 
-Overfull \hbox (22.4324pt too wide) in paragraph at lines 215--215
-\OT1/cmr/m/n/10 the deep fore-arc crust above the fore-arc man-tle.  []Audet an
-d B^^?urgmann (2014) ex-plained 
+Overfull \hbox (5.76567pt too wide) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 in the deep fore-arc crust above the fore-arc man-tle.  []Audet
+ and B^^?urgmann (2014) ex- 
  []
 
 
-Overfull \hbox (29.4601pt too wide) in paragraph at lines 215--215
-\OT1/cmr/m/n/10 the pres-ence of quartz in the fore-arc by the en-rich-ment of 
-fore-arc min-er-als in fluid-dissolved 
+Overfull \hbox (25.4601pt too wide) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 plained the pres-ence of quartz in the fore-arc by the en-rich-
+ment of fore-arc min-er-als in fluid- 
  []
 
 
-Overfull \hbox (12.71017pt too wide) in paragraph at lines 215--215
-\OT1/cmr/m/n/10 sil-ica de-rived from the de-hy-dra-tion of the down-going slab
-. As the sol-u-bil-ity of sil-ica in- 
+Overfull \hbox (3.59906pt too wide) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 dissolved sil-ica de-rived from the de-hy-dra-tion of the down-
+going slab. As the sol-u-bil-ity 
  []
 
 
-Overfull \hbox (8.87679pt too wide) in paragraph at lines 215--215
-\OT1/cmr/m/n/10 creases with tem-per-a-ture, flu-ids gen-er-ated at depth and r
-is-ing up the sub-duc-tion chan- 
+Overfull \hbox (12.82123pt too wide) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 of sil-ica in-creases with tem-per-a-ture, flu-ids gen-er-ated 
+at depth and ris-ing up the sub-duc- 
  []
 
 
@@ -1218,9 +1218,9 @@ Overfull \hbox (8.93233pt too wide) in paragraph at lines 221--221
  []
 
 
-Overfull \hbox (0.71007pt too wide) in paragraph at lines 221--221
-\OT1/cmr/m/n/10 the source of the tremor, and ver-ify whether tremor could oc-c
-ur in a wider zone than 
+Overfull \hbox (7.62674pt too wide) in paragraph at lines 221--221
+\OT1/cmr/m/n/10 the source of the tremor, and ver-ify whether tremor oc-curs in
+ a wider zone than LFEs.  
  []
 
 
@@ -1335,15 +1335,15 @@ a-tions and com-put-ing cross-
  []
 
 
-Overfull \hbox (23.65459pt too wide) in paragraph at lines 225--225
+Overfull \hbox (7.54343pt too wide) in paragraph at lines 225--225
 \OT1/cmr/m/n/10 correlations be-tween sta-tion data and tem-plate wave-forms. T
-hey used P- and S-traveltime 
+hey used P- and S-travel- 
  []
 
 
-Overfull \hbox (0.12688pt too wide) in paragraph at lines 225--225
-\OT1/cmr/m/n/10 picks to ob-tain an hypocen-ter for each LFE tem-plate. By ob-s
-erv-ing the po-lar-iza-tions 
+Overfull \hbox (17.34912pt too wide) in paragraph at lines 225--225
+\OT1/cmr/m/n/10 time picks to ob-tain a hypocen-ter for each LFE tem-plate. By 
+ob-serv-ing the po-lar-iza-tions 
  []
 
 
@@ -1485,9 +1485,9 @@ not, tremor may be oc-cur-
  []
 
 
-Overfull \hbox (13.51563pt too wide) in paragraph at lines 229--230
-\OT1/cmr/m/n/10 ring where LFEs are harder to de-tect be-cause ei-ther smaller 
-in am-pli-tude, or spread out 
+Overfull \hbox (3.18227pt too wide) in paragraph at lines 229--230
+\OT1/cmr/m/n/10 ring where LFEs are harder to de-tect be-cause they are ei-ther
+ smaller in am-pli-tude, or 
  []
 
 
@@ -2150,117 +2150,93 @@ s-son's ra-tio in the East-West
  []
 
 
-Overfull \hbox (9.87675pt too wide) in paragraph at lines 265--265
-[]\OT1/cmr/m/n/10 The anal-y-sis we car-ried out above may not lead to a re-li-
-able value of the depth of 
+Overfull \hbox (14.15443pt too wide) in paragraph at lines 265--265
+[]\OT1/cmr/m/n/10 To ob-tain ro-bust re-sults, we limit our anal-y-sis to grid 
+cells where there are at least 
  []
 
 
-Overfull \hbox (19.71014pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 the source of the tremor for all rel-a-tive po-si-tions of the 
-ar-ray and the tremor. First, some 
+Overfull \hbox (5.43233pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 30 one-minute-long time win-dows in the best clus-ter. We as-su
+med that the lo-ca-tion of 
  []
 
 
-Overfull \hbox (2.15446pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 ar-eas are badly cov-ered, and only a few tremor or no tremor a
-t all were recorded. We 
+Overfull \hbox (3.98782pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 the tremor source is fixed dur-ing the one-minute-long time win
+-dow where we com-pute 
  []
 
 
-Overfull \hbox (13.87674pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 limit our anal-y-sis to grid cells where there are at least 30 
-one-minute-long time win-dows 
+Overfull \hbox (9.65451pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 the cross-correlation of the seis-mic sig-nal. How-ever, dur-in
+g an ETS event, rapid tremor 
  []
 
 
-Overfull \hbox (15.32124pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 in the best clus-ter. Sec-ond, the method works best for nearly
- ver-ti-cal ray paths. A third 
+Overfull \hbox (13.2657pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 streaks have been ob-served to prop-a-gate up-dip or down-dip a
+t ve-loc-i-ties rang-ing on av- 
  []
 
 
-Overfull \hbox (0.82121pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 prob-lem is that we as-sumed that the lo-ca-tion of the tremor 
-source is fixed dur-ing the 
+Overfull \hbox (14.05739pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 er-age be-tween 30 and 110 km/h  []Ghosh et al.[], 2010), which
+ cor-re-sponds to a max-i-mum 
  []
 
 
-Overfull \hbox (13.01556pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 one-minute-long time win-dow where we com-pute the cross-correl
-ation of the seis-mic sig- 
+Overfull \hbox (8.26575pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 source dis-place-ment of 0.9 km up-dip or downdip dur-ing the 3
+0 sec-onds du-ra-tion be-fore 
  []
 
 
-Overfull \hbox (3.98785pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 nal. How-ever, dur-ing an ETS event, rapid tremor streaks have 
-been ob-served to prop- 
+Overfull \hbox (20.43233pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 and af-ter the mid-dle of the time win-dow. The change in pre-d
+icted S-minus-P time caused 
  []
 
 
-Overfull \hbox (34.27965pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 a-gate up-dip or down-dip at ve-loc-i-ties rang-ing on av-er-ag
-e be-tween 30 and 110 km/h  []Ghosh 
+Overfull \hbox (23.23796pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 by chang-ing source lo-ca-tion by 0.9 km in the up- or down-dip
+ di-rec-tion is small for tremor 
  []
 
 
-Overfull \hbox (7.96019pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 et al.[], 2010), which cor-re-sponds to a max-i-mum source dis-
-place-ment of 0.9 km up-dip or 
+Overfull \hbox (15.15456pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 along strike from the ar-ray or in the down dip di-rec-tion. Ho
+w-ever, the change in this lag 
  []
 
 
-Overfull \hbox (16.18242pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 downdip dur-ing the 30 sec-onds du-ra-tion be-fore and af-ter t
-he mid-dle of the time win-dow. 
+Overfull \hbox (11.15454pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 time for tremor sources up-dip from the ar-rays ex-ceeds one qu
+ar-ter of the dom-i-nant pe- 
  []
 
 
-Overfull \hbox (7.15456pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 The change in pre-dicted S-minus-P time caused by chang-ing sou
-rce lo-ca-tion by 0.9 km 
+Overfull \hbox (22.57137pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 riod of the tremor sig-nal (pe-riod= 0.33 s) for tremor sources
+ more than 18 km up-dip from 
  []
 
 
-Overfull \hbox (13.90457pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 in the up- or down-dip di-rec-tion is small for tremor along st
-rike from the ar-ray or in the 
+Overfull \hbox (5.18243pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 an ar-ray. Thus, tremors be-yond 18 km up-dip of an ar-ray may 
+not add co-her-ently dur- 
  []
 
 
-Overfull \hbox (13.82121pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 down dip di-rec-tion. How-ever, the change in this lag time for
- tremor sources up-dip from 
+Overfull \hbox (6.57121pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 ing rapid tremor mi-gra-tions. This method works best if the P-
+wave is cleanly recorded 
  []
 
 
-Overfull \hbox (18.29353pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 the ar-rays ex-ceeds one quar-ter of the dom-i-nant pe-riod of 
-the tremor sig-nal (pe-riod= 0.33 
- []
-
-
-Overfull \hbox (4.01572pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 s) for tremor sources more than 18 km up-dip from an ar-ray. Th
-us, tremors be-yond 18 
- []
-
-
-Overfull \hbox (30.73811pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 km up-dip of an ar-ray may not add co-her-ently dur-ing rapid t
-remor mi-gra-tions. This method 
- []
-
-
-Overfull \hbox (6.0989pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 works best if the P-wave is cleanly recorded on the ver-ti-cal 
-com-po-nent and the S-wave 
- []
-
-
-Overfull \hbox (24.09904pt too wide) in paragraph at lines 265--265
-\OT1/cmr/m/n/10 on the hor-i-zon-tals, so gen-er-ally speak-ing the re-sults ar
-e more ro-bust for ver-ti-cal ray paths.  
+Overfull \hbox (8.98792pt too wide) in paragraph at lines 265--265
+\OT1/cmr/m/n/10 on the ver-ti-cal com-po-nent and the S-wave on the hor-i-zon-t
+als, so gen-er-ally speak-ing the 
  []
 
 
@@ -2292,39 +2268,39 @@ ot mean square is higher than
  []
 
 
-Overfull \hbox (7.68228pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 5. We com-pute the root mean square of the cross-correlation fo
-r a time lag be-tween 12 
+Overfull \hbox (10.4045pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 5. We com-pute the root mean square in clus-ter 1 for a time la
+g be-tween 12 and 14s be- 
  []
 
 
-Overfull \hbox (0.37668pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 and 14s be-cause we do not ex-pect any re-flected wave to ar-ri
-ve that late af-ter a di-rect 
+Overfull \hbox (2.26552pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 cause we do not ex-pect any re-flected wave to ar-rive that lat
+e af-ter a di-rect wave. The 
  []
 
 
-Overfull \hbox (28.46008pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 wave. The cor-re-spond-ing stack of the en-velopes of the cross
--correlation func-tions are shown 
+Overfull \hbox (12.2101pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 cor-re-spond-ing stack of the en-velopes of the cross-correlati
+on func-tions are shown in Fig- 
  []
 
 
-Overfull \hbox (18.71016pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 in Fig-ure 4 for the East-West com-po-nent and the North-South 
-com-po-nent. The grey ver- 
+Overfull \hbox (8.29347pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 ure 4 for the East-West com-po-nent and the North-South com-po-
+nent. The grey ver-ti-cal 
  []
 
 
-Overfull \hbox (14.09892pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 ti-cal line shows the the-o-ret-i-cal time lag be-tween the ar-
-rival of the di-rect P-wave and the 
+Overfull \hbox (7.46pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 line shows the the-o-ret-i-cal time lag be-tween the ar-rival o
+f the di-rect P-wave and the ar- 
  []
 
 
-Overfull \hbox (15.65462pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 ar-rival of the di-rect S-wave us-ing the cor-re-spond-ing 1D v
-e-loc-ity model for this ar-ray and 
+Overfull \hbox (6.73793pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 rival of the di-rect S-wave us-ing the cor-re-spond-ing 1D ve-l
+oc-ity model for this ar-ray and 
  []
 
 
@@ -2346,12 +2322,12 @@ e lo-ca-tions of the source of the
  []
 
 Package epstopdf Info: Source file: <figures/BS_PWS_PWS_0.eps>
-(epstopdf)                    date: 2021-05-24 11:41:58
-(epstopdf)                    size: 146382 bytes
+(epstopdf)                    date: 2021-06-26 06:26:47
+(epstopdf)                    size: 146428 bytes
 (epstopdf)             Output file: <figures/BS_PWS_PWS_0-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2021-05-26 20:06:00
-(epstopdf)                    size: 47501 bytes
+(epstopdf)                    date: 2021-06-26 06:53:51
+(epstopdf)                    size: 47505 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/BS_PWS_PWS_0-eps-c
 onverted-to.pdf figures/BS_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 270.
@@ -2378,37 +2354,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 271--271
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
 \OT1/cmr/m/n/9 East-West and the ver-ti-cal com-po-nents (red lines) and be-twe
-en the North-South and ver-ti-
+en the North-South and ver-ti-cal
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 cal com-po-nents (blue lines). The the-o-ret-i-cal S-minus-P tim
-es (grey plain line for the Mc-Crory
+\OT1/cmr/m/n/9 com-po-nents (blue lines). The the-o-ret-i-cal S-minus-P times (
+grey dashed line for the Pre-ston
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 model, grey dashed line for the Pre-ston model) are gen-er-ally 
-in good agree-ment with the peaks
+\OT1/cmr/m/n/9 model) are gen-er-ally in good agree-ment with the peaks in cros
+s-correlation func-tions (grey solid
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 in cross-correlation func-tions. The lo-ca-tion of the tremor va
-ries from west to east (left to right)
+\OT1/cmr/m/n/9 line). The lo-ca-tion of the tremor varies from west to east (le
+ft to right) and from south to north
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 and from south to north (bot-tom to top). The num-bers next to e
-ach graph in-di-cate the num-ber
+\OT1/cmr/m/n/9 (bot-tom to top). The num-bers next to each graph in-di-cate the
+ num-ber of one-minute-long time
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 of one-minute-long time win-dows in the best clus-ter. For clar-
-ity, we plot-ted only the part of the
+\OT1/cmr/m/n/9 win-dows in the best clus-ter. For clar-ity, we plot-ted only th
+e part of the cross-correlation sig-nal
  []
 
 
@@ -2484,24 +2460,27 @@ ten not very clear and stretched
  []
 
 
-Overfull \hbox (15.87679pt too wide) in paragraph at lines 275--275
-\OT1/cmr/m/n/10 along the time axis. In the fol-low-ing, we did not use data fr
-om these two ar-rays. For the 
+Overfull \hbox (3.32118pt too wide) in paragraph at lines 275--275
+\OT1/cmr/m/n/10 along the time axis. We did not use data from these two ar-rays
+. For the Port An-ge-les 
  []
 
 
-Overfull \hbox (12.09892pt too wide) in paragraph at lines 275--275
-\OT1/cmr/m/n/10 Port An-ge-les ar-ray, there is only a clear peak for a near ve
-r-ti-cal in-ci-dence of the seis-mic 
+Overfull \hbox (1.9322pt too wide) in paragraph at lines 275--275
+\OT1/cmr/m/n/10 ar-ray, there is only a clear peak for a near ver-ti-cal in-ci-
+dence of the seis-mic waves. We 
  []
 
 
-Overfull \hbox (13.5712pt too wide) in paragraph at lines 275--275
-\OT1/cmr/m/n/10 waves. We choose to keep this ar-ray in the anal-y-sis in or-de
-r to have two ad-di-tional data 
+Overfull \hbox (5.79347pt too wide) in paragraph at lines 275--275
+\OT1/cmr/m/n/10 choose to keep this ar-ray in the anal-y-sis in or-der to have 
+two ad-di-tional data points in 
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./figures/BS_PWS_PWS_0-eps-converted-to.pdf>]
 Overfull \hbox (16.0156pt too wide) in paragraph at lines 277--277
 []\OT1/cmr/m/n/10 To es-ti-mate the un-cer-tainty on the depth of the source of
  the tremor, we com-puted 
@@ -2574,9 +2553,9 @@ the sta-tions and the stack-
  []
 
 
-Overfull \hbox (4.98785pt too wide) in paragraph at lines 277--277
+Overfull \hbox (11.98787pt too wide) in paragraph at lines 277--277
 \OT1/cmr/m/n/10 ing over one-minute-long time win-dows gave the lower un-cer-ta
-inty on the depth of the 
+inty on the tremor depth.  
  []
 
 Package epstopdf Info: Source file: <figures/uncertainty_PWS_PWS.eps>
@@ -2591,7 +2570,7 @@ S-eps-converted-to.pdf figures/uncertainty_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 280.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/uncertainty_PWS_PWS-eps-converted-to.pdf, id=142, 597.23125pt x 845.15
+<figures/uncertainty_PWS_PWS-eps-converted-to.pdf, id=180, 597.23125pt x 845.15
 75pt>
 File: figures/uncertainty_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/uncertainty_PWS_PWS-eps-converted-to.pdf>
@@ -2623,65 +2602,59 @@ e max-i-mum am-pli-tude
  []
 
 
-Overfull \hbox (0.15454pt too wide) in paragraph at lines 285--285
+Overfull \hbox (20.79343pt too wide) in paragraph at lines 285--285
 \OT1/cmr/m/n/10 of the stack is higher than 0.05. Fig-ures 6 and 7 show re-spec
--tively a map and sev-eral 
+-tively a map and three cross- 
  []
 
 
-Overfull \hbox (13.34892pt too wide) in paragraph at lines 285--285
-\OT1/cmr/m/n/10 cross-sections of the depth of the source of the tremor. Fig-ur
-e 8 shows a map of the dis- 
+Overfull \hbox (8.76563pt too wide) in paragraph at lines 285--285
+\OT1/cmr/m/n/10 sections of the depth of the source of the tremor. Fig-ure 8 sh
+ows a map of the dis-tance 
  []
 
 
-Overfull \hbox (14.71014pt too wide) in paragraph at lines 285--285
-\OT1/cmr/m/n/10 tance be-tween the source of the tremor and the plate bound-ary
- from the Pre-ston model, 
+Overfull \hbox (18.0435pt too wide) in paragraph at lines 285--285
+\OT1/cmr/m/n/10 be-tween the source of the tremor and the plate bound-ary from 
+the Pre-ston model, along- 
  []
 
 
-Overfull \hbox (1.76564pt too wide) in paragraph at lines 285--285
-\OT1/cmr/m/n/10 along-side with the depth of the low-frequency earth-quake fam-
-i-lies ob-served by  []Sweet 
+Overfull \hbox (3.98782pt too wide) in paragraph at lines 285--285
+\OT1/cmr/m/n/10 side with the depth of the low-frequency earth-quake fam-i-lies
+ ob-served by  []Sweet et al.[] 
  []
 
 
-Overfull \hbox (9.5434pt too wide) in paragraph at lines 285--285
-\OT1/cmr/m/n/10 et al.[] (2019) and  []Chestler and Crea-ger (2017). There is a
- good agree-ment be-tween the 
+Overfull \hbox (12.3212pt too wide) in paragraph at lines 285--285
+\OT1/cmr/m/n/10 (2019) and  []Chestler and Crea-ger (2017). There is a good agr
+ee-ment be-tween the depth 
  []
 
 
-Overfull \hbox (3.15456pt too wide) in paragraph at lines 285--285
-\OT1/cmr/m/n/10 depth of the source of the tremor, the depth of the low-frequen
-cy earth-quake fam-i-lies, 
+Overfull \hbox (11.4879pt too wide) in paragraph at lines 285--285
+\OT1/cmr/m/n/10 of the source of the tremor, the depth of the low-frequency ear
+th-quake fam-i-lies, and the 
  []
 
 
-Overfull \hbox (7.1823pt too wide) in paragraph at lines 285--285
-\OT1/cmr/m/n/10 and the depth of the plate bound-ary. On the cross-section fig-
-ures, we com-pare the dis- 
+Overfull \hbox (1.90453pt too wide) in paragraph at lines 285--285
+\OT1/cmr/m/n/10 depth of the plate bound-ary. On the cross-section fig-ures, we
+ com-pare the dis-tance of 
  []
 
 
-Overfull \hbox (23.32126pt too wide) in paragraph at lines 285--285
-\OT1/cmr/m/n/10 tance of the source of the tremor to the plate bound-ary for di
-f-fer-ent lo-ca-tions of the cross- 
+Overfull \hbox (18.09903pt too wide) in paragraph at lines 285--285
+\OT1/cmr/m/n/10 the source of the tremor to the plate bound-ary for dif-fer-ent
+ lo-ca-tions of the cross-section. 
  []
 
 
-Overfull \hbox (25.04341pt too wide) in paragraph at lines 285--285
-\OT1/cmr/m/n/10 section. We note that the depth of the tremor matches well the 
-depth of the low-frequency 
+Overfull \hbox (17.23784pt too wide) in paragraph at lines 285--285
+\OT1/cmr/m/n/10 We note that the depth of the tremor matches well the depth of 
+the low-frequency earth- 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]
-[11 <./figures/BS_PWS_PWS_0-eps-converted-to.pdf>] [12 <./figures/uncertainty_P
-WS_PWS-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/depth_PWS_PWS.eps>
 (epstopdf)                    date: 2021-06-21 18:45:56
 (epstopdf)                    size: 69936 bytes
@@ -2694,7 +2667,7 @@ converted-to.pdf figures/depth_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 288.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/depth_PWS_PWS-eps-converted-to.pdf, id=196, 597.23125pt x 845.1575pt>
+<figures/depth_PWS_PWS-eps-converted-to.pdf, id=182, 597.23125pt x 845.1575pt>
 File: figures/depth_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/depth_PWS_PWS-eps-converted-to.pdf>
@@ -2737,7 +2710,7 @@ _PWS-eps-converted-to.pdf figures/section_strike_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 294.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/section_strike_PWS_PWS-eps-converted-to.pdf, id=198, 597.23125pt x 845
+<figures/section_strike_PWS_PWS-eps-converted-to.pdf, id=184, 597.23125pt x 845
 .1575pt>
 File: figures/section_strike_PWS_PWS-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -2805,7 +2778,7 @@ eps-converted-to.pdf figures/d_to_pb_PWS_PWS_P.eps>
 (epstopdf)             \includegraphics on input line 300.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/d_to_pb_PWS_PWS_P-eps-converted-to.pdf, id=200, 597.23125pt x 845.1575
+<figures/d_to_pb_PWS_PWS_P-eps-converted-to.pdf, id=186, 597.23125pt x 845.1575
 pt>
 File: figures/d_to_pb_PWS_PWS_P-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/d_to_pb_PWS_PWS_P-eps-converted-to.pdf>
@@ -3052,6 +3025,12 @@ Overfull \hbox (8.26576pt too wide) in paragraph at lines 307--307
 th). The cor-re-spond-ing 
  []
 
+
+Underfull \vbox (badness 1552) has occurred while \output is active []
+
+ [11]
+[12 <./figures/uncertainty_PWS_PWS-eps-converted-to.pdf>] [13 <./figures/depth_
+PWS_PWS-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/PWS_PWS_0.eps>
 (epstopdf)                    date: 2021-05-24 14:36:26
 (epstopdf)                    size: 54408 bytes
@@ -3062,7 +3041,8 @@ Package epstopdf Info: Source file: <figures/PWS_PWS_0.eps>
 erted-to.pdf figures/PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 310.
 Package epstopdf Info: Output file is already uptodate.
-<figures/PWS_PWS_0-eps-converted-to.pdf, id=202, 1084.05pt x 1084.05pt>
+
+<figures/PWS_PWS_0-eps-converted-to.pdf, id=214, 1084.05pt x 1084.05pt>
 File: figures/PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/PWS_PWS_0-eps-converted-to.pdf>
@@ -3139,7 +3119,7 @@ Package epstopdf Info: Source file: <figures/PWS_PWS.eps>
 ted-to.pdf figures/PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 318.
 Package epstopdf Info: Output file is already uptodate.
-<figures/PWS_PWS-eps-converted-to.pdf, id=204, 867.24pt x 433.62pt>
+<figures/PWS_PWS-eps-converted-to.pdf, id=216, 867.24pt x 433.62pt>
 File: figures/PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/PWS_PWS-eps-converted-to.pdf>
@@ -3170,7 +3150,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 319--319
 time in-ter-val over which we com-
  []
 
-
+[14 <./figures/section_strike_PWS_PWS-eps-converted-to.pdf>] [15 <./figures/d_t
+o_pb_PWS_PWS_P-eps-converted-to.pdf>] [16 <./figures/PWS_PWS_0-eps-converted-to
+.pdf>]
 Overfull \hbox (3.09897pt too wide) in paragraph at lines 323--323
 []\OT1/cmr/m/n/10 As pro-posed by  []Kao et al.[] (2009), the source of the tre
 mor could be dis-tributed 
@@ -3290,11 +3272,6 @@ Overfull \hbox (4.54347pt too wide) in paragraph at lines 323--323
 . The small-est val-ues for the 
  []
 
-
-Underfull \vbox (badness 1552) has occurred while \output is active []
-
- [13]
-[14 <./figures/depth_PWS_PWS-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/Q_PWS_PWS.eps>
 (epstopdf)                    date: 2021-06-21 18:45:56
 (epstopdf)                    size: 65149 bytes
@@ -3305,8 +3282,7 @@ Package epstopdf Info: Source file: <figures/Q_PWS_PWS.eps>
 erted-to.pdf figures/Q_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 326.
 Package epstopdf Info: Output file is already uptodate.
-
-<figures/Q_PWS_PWS-eps-converted-to.pdf, id=221, 597.23125pt x 845.1575pt>
+<figures/Q_PWS_PWS-eps-converted-to.pdf, id=289, 597.23125pt x 845.1575pt>
 File: figures/Q_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/Q_PWS_PWS-eps-converted-to.pdf>
@@ -3361,7 +3337,7 @@ converted-to.pdf figures/error_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 334.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/error_PWS_PWS-eps-converted-to.pdf, id=223, 597.23125pt x 845.1575pt>
+<figures/error_PWS_PWS-eps-converted-to.pdf, id=291, 597.23125pt x 845.1575pt>
 File: figures/error_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/error_PWS_PWS-eps-converted-to.pdf>
@@ -3423,150 +3399,211 @@ the tremor depth. The tremor
  []
 
 
-Overfull \hbox (9.48796pt too wide) in paragraph at lines 339--339
-\OT1/cmr/m/n/10 and low-frequency earth-quakes look closer to the plate bound-a
-ry for the Pre-ston model 
+Overfull \hbox (9.84903pt too wide) in paragraph at lines 339--339
+\OT1/cmr/m/n/10 and low-frequency earth-quakes are slightly closer to the plate
+ bound-ary for the Pre-ston 
  []
 
 
-Overfull \hbox (39.01572pt too wide) in paragraph at lines 339--339
-\OT1/cmr/m/n/10 than for the Mc-Crory model. This may be due be-cause the P-wav
-e ve-loc-ity model of  []Preston 
+Overfull \hbox (17.12682pt too wide) in paragraph at lines 339--339
+\OT1/cmr/m/n/10 model than for the Mc-Crory model. This may be due be-cause the
+ P-wave ve-loc-ity model 
  []
 
 
-Overfull \hbox (6.73792pt too wide) in paragraph at lines 339--339
-\OT1/cmr/m/n/10 et al.[] (2003) was used as the ini-tial ve-loc-ity model by  [
-]Merrill et al.[] (2020) to com-pute 
+Overfull \hbox (5.57123pt too wide) in paragraph at lines 339--339
+\OT1/cmr/m/n/10 of  []Preston et al.[] (2003) was used as the ini-tial ve-loc-i
+ty model by  []Merrill et al.[] (2020) 
  []
 
 
-Overfull \hbox (6.43231pt too wide) in paragraph at lines 339--339
-\OT1/cmr/m/n/10 the full P- and S-wave ve-loc-ity model that we use to get trem
-or depth from S mi-nus P 
+Overfull \hbox (10.96011pt too wide) in paragraph at lines 339--339
+\OT1/cmr/m/n/10 to com-pute the full P- and S-wave ve-loc-ity model that we use
+ to get tremor depth from 
  []
 
 
-Overfull \hbox (19.18227pt too wide) in paragraph at lines 339--339
-\OT1/cmr/m/n/10 times. The Pre-ston P-wave ve-loc-ity model was also used by  [
-]Chestler and Crea-ger (2017) 
+Overfull \hbox (26.29335pt too wide) in paragraph at lines 339--339
+\OT1/cmr/m/n/10 S mi-nus P times. The Pre-ston P-wave ve-loc-ity model was also
+ used by  []Chestler and Crea- 
  []
 
-[15 <./figures/section_strike_PWS_PWS-eps-converted-to.pdf>] [16 <./figures/d_t
-o_pb_PWS_PWS_P-eps-converted-to.pdf>] [17 <./figures/PWS_PWS_0-eps-converted-to
-.pdf>]
-Overfull \hbox (14.59895pt too wide) in paragraph at lines 358--359
+
+Underfull \vbox (badness 2698) has occurred while \output is active []
+
+ [17 <./figures/PWS_PWS-eps-converted-to.pdf>] [18 <./figures/Q_PWS_PWS-eps-con
+verted-to.pdf>] [19 <./figures/error_PWS_PWS-eps-converted-to.pdf>]
+Overfull \hbox (14.59895pt too wide) in paragraph at lines 358--358
 []\OT1/cmr/m/n/10 We de-vel-oped a method to es-ti-mate the depth of the source
  of the tec-tonic tremor, 
  []
 
 
-Overfull \hbox (2.51569pt too wide) in paragraph at lines 358--359
+Overfull \hbox (2.51569pt too wide) in paragraph at lines 358--358
 \OT1/cmr/m/n/10 and the depth ex-tent of the re-gion from which the tremor orig
 -i-nates, us-ing S mi-nus P 
  []
 
 
-Overfull \hbox (7.32123pt too wide) in paragraph at lines 358--359
+Overfull \hbox (7.32123pt too wide) in paragraph at lines 358--358
 \OT1/cmr/m/n/10 times de-ter-mined from lag times of stacked cross-correlations
  of hor-i-zon-tal and ver-ti-cal 
  []
 
 
-Overfull \hbox (9.18239pt too wide) in paragraph at lines 358--359
+Overfull \hbox (9.18239pt too wide) in paragraph at lines 358--358
 \OT1/cmr/m/n/10 com-po-nents of seis-mic record-ings from small aper-ture ar-ra
 ys in the Olympic Penin-sula, 
  []
 
 
-Overfull \hbox (15.71014pt too wide) in paragraph at lines 358--359
+Overfull \hbox (15.71014pt too wide) in paragraph at lines 358--358
 \OT1/cmr/m/n/10 Wash-ing-ton. We found that the source of the tremor is lo-cate
 d close to the plate bound- 
  []
 
 
-Overfull \hbox (10.32118pt too wide) in paragraph at lines 358--359
+Overfull \hbox (10.32118pt too wide) in paragraph at lines 358--358
 \OT1/cmr/m/n/10 ary in a re-gion no more than 2-3 kilo-me-ters thick. The sourc
 e of the tremor is thus dis- 
  []
 
 
-Overfull \hbox (12.04341pt too wide) in paragraph at lines 358--359
-\OT1/cmr/m/n/10 tributed over a wider depth range than the low-frequency earth-
-quakes. How-ever, due to 
+Overfull \hbox (15.98788pt too wide) in paragraph at lines 358--358
+\OT1/cmr/m/n/10 tributed over a slightly wider depth range than the low-frequen
+cy earth-quakes. How-ever, 
  []
 
 
-Overfull \hbox (17.62675pt too wide) in paragraph at lines 358--359
-\OT1/cmr/m/n/10 the depth un-cer-tainty, it is dif-fi-cult to con-clude whether
- the tremor is lo-cated in the sub- 
+Overfull \hbox (20.37677pt too wide) in paragraph at lines 358--358
+\OT1/cmr/m/n/10 due to the depth un-cer-tainty, it is dif-fi-cult to con-clude 
+whether the tremor is lo-cated near 
  []
 
 
-Overfull \hbox (3.76567pt too wide) in paragraph at lines 358--359
-\OT1/cmr/m/n/10 duct-ing oceanic crust, in the lower con-ti-nen-tal crust just 
-above the plate bound-ary, or 
+Overfull \hbox (23.4879pt too wide) in paragraph at lines 358--358
+\OT1/cmr/m/n/10 the top of the sub-duct-ing oceanic crust, in the lower con-ti-
+nen-tal crust just above the plate 
  []
 
 
-Overfull \hbox (7.8213pt too wide) in paragraph at lines 358--359
-\OT1/cmr/m/n/10 in a layer dis-tributed above and un-der the plate bound-ary. T
-he rel-a-tive lo-ca-tion of the 
+Overfull \hbox (3.0991pt too wide) in paragraph at lines 358--358
+\OT1/cmr/m/n/10 bound-ary, in a layer dis-tributed above and be-low the plate b
+ound-ary, or con-fined to a 
  []
 
 
-Overfull \hbox (29.37679pt too wide) in paragraph at lines 358--359
-\OT1/cmr/m/n/10 source of the tremor com-pared to the low-velocity layer also o
-b-served near the plate bound- 
+Overfull \hbox (16.18239pt too wide) in paragraph at lines 358--358
+\OT1/cmr/m/n/10 very nar-row plate bound-ary. The lo-ca-tion of the tremor rel-
+a-tive to the low-velocity layer 
  []
 
 
-Overfull \hbox (7.30736pt too wide) in paragraph at lines 538--540
+Overfull \hbox (9.62683pt too wide) in paragraph at lines 358--358
+\OT1/cmr/m/n/10 also ob-served near the plate bound-ary also re-mains un-cer-ta
+in. Tremor and LFE depths 
+ []
+
+
+Overfull \hbox (3.04341pt too wide) in paragraph at lines 358--358
+\OT1/cmr/m/n/10 are con-sis-tent with fill-ing a vol-ume in the up-per sub-duct
+ed crust that is char-ac-ter-ized 
+ []
+
+
+Overfull \hbox (3.09892pt too wide) in paragraph at lines 358--358
+\OT1/cmr/m/n/10 by high fluid pres-sure and very low S-wave ve-loc-i-ties de-sc
+ribed as the pre-ferred model 
+ []
+
+
+Overfull \hbox (21.26549pt too wide) in paragraph at lines 360--361
+[]\OT1/cmr/m/n/10 The re-sults pre-sented here are re-lated to a self-consisten
+t 3-D P-wave ve-loc-ity model 
+ []
+
+
+Overfull \hbox (14.18242pt too wide) in paragraph at lines 360--361
+\OT1/cmr/m/n/10 and si-mul-ta-ne-ously de-ter-mined plate in-ter-face model  []
+Preston et al.[], 2003). This model 
+ []
+
+
+Overfull \hbox (34.89064pt too wide) in paragraph at lines 360--361
+\OT1/cmr/m/n/10 was used to de-ter-mine tremor epi-cen-ters  []Ghosh et al.[], 
+2012) and the LFE lo-ca-tions  []Sweet 
+ []
+
+
+Overfull \hbox (19.34903pt too wide) in paragraph at lines 360--361
+\OT1/cmr/m/n/10 et al.[], 2019; Chestler & Crea-ger, 2017) along with an as-sum
+ed Vp / Vs ra-tio of 1.73. The 
+ []
+
+
+Overfull \hbox (22.04346pt too wide) in paragraph at lines 360--361
+\OT1/cmr/m/n/10 tremor depths in this study were de-ter-mined us-ing the 3-D mo
+del of  []Merrill et al.[] (2020). 
+ []
+
+
+Overfull \hbox (28.43236pt too wide) in paragraph at lines 360--361
+\OT1/cmr/m/n/10 They used the Pre-ston model as a start-ing model and used P an
+d S ar-rival times at source- 
+ []
+
+
+Overfull \hbox (7.30736pt too wide) in paragraph at lines 540--542
 \OT1/cmr/m/n/10 The au-thors would like to thank A. Ghosh for shar-ing his trem
 or cat-a-log. This project 
  []
 
 
-Overfull \hbox (14.01576pt too wide) in paragraph at lines 538--540
+Overfull \hbox (14.01576pt too wide) in paragraph at lines 540--542
 \OT1/cmr/m/n/10 was funded by NSF grant EAR-1358512. A.D. would like to thank t
 he In-te-gral En-vi-ron- 
  []
 
 
-Overfull \hbox (2.43237pt too wide) in paragraph at lines 538--540
+Overfull \hbox (2.43237pt too wide) in paragraph at lines 540--542
 \OT1/cmr/m/n/10 men-tal Big Data Re-search Fund from the Col-lege of the En-vi-
 ron-ment of Uni-ver-sity of 
  []
 
 
-Overfull \hbox (21.34908pt too wide) in paragraph at lines 538--540
+Overfull \hbox (21.34908pt too wide) in paragraph at lines 540--542
 \OT1/cmr/m/n/10 Wash-ing-ton, which funded cloud com-put-ing re-sources to carr
 y out the data anal-y-ses. The 
  []
 
 
-Overfull \hbox (15.87674pt too wide) in paragraph at lines 538--540
+Overfull \hbox (2.82114pt too wide) in paragraph at lines 540--542
 \OT1/cmr/m/n/10 seis-mic record-ings used for this anal-y-sis can be down-loade
-d from the IRIS web-site. Most 
+d from the IRIS web-site us- 
  []
 
 
-Overfull \hbox (8.86282pt too wide) in paragraph at lines 538--540
-\OT1/cmr/m/n/10 of the fig-ures were done us-ing GMT  []Wessel & Smith, 1991). 
-The Python scripts used 
+Overfull \hbox (9.79335pt too wide) in paragraph at lines 540--542
+\OT1/cmr/m/n/10 ing net-work code XG, 2009-2011. Most of the fig-ures were done
+ us-ing GMT  []Wessel & 
  []
 
 
-Overfull \hbox (6.83514pt too wide) in paragraph at lines 538--540
-\OT1/cmr/m/n/10 to an-a-lyze the data and make the fig-ures can be found on the
- first au-thor's Github ac- 
+Overfull \hbox (11.65462pt too wide) in paragraph at lines 540--542
+\OT1/cmr/m/n/10 Smith, 1991). The Python scripts used to an-a-lyze the data and
+ make the fig-ures can be 
+ []
+
+
+Overfull \hbox (0.2221pt too wide) in paragraph at lines 540--542
+\OT1/cmr/m/n/10 found on the first au-thor's Github ac-count $\OT1/cmtt/m/n/10 
+https :// github [] .com / ArianeDucellier / 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18 <./figures/PWS_PWS-eps-converted-to.pdf>] [19 <./figures/Q_PWS_PWS-eps-con
-verted-to.pdf>] [20 <./figures/error_PWS_PWS-eps-converted-to.pdf>]
+ [20]
 (./agujournaltemplate.bbl
 Underfull \hbox (badness 4353) in paragraph at lines 17--32
 \OT1/cmr/m/n/10 over-pres-sured sub-ducted oceanic crust and megath-rust fault 
@@ -3668,7 +3705,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 501--517
 3-D model sort-ing 
  []
 
-[21]
+
 Underfull \hbox (badness 10000) in paragraph at lines 533--551
 \OT1/cmr/m/n/10 A dou-ble dif-fer-ence to-mog-ra-phy study of the Wash-ing-ton 
 Fore-arc: Does Silet- 
@@ -3680,7 +3717,7 @@ Underfull \hbox (badness 4647) in paragraph at lines 533--551
 f Geo-phys-i-cal Re-search: Solid Earth\OT1/cmr/m/n/10 , 
  []
 
-
+[21]
 Underfull \hbox (badness 4832) in paragraph at lines 643--655
 []\OT1/cmr/m/n/10 Peacock, S.  (2009).  Ther-mal and meta-mor-phic en-vi-ron-me
 nt of sub-duc-tion zone 
@@ -3743,13 +3780,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 950--964
  []
 
 
-Underfull \hbox (badness 3989) in paragraph at lines 978--990
+Underfull \hbox (badness 3989) in paragraph at lines 1005--1017
 []\OT1/cmr/m/n/10 Wech, A., & Crea-ger, K.  (2008).  Au-to-mated de-tec-tion an
 d lo-ca-tion of Cas-ca-dia 
  []
 
 
-Underfull \hbox (badness 1681) in paragraph at lines 1004--1016
+Underfull \hbox (badness 1681) in paragraph at lines 1031--1043
 []\OT1/cmr/m/n/10 Wessel, P., & Smith, W. H. F.  (1991).  Free soft-ware helps 
 map and dis-play data. 
  []
@@ -3764,13 +3801,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3504 strings out of 493117
- 49987 string characters out of 6135433
- 129786 words of memory out of 5000000
- 6896 multiletter control sequences out of 15000+600000
+ 3508 strings out of 493117
+ 50037 string characters out of 6135433
+ 129887 words of memory out of 5000000
+ 6900 multiletter control sequences out of 15000+600000
  9843 words of font info for 35 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
- 43i,9n,37p,3151b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,9n,37p,3151b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -3791,7 +3828,7 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf
 dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2014/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on agujournaltemplate.pdf (22 pages, 2724153 bytes).
+Output written on agujournaltemplate.pdf (22 pages, 2725277 bytes).
 PDF statistics:
  435 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams

@@ -969,6 +969,33 @@ Wech%
 Wech%
 \ \BBA {} Creager%
 }{%
+{\protect \APACyear {2007}}%
+}]{%
+WEC_2007}
+\APACinsertmetastar {%
+WEC_2007}%
+\begin{APACrefauthors}%
+Wech, A.%
+\BCBT {}\ \BBA {} Creager, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Cascadia tremor polarization evidence for plate
+  interface slip} {Cascadia tremor polarization evidence for plate interface
+  slip}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{34}{}{L22306}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wech%
+\ \BBA {} Creager%
+}{%
+Wech%
+\ \BBA {} Creager%
+}{%
 {\protect \APACyear {2008}}%
 }]{%
 WEC_2008}

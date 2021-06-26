@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  26 MAY 2021 23:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  26 JUN 2021 06:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -345,8 +345,8 @@ LaTeX Info: Redefining \nameref on input line 11.
 \openout3 = `supplementary_material.out'.
 
 Package epstopdf Info: Source file: <figures/BH_PWS_PWS_0.eps>
-(epstopdf)                    date: 2021-05-24 11:31:50
-(epstopdf)                    size: 238574 bytes
+(epstopdf)                    date: 2021-06-26 06:18:54
+(epstopdf)                    size: 238618 bytes
 (epstopdf)             Output file: <figures/BH_PWS_PWS_0-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2021-05-26 23:21:16
@@ -354,7 +354,13 @@ Package epstopdf Info: Source file: <figures/BH_PWS_PWS_0.eps>
 (epstopdf)             Command: <repstopdf --outfile=figures/BH_PWS_PWS_0-eps-c
 onverted-to.pdf figures/BH_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 14.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=figures/BH_PWS_PWS_0-eps-converted-to.pdf figures
+/BH_PWS_PWS_0.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figures/BH_PWS_PWS_0-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2021-06-26 06:50:59
+(epstopdf)                    size: 68225 bytes.
 
 <figures/BH_PWS_PWS_0-eps-converted-to.pdf, id=4, 2168.1pt x 1011.78pt>
 File: figures/BH_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
@@ -364,8 +370,8 @@ Package pdftex.def Info: figures/BH_PWS_PWS_0-eps-converted-to.pdf used on inpu
 t line 14.
 (pdftex.def)             Requested size: 469.75502pt x 247.4893pt.
 Package epstopdf Info: Source file: <figures/CL_PWS_PWS_0.eps>
-(epstopdf)                    date: 2021-05-24 13:51:36
-(epstopdf)                    size: 49822 bytes
+(epstopdf)                    date: 2021-06-26 06:33:42
+(epstopdf)                    size: 49876 bytes
 (epstopdf)             Output file: <figures/CL_PWS_PWS_0-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2021-05-26 23:21:17
@@ -373,7 +379,13 @@ Package epstopdf Info: Source file: <figures/CL_PWS_PWS_0.eps>
 (epstopdf)             Command: <repstopdf --outfile=figures/CL_PWS_PWS_0-eps-c
 onverted-to.pdf figures/CL_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 20.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=figures/CL_PWS_PWS_0-eps-converted-to.pdf figures
+/CL_PWS_PWS_0.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figures/CL_PWS_PWS_0-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2021-06-26 06:51:00
+(epstopdf)                    size: 23098 bytes.
 
 <figures/CL_PWS_PWS_0-eps-converted-to.pdf, id=6, 1300.86pt x 1011.78pt>
 File: figures/CL_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
@@ -387,8 +399,8 @@ t line 20.
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figur
 es/BH_PWS_PWS_0-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/DR_PWS_PWS_0.eps>
-(epstopdf)                    date: 2021-05-24 13:56:30
-(epstopdf)                    size: 91762 bytes
+(epstopdf)                    date: 2021-06-26 06:37:02
+(epstopdf)                    size: 91808 bytes
 (epstopdf)             Output file: <figures/DR_PWS_PWS_0-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2021-05-26 23:21:18
@@ -396,7 +408,13 @@ Package epstopdf Info: Source file: <figures/DR_PWS_PWS_0.eps>
 (epstopdf)             Command: <repstopdf --outfile=figures/DR_PWS_PWS_0-eps-c
 onverted-to.pdf figures/DR_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 26.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=figures/DR_PWS_PWS_0-eps-converted-to.pdf figures
+/DR_PWS_PWS_0.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figures/DR_PWS_PWS_0-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2021-06-26 06:51:01
+(epstopdf)                    size: 34448 bytes.
 
 <figures/DR_PWS_PWS_0-eps-converted-to.pdf, id=50, 1084.05pt x 1011.78pt>
 File: figures/DR_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
@@ -407,8 +425,8 @@ t line 26.
 (pdftex.def)             Requested size: 469.75502pt x 455.63908pt.
  [2 <./figures/CL_PWS_PWS_0-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/GC_PWS_PWS_0.eps>
-(epstopdf)                    date: 2021-05-24 14:05:14
-(epstopdf)                    size: 74433 bytes
+(epstopdf)                    date: 2021-06-26 06:39:23
+(epstopdf)                    size: 74488 bytes
 (epstopdf)             Output file: <figures/GC_PWS_PWS_0-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2021-05-26 23:21:20
@@ -416,7 +434,13 @@ Package epstopdf Info: Source file: <figures/GC_PWS_PWS_0.eps>
 (epstopdf)             Command: <repstopdf --outfile=figures/GC_PWS_PWS_0-eps-c
 onverted-to.pdf figures/GC_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 32.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=figures/GC_PWS_PWS_0-eps-converted-to.pdf figures
+/GC_PWS_PWS_0.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figures/GC_PWS_PWS_0-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2021-06-26 06:51:03
+(epstopdf)                    size: 29604 bytes.
 
 <figures/GC_PWS_PWS_0-eps-converted-to.pdf, id=89, 1300.86pt x 1156.32pt>
 File: figures/GC_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
@@ -427,8 +451,8 @@ t line 32.
 (pdftex.def)             Requested size: 469.75502pt x 421.50633pt.
  [3 <./figures/DR_PWS_PWS_0-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/LC_PWS_PWS_0.eps>
-(epstopdf)                    date: 2021-05-24 14:10:20
-(epstopdf)                    size: 24399 bytes
+(epstopdf)                    date: 2021-06-26 06:42:35
+(epstopdf)                    size: 24453 bytes
 (epstopdf)             Output file: <figures/LC_PWS_PWS_0-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2021-05-26 23:21:21
@@ -436,7 +460,13 @@ Package epstopdf Info: Source file: <figures/LC_PWS_PWS_0.eps>
 (epstopdf)             Command: <repstopdf --outfile=figures/LC_PWS_PWS_0-eps-c
 onverted-to.pdf figures/LC_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 38.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=figures/LC_PWS_PWS_0-eps-converted-to.pdf figures
+/LC_PWS_PWS_0.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figures/LC_PWS_PWS_0-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2021-06-26 06:51:04
+(epstopdf)                    size: 15896 bytes.
 
 <figures/LC_PWS_PWS_0-eps-converted-to.pdf, id=131, 1084.05pt x 1011.78pt>
 File: figures/LC_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
@@ -447,8 +477,8 @@ t line 38.
 (pdftex.def)             Requested size: 469.75502pt x 455.63908pt.
  [4 <./figures/GC_PWS_PWS_0-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/PA_PWS_PWS_0.eps>
-(epstopdf)                    date: 2021-05-24 14:14:38
-(epstopdf)                    size: 30614 bytes
+(epstopdf)                    date: 2021-06-26 06:44:56
+(epstopdf)                    size: 30664 bytes
 (epstopdf)             Output file: <figures/PA_PWS_PWS_0-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2021-05-26 23:21:22
@@ -456,7 +486,13 @@ Package epstopdf Info: Source file: <figures/PA_PWS_PWS_0.eps>
 (epstopdf)             Command: <repstopdf --outfile=figures/PA_PWS_PWS_0-eps-c
 onverted-to.pdf figures/PA_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 44.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=figures/PA_PWS_PWS_0-eps-converted-to.pdf figures
+/PA_PWS_PWS_0.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figures/PA_PWS_PWS_0-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2021-06-26 06:51:05
+(epstopdf)                    size: 17515 bytes.
 
 <figures/PA_PWS_PWS_0-eps-converted-to.pdf, id=172, 1300.86pt x 1011.78pt>
 File: figures/PA_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
@@ -467,8 +503,8 @@ t line 44.
 (pdftex.def)             Requested size: 469.75502pt x 396.90663pt.
  [5 <./figures/LC_PWS_PWS_0-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/TB_PWS_PWS_0.eps>
-(epstopdf)                    date: 2021-05-24 14:19:46
-(epstopdf)                    size: 140470 bytes
+(epstopdf)                    date: 2021-06-26 06:47:48
+(epstopdf)                    size: 140520 bytes
 (epstopdf)             Output file: <figures/TB_PWS_PWS_0-eps-converted-to.pdf>
 
 (epstopdf)                    date: 2021-05-26 23:21:23
@@ -476,7 +512,13 @@ Package epstopdf Info: Source file: <figures/TB_PWS_PWS_0.eps>
 (epstopdf)             Command: <repstopdf --outfile=figures/TB_PWS_PWS_0-eps-c
 onverted-to.pdf figures/TB_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 50.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=figures/TB_PWS_PWS_0-eps-converted-to.pdf figures
+/TB_PWS_PWS_0.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figures/TB_PWS_PWS_0-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2021-06-26 06:51:06
+(epstopdf)                    size: 45522 bytes.
 
 <figures/TB_PWS_PWS_0-eps-converted-to.pdf, id=209, 1517.67pt x 1011.78pt>
 File: figures/TB_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
@@ -508,7 +550,7 @@ Here is how much of TeX's memory you used:
  36i,5n,38p,289b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on supplementary_material.pdf (7 pages, 232305 bytes).
+Output written on supplementary_material.pdf (7 pages, 232310 bytes).
 PDF statistics:
  299 PDF objects out of 1000 (max. 8388607)
  78 compressed objects within 1 object stream
