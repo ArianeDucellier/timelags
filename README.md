@@ -1,5 +1,7 @@
 # timelags
 
+[![DOI](https://zenodo.org/badge/254470748.svg)](https://zenodo.org/badge/latestdoi/254470748)
+
 This repository contains the Python scripts associated to the paper:
 
 Ducellier A., Creager K.C. Depth and thickness of tectonic tremor in the northeastern Olympic Peninsula, _to be submitted_.
