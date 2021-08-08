@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  26 JUN 2021 06:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  27 JUN 2021 21:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2268,9 +2268,9 @@ ot mean square is higher than
  []
 
 
-Overfull \hbox (10.4045pt too wide) in paragraph at lines 267--267
+Overfull \hbox (13.73782pt too wide) in paragraph at lines 267--267
 \OT1/cmr/m/n/10 5. We com-pute the root mean square in clus-ter 1 for a time la
-g be-tween 12 and 14s be- 
+g be-tween 12 and 14 s be- 
  []
 
 
@@ -2286,39 +2286,39 @@ on func-tions are shown in Fig-
  []
 
 
-Overfull \hbox (8.29347pt too wide) in paragraph at lines 267--267
+Overfull \hbox (6.09903pt too wide) in paragraph at lines 267--267
 \OT1/cmr/m/n/10 ure 4 for the East-West com-po-nent and the North-South com-po-
-nent. The grey ver-ti-cal 
+nent. The grey dashed 
  []
 
 
-Overfull \hbox (7.46pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 line shows the the-o-ret-i-cal time lag be-tween the ar-rival o
-f the di-rect P-wave and the ar- 
+Overfull \hbox (10.23781pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 ver-ti-cal line shows the the-o-ret-i-cal time lag be-tween the
+ ar-rival of the di-rect P-wave and 
  []
 
 
-Overfull \hbox (6.73793pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 rival of the di-rect S-wave us-ing the cor-re-spond-ing 1D ve-l
-oc-ity model for this ar-ray and 
+Overfull \hbox (2.849pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 the ar-rival of the di-rect S-wave us-ing the cor-re-spond-ing 
+1D ve-loc-ity model for this ar- 
  []
 
 
-Overfull \hbox (5.46019pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 the plate bound-ary model from  []McCrory et al.[] (2006), the 
-dashed line cor-re-sponds to 
+Overfull \hbox (1.65462pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 ray and the plate bound-ary model from  []Preston et al.[] (200
+3), the grey solid line cor- 
  []
 
 
-Overfull \hbox (12.48787pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 the slab model from  []Preston et al.[] (2003). There is a good
- agree-ment be-tween the tim- 
+Overfull \hbox (5.18227pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 re-sponds to the mo-ment cen-troid of the stack. There is a goo
+d agree-ment be-tween the 
  []
 
 
-Overfull \hbox (15.65462pt too wide) in paragraph at lines 267--267
-\OT1/cmr/m/n/10 ing of the peak and the the-o-ret-i-cal time lag for most of th
-e lo-ca-tions of the source of the 
+Overfull \hbox (16.7935pt too wide) in paragraph at lines 267--267
+\OT1/cmr/m/n/10 tim-ing of the cen-troid and the the-o-ret-i-cal time lag for m
+ost of the lo-ca-tions of the source 
  []
 
 Package epstopdf Info: Source file: <figures/BS_PWS_PWS_0.eps>
@@ -2365,26 +2365,26 @@ grey dashed line for the Pre-ston
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 model) are gen-er-ally in good agree-ment with the peaks in cros
-s-correlation func-tions (grey solid
+\OT1/cmr/m/n/9 model) are gen-er-ally in good agree-ment with the cen-troids in
+ cross-correlation func-tions (grey
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 line). The lo-ca-tion of the tremor varies from west to east (le
-ft to right) and from south to north
+\OT1/cmr/m/n/9 solid line). The lo-ca-tion of the tremor varies from west to ea
+st (left to right) and from south to
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 (bot-tom to top). The num-bers next to each graph in-di-cate the
- num-ber of one-minute-long time
+\OT1/cmr/m/n/9 north (bot-tom to top). The num-bers next to each graph in-di-ca
+te the num-ber of one-minute-long
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 271--271
-\OT1/cmr/m/n/9 win-dows in the best clus-ter. For clar-ity, we plot-ted only th
-e part of the cross-correlation sig-nal
+\OT1/cmr/m/n/9 time win-dows in the best clus-ter. For clar-ity, we plot-ted on
+ly the part of the cross-correlation
  []
 
 
