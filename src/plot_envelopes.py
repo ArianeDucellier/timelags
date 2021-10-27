@@ -84,6 +84,11 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
     quality = pickle.load(open('cc/' + arrayName + '/quality_' + type_stack + \
         '_' + cc_stack + '.pkl', 'rb'))
 
+    # Initialize envelopes
+    envelopes_EW = None
+    envelopes_NS = None
+    columns = ['time']
+
     # Loop over output files
     for i in range(imin, imax + 1):
         for j in range(jmin, jmax + 1):
@@ -273,6 +278,15 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
                             ((i - imin + 0.8) * Tstep, (j - jmin + 0.5)), \
                             fontsize=30, color='black')
 
+                    # Write envelopes in numy array
+                    if len(columns) == 1:
+                        envelopes_EW = np.vstack([t[icut1 : icut2], EW.data[icut1 : icut2]])
+                        envelopes_NS = np.vstack([t[icut1 : icut2], NS.data[icut1 : icut2]])
+                    else:
+                        envelopes_EW = np.vstack([envelopes_EW, EW.data[icut1 : icut2]])
+                        envelopes_NS = np.vstack([envelopes_NS, NS.data[icut1 : icut2]])
+                    columns.append('{:d},{:d}'.format(int(x0), int(y0)))
+
     # Finalize figure
     plt.xlim(t[icut1] - 1, Tstep * (imax - imin) + t[icut2] + 1)
     plt.ylim(-0.2, jmax - jmin + 1)
@@ -301,6 +315,14 @@ def plot_envelopes(arrayName, lon0, lat0, type_stack, cc_stack, mintremor, \
     namefile = 'cc/{}/{}_{}_{}_width_reloc.pkl'.format(arrayName, arrayName, type_stack, cc_stack)
     pickle.dump(df_width_reloc, open(namefile, 'wb'))
 
+    # Save envelopes
+    namefile = 'cc/{}/{}_{}_{}_envelopes_EW.csv'.format(arrayName, arrayName, type_stack, cc_stack)
+    df_EW = pd.DataFrame(data=np.transpose(envelopes_EW), columns=columns)
+    df_EW.to_csv(namefile, index=False)
+    namefile = 'cc/{}/{}_{}_{}_envelopes_NS.csv'.format(arrayName, arrayName, type_stack, cc_stack)
+    df_NS = pd.DataFrame(data=np.transpose(envelopes_NS), columns=columns)
+    df_NS.to_csv(namefile, index=False)
+    
 if __name__ == '__main__':
 
 #    arrayName = 'BH'

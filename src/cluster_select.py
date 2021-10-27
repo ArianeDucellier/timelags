@@ -239,13 +239,15 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
                   'ytick.labelsize': 24}
         pylab.rcParams.update(params)
         plt.figure(1, figsize=(10 * nc, 16))
+        tlag_min = min(np.min(timelags['timelagEW']), np.min(timelags['timelagNS']))
+        tlag_max = max(np.max(timelags['timelagEW']), np.max(timelags['timelagNS']))
         # EW / Vertical
         for j in range(0, nc):
             plt.subplot2grid((2, nc), (0, j))
             times = timelags['timelagEW'].iloc[clusters == j]
             m = np.mean(times)
             s = np.std(times)
-            plt.hist(times)
+            plt.hist(times, range=(tlag_min, tlag_max))
             plt.axvline(m + s, color='grey', linestyle='--')
             plt.axvline(m - s, color='grey', linestyle='--')
             plt.title('EW / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
@@ -257,7 +259,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
             times = timelags['timelagNS'].iloc[clusters == j]
             m = np.mean(times)
             s = np.std(times)
-            plt.hist(times)
+            plt.hist(times, range=(tlag_min, tlag_max))
             plt.title('NS / UD - Cluster {:d} ({:d} tremor windows)'.format(j, \
                 len(times)), fontsize=24)
             plt.axvline(m + s, color='grey', linestyle='--')

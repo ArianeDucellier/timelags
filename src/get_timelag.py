@@ -19,7 +19,7 @@ from stacking import linstack, powstack, PWstack
 
 # Set parameters
 #arrayNames = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
-arrayNames = ['TB']
+arrayNames = ['BS']
 w = 2.0
 Tmax = 15.0
 ds = 5.0
@@ -89,8 +89,8 @@ for arrayName in arrayNames:
             'ntremor_PWS_lin', 'ntremor_PWS_pow', 'ntremor_PWS_PWS'])
                 
     # Loop on tremor location
-    for i in range(-5, 6):
-        for j in range(-5, 6):
+    for i in range(-1, 0): #range(-5, 6):
+        for j in range(-1, 0): #range(-5, 6):
             x0 = i * ds
             y0 = j * ds
             print(x0, y0)
@@ -364,7 +364,7 @@ for arrayName in arrayNames:
                             x0, y0, 'PWS', w, 'PWS', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -0.004, 0.021, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            True, True, True, True, False, True, False)
 
                         i0 = len(df.index)
                         df.loc[i0] = [x0, y0, ntremor, \
