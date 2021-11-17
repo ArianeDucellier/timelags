@@ -43,7 +43,7 @@ gmt psxy section_strike_PWS_PWS_BS_1.txt -R$Rop -J$Jop -Sa0.3 -C$cpt -O -K >> $o
 gmt psxy section_strike_PWS_PWS_DR_1.txt -R$Rop -J$Jop -Si0.3 -C$cpt -O -K >> $output
 gmt psxy section_strike_PWS_PWS_GC_1.txt -R$Rop -J$Jop -Sc0.3 -C$cpt -O -K >> $output
 gmt psxy section_strike_PWS_PWS_PA_1.txt -R$Rop -J$Jop -Sd0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_TB_1.txt -R$Rop -J$Jop -St0.3 -C$cpt -O -K >> $output
+gmt psxy section_strike_PWS_PWS_TB_1.txt -R$Rop -J$Jop -Sh0.3 -C$cpt -O -K >> $output
 
 gmt psxy ground.dat -R$Rop -J$Jop -Wthicker -O -K >> $output
 
@@ -70,7 +70,7 @@ gmt psxy section_strike_PWS_PWS_BS_2.txt -R$Rop -J$Jop -Sa0.3 -C$cpt -O -K >> $o
 gmt psxy section_strike_PWS_PWS_DR_2.txt -R$Rop -J$Jop -Si0.3 -C$cpt -O -K >> $output
 gmt psxy section_strike_PWS_PWS_GC_2.txt -R$Rop -J$Jop -Sc0.3 -C$cpt -O -K >> $output
 gmt psxy section_strike_PWS_PWS_PA_2.txt -R$Rop -J$Jop -Sd0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_TB_2.txt -R$Rop -J$Jop -St0.3 -C$cpt -O -K >> $output
+gmt psxy section_strike_PWS_PWS_TB_2.txt -R$Rop -J$Jop -Sh0.3 -C$cpt -O -K >> $output
 
 gmt psxy ground.dat -R$Rop -J$Jop -Wthicker -O -K >> $output
 
@@ -97,7 +97,7 @@ gmt psxy section_strike_PWS_PWS_BS_3.txt -R$Rop -J$Jop -Sa0.3 -C$cpt -O -K >> $o
 gmt psxy section_strike_PWS_PWS_DR_3.txt -R$Rop -J$Jop -Si0.3 -C$cpt -O -K >> $output
 gmt psxy section_strike_PWS_PWS_GC_3.txt -R$Rop -J$Jop -Sc0.3 -C$cpt -O -K >> $output
 gmt psxy section_strike_PWS_PWS_PA_3.txt -R$Rop -J$Jop -Sd0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_TB_3.txt -R$Rop -J$Jop -St0.3 -C$cpt -O -K >> $output
+gmt psxy section_strike_PWS_PWS_TB_3.txt -R$Rop -J$Jop -Sh0.3 -C$cpt -O -K >> $output
 
 gmt psxy ground.dat -R$Rop -J$Jop -Wthicker -O -K >> $output
 
