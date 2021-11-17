@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  6 NOV 2021 10:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  16 NOV 2021 23:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -217,6 +217,30 @@ Package morefloats Info: Maximum number of possible floats asked for: 36.
 \c@numeditors=\count104
 \c@maxeditors=\count105
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip68
+\LTright=\skip69
+\LTpre=\skip70
+\LTpost=\skip71
+\LTchunksize=\count106
+\LTcapwidth=\dimen115
+\LT@head=\box28
+\LT@firsthead=\box29
+\LT@foot=\box30
+\LT@lastfoot=\box31
+\LT@cols=\count107
+\LT@rows=\count108
+\c@LT@tables=\count109
+\c@LT@chunks=\count110
+\LT@p@ftn=\toks22
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/afterpage.sty
+Package: afterpage 1995/10/27 v1.08 After-Page Package (DPC)
+\AP@output=\toks23
+\AP@partial=\box32
+\AP@footins=\box33
+)
 (./supplementary_material.aux
 
 LaTeX Warning: Label `pngfiguresample' multiply defined.
@@ -242,31 +266,31 @@ LaTeX Warning: Label `pngfiguresample' multiply defined.
 )
 \openout1 = `supplementary_material.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
  (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
-\scratchdimen=\dimen115
-\scratchbox=\box28
-\nofMPsegments=\count107
-\nofMParguments=\count108
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count109
-\MPscratchDim=\dimen116
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count111
+\scratchdimen=\dimen116
+\scratchbox=\box34
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen117
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks25
 ) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -299,8 +323,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 12.
-\c@maskedRefs=\count112
+LaTeX Info: Redefining \selectfont on input line 18.
+\c@maskedRefs=\count117
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/apacite/english.apc
 File: english.apc 2013/07/21 v6.03 apacite language file
@@ -308,14 +332,54 @@ LaTeX Info: Redefining \BPBI on input line 129.
 LaTeX Info: Redefining \BHBI on input line 130.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 16.
+(Font)              <7> on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 16.
+(Font)              <5> on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 18.
+(Font)              <8> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 18.
- [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(Font)              <6> on input line 24.
+
+Overfull \hbox (90.26591pt too wide) in alignment at lines 29--34
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (90.26591pt too wide) in alignment at lines 34--38
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (90.26591pt too wide) in alignment at lines 38--39
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (90.26591pt too wide) in alignment at lines 39--41
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (90.26591pt too wide) in alignment at lines 41--62
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (90.26591pt too wide) in alignment at lines 62--82
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (90.26591pt too wide) in alignment at lines 82--102
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (90.26591pt too wide) in alignment at lines 102--120
+ [] [] [] [] [] [] [] 
+ []
+
+[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package epstopdf Info: Source file: <figures/BH_PWS_PWS_0.eps>
 (epstopdf)                    date: 2021-06-26 06:18:54
 (epstopdf)                    size: 238618 bytes
@@ -325,26 +389,26 @@ Package epstopdf Info: Source file: <figures/BH_PWS_PWS_0.eps>
 (epstopdf)                    size: 68225 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/BH_PWS_PWS_0-eps-c
 onverted-to.pdf figures/BH_PWS_PWS_0.eps>
-(epstopdf)             \includegraphics on input line 25.
+(epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/BH_PWS_PWS_0-eps-converted-to.pdf, id=15, 2168.1pt x 1011.78pt>
+<figures/BH_PWS_PWS_0-eps-converted-to.pdf, id=16, 2168.1pt x 1011.78pt>
 File: figures/BH_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/BH_PWS_PWS_0-eps-converted-to.pdf>
 Package pdftex.def Info: figures/BH_PWS_PWS_0-eps-converted-to.pdf used on inpu
-t line 25.
+t line 124.
 (pdftex.def)             Requested size: 397.48499pt x 209.40282pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
-[]\OT1/cmr/bx/n/9 Figure  1. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cro
-ss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
+[]\OT1/cmr/bx/n/9 Figure  S1. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cr
+oss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
 \OT1/cmr/m/n/9 tremor source rel-a-tive to the Burnt Hill ar-ray. See cap-tion 
-of Fig-ure 4 for an ex-pla-na-tion of this
+of Fig-ure 4 from the main text for an
  []
 
 Package epstopdf Info: Source file: <figures/CL_PWS_PWS_0.eps>
@@ -356,25 +420,25 @@ Package epstopdf Info: Source file: <figures/CL_PWS_PWS_0.eps>
 (epstopdf)                    size: 23098 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/CL_PWS_PWS_0-eps-c
 onverted-to.pdf figures/CL_PWS_PWS_0.eps>
-(epstopdf)             \includegraphics on input line 31.
+(epstopdf)             \includegraphics on input line 130.
 Package epstopdf Info: Output file is already uptodate.
-<figures/CL_PWS_PWS_0-eps-converted-to.pdf, id=17, 1300.86pt x 1011.78pt>
+<figures/CL_PWS_PWS_0-eps-converted-to.pdf, id=18, 1300.86pt x 1011.78pt>
 File: figures/CL_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/CL_PWS_PWS_0-eps-converted-to.pdf>
 Package pdftex.def Info: figures/CL_PWS_PWS_0-eps-converted-to.pdf used on inpu
-t line 31.
+t line 130.
 (pdftex.def)             Requested size: 397.48499pt x 330.83932pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--32
-[]\OT1/cmr/bx/n/9 Figure  2. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cro
-ss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+[]\OT1/cmr/bx/n/9 Figure  S2. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cr
+oss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--32
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
 \OT1/cmr/m/n/9 tremor source rel-a-tive to the Cat Lake ar-ray. See cap-tion of
- Fig-ure 4 for an ex-pla-na-tion of this
+ Fig-ure 4 from the main text for an
  []
 
 Package epstopdf Info: Source file: <figures/DR_PWS_PWS_0.eps>
@@ -386,25 +450,25 @@ Package epstopdf Info: Source file: <figures/DR_PWS_PWS_0.eps>
 (epstopdf)                    size: 34448 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/DR_PWS_PWS_0-eps-c
 onverted-to.pdf figures/DR_PWS_PWS_0.eps>
-(epstopdf)             \includegraphics on input line 37.
+(epstopdf)             \includegraphics on input line 136.
 Package epstopdf Info: Output file is already uptodate.
-<figures/DR_PWS_PWS_0-eps-converted-to.pdf, id=19, 1084.05pt x 1011.78pt>
+<figures/DR_PWS_PWS_0-eps-converted-to.pdf, id=20, 1084.05pt x 1011.78pt>
 File: figures/DR_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/DR_PWS_PWS_0-eps-converted-to.pdf>
 Package pdftex.def Info: figures/DR_PWS_PWS_0-eps-converted-to.pdf used on inpu
-t line 37.
+t line 136.
 (pdftex.def)             Requested size: 397.48499pt x 385.54189pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-[]\OT1/cmr/bx/n/9 Figure  3. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cro
-ss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+[]\OT1/cmr/bx/n/9 Figure  S3. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cr
+oss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 \OT1/cmr/m/n/9 tremor source rel-a-tive to the Danz Ranch ar-ray. See cap-tion 
-of Fig-ure 4 for an ex-pla-na-tion of
+of Fig-ure 4 from the main text for
  []
 
 Package epstopdf Info: Source file: <figures/GC_PWS_PWS_0.eps>
@@ -416,25 +480,25 @@ Package epstopdf Info: Source file: <figures/GC_PWS_PWS_0.eps>
 (epstopdf)                    size: 29604 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/GC_PWS_PWS_0-eps-c
 onverted-to.pdf figures/GC_PWS_PWS_0.eps>
-(epstopdf)             \includegraphics on input line 43.
+(epstopdf)             \includegraphics on input line 142.
 Package epstopdf Info: Output file is already uptodate.
-<figures/GC_PWS_PWS_0-eps-converted-to.pdf, id=21, 1300.86pt x 1156.32pt>
+<figures/GC_PWS_PWS_0-eps-converted-to.pdf, id=22, 1300.86pt x 1156.32pt>
 File: figures/GC_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/GC_PWS_PWS_0-eps-converted-to.pdf>
 Package pdftex.def Info: figures/GC_PWS_PWS_0-eps-converted-to.pdf used on inpu
-t line 43.
+t line 142.
 (pdftex.def)             Requested size: 397.48499pt x 356.658pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--44
-[]\OT1/cmr/bx/n/9 Figure  4. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cro
-ss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
+[]\OT1/cmr/bx/n/9 Figure  S4. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cr
+oss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--44
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \OT1/cmr/m/n/9 tremor source rel-a-tive to the Gold Creek ar-ray. See cap-tion 
-of Fig-ure 4 for an ex-pla-na-tion of this
+of Fig-ure 4 from the main text for an
  []
 
 Package epstopdf Info: Source file: <figures/LC_PWS_PWS_0.eps>
@@ -446,25 +510,25 @@ Package epstopdf Info: Source file: <figures/LC_PWS_PWS_0.eps>
 (epstopdf)                    size: 15896 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/LC_PWS_PWS_0-eps-c
 onverted-to.pdf figures/LC_PWS_PWS_0.eps>
-(epstopdf)             \includegraphics on input line 49.
+(epstopdf)             \includegraphics on input line 148.
 Package epstopdf Info: Output file is already uptodate.
-<figures/LC_PWS_PWS_0-eps-converted-to.pdf, id=23, 1084.05pt x 1011.78pt>
+<figures/LC_PWS_PWS_0-eps-converted-to.pdf, id=24, 1084.05pt x 1011.78pt>
 File: figures/LC_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/LC_PWS_PWS_0-eps-converted-to.pdf>
 Package pdftex.def Info: figures/LC_PWS_PWS_0-eps-converted-to.pdf used on inpu
-t line 49.
+t line 148.
 (pdftex.def)             Requested size: 397.48499pt x 385.54189pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
-[]\OT1/cmr/bx/n/9 Figure  5. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cro
-ss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
+[]\OT1/cmr/bx/n/9 Figure  S5. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cr
+oss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
 \OT1/cmr/m/n/9 tremor source rel-a-tive to the Lost Cause ar-ray. See cap-tion 
-of Fig-ure 4 for an ex-pla-na-tion of this
+of Fig-ure 4 from the main text for an
  []
 
 Package epstopdf Info: Source file: <figures/PA_PWS_PWS_0.eps>
@@ -476,25 +540,25 @@ Package epstopdf Info: Source file: <figures/PA_PWS_PWS_0.eps>
 (epstopdf)                    size: 17515 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/PA_PWS_PWS_0-eps-c
 onverted-to.pdf figures/PA_PWS_PWS_0.eps>
-(epstopdf)             \includegraphics on input line 55.
+(epstopdf)             \includegraphics on input line 154.
 Package epstopdf Info: Output file is already uptodate.
-<figures/PA_PWS_PWS_0-eps-converted-to.pdf, id=25, 1300.86pt x 1011.78pt>
+<figures/PA_PWS_PWS_0-eps-converted-to.pdf, id=26, 1300.86pt x 1011.78pt>
 File: figures/PA_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/PA_PWS_PWS_0-eps-converted-to.pdf>
 Package pdftex.def Info: figures/PA_PWS_PWS_0-eps-converted-to.pdf used on inpu
-t line 55.
+t line 154.
 (pdftex.def)             Requested size: 397.48499pt x 335.84296pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
-[]\OT1/cmr/bx/n/9 Figure  6. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cro
-ss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
+Underfull \hbox (badness 10000) in paragraph at lines 155--155
+[]\OT1/cmr/bx/n/9 Figure  S6. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cr
+oss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 155--155
 \OT1/cmr/m/n/9 tremor source rel-a-tive to the Port An-ge-les ar-ray. See cap-t
-ion of Fig-ure 4 for an ex-pla-na-tion of
+ion of Fig-ure 4 from the main text for
  []
 
 Package epstopdf Info: Source file: <figures/TB_PWS_PWS_0.eps>
@@ -506,131 +570,137 @@ Package epstopdf Info: Source file: <figures/TB_PWS_PWS_0.eps>
 (epstopdf)                    size: 45522 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/TB_PWS_PWS_0-eps-c
 onverted-to.pdf figures/TB_PWS_PWS_0.eps>
-(epstopdf)             \includegraphics on input line 61.
+(epstopdf)             \includegraphics on input line 160.
 Package epstopdf Info: Output file is already uptodate.
-<figures/TB_PWS_PWS_0-eps-converted-to.pdf, id=27, 1517.67pt x 1011.78pt>
+<figures/TB_PWS_PWS_0-eps-converted-to.pdf, id=28, 1517.67pt x 1011.78pt>
 File: figures/TB_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/TB_PWS_PWS_0-eps-converted-to.pdf>
 Package pdftex.def Info: figures/TB_PWS_PWS_0-eps-converted-to.pdf used on inpu
-t line 61.
+t line 160.
 (pdftex.def)             Requested size: 397.48499pt x 290.9959pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
-[]\OT1/cmr/bx/n/9 Figure  7. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cro
-ss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+[]\OT1/cmr/bx/n/9 Figure  S7. \OT1/cmr/m/n/9 Stacks of the en-velopes of the cr
+oss cor-re-la-tion sig-nals for dif-fer-ent po-si-tions of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 \OT1/cmr/m/n/9 tremor source rel-a-tive to the Three Bumps ar-ray. See cap-tion
- of Fig-ure 4 for an ex-pla-na-tion of
+ of Fig-ure 4 from the main text for
  []
 
 Package epstopdf Info: Source file: <figures/BS_-05_-05_PWS_PWS_cluster_timelag
 s.eps>
-(epstopdf)                    date: 2021-11-01 19:32:00
-(epstopdf)                    size: 48633 bytes
+(epstopdf)                    date: 2021-11-16 21:42:48
+(epstopdf)                    size: 47158 bytes
 (epstopdf)             Output file: <figures/BS_-05_-05_PWS_PWS_cluster_timelag
 s-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-11-06 10:40:15
-(epstopdf)                    size: 21729 bytes
+(epstopdf)                    date: 2021-11-16 21:49:16
+(epstopdf)                    size: 20591 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/BS_-05_-05_PWS_PWS
 _cluster_timelags-eps-converted-to.pdf figures/BS_-05_-05_PWS_PWS_cluster_timel
 ags.eps>
-(epstopdf)             \includegraphics on input line 67.
+(epstopdf)             \includegraphics on input line 166.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/BS_-05_-05_PWS_PWS_cluster_timelags-eps-converted-to.pdf, id=29, 1445.
+<figures/BS_-05_-05_PWS_PWS_cluster_timelags-eps-converted-to.pdf, id=30, 1445.
 4pt x 1156.32pt>
 File: figures/BS_-05_-05_PWS_PWS_cluster_timelags-eps-converted-to.pdf Graphic 
 file (type pdf)
 
 <use figures/BS_-05_-05_PWS_PWS_cluster_timelags-eps-converted-to.pdf>
 Package pdftex.def Info: figures/BS_-05_-05_PWS_PWS_cluster_timelags-eps-conver
-ted-to.pdf used on input line 67.
+ted-to.pdf used on input line 166.
 (pdftex.def)             Requested size: 397.48499pt x 317.98016pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-[]\OT1/cmr/bx/n/9 Figure  8. \OT1/cmr/m/n/9 Dis-tri-bu-tion of the time lags be
--tween the time cor-re-spond-ing to the max-i-mum
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+[]\OT1/cmr/bx/n/9 Figure  S8. \OT1/cmr/m/n/9 Time lags be-tween the time cor-re
+-spond-ing to the max-i-mum ab-so-lute value for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-\OT1/cmr/m/n/9 ab-so-lute value for the cross-correlation func-tion and the tim
-e cor-re-spond-ing to the max-i-mum
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/cmr/m/n/9 the cross-correlation func-tion and the time cor-re-spond-ing to
+ the max-i-mum ab-so-lute value for the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-\OT1/cmr/m/n/9 ab-so-lute value for the stacked cross-correlation for the time 
-win-dows in clus-ter 0 (that is the
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/cmr/m/n/9 stacked cross-correlation are com-puted for each time win-dow fo
+r which the source of the tremor is
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-\OT1/cmr/m/n/9 time win-dows that do not fit well with the stack, left panel) a
-nd in clus-ter 1 (that is the time
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/cmr/m/n/9 lo-cated on a grid cell. The dis-tri-bu-tion of the time lags is
+ shown for the time win-dows in clus-ter
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-\OT1/cmr/m/n/9 win-dows that fit well with the stack, right panel). Top pan-els
- are the cross-correlation of the EW
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/cmr/m/n/9 0 (that is the time win-dows that do not fit well with the stack
+, left panel) and in clus-ter 1 (that
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-\OT1/cmr/m/n/9 com-po-nent with the ver-ti-cal com-po-nent, and bot-tom pan-els
- are the cross-correlation of the NS
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/cmr/m/n/9 is the time win-dows that fit well with the stack, right panel).
+ Top pan-els are the cross-correlation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-\OT1/cmr/m/n/9 com-po-nent with the ver-ti-cal com-po-nent. The grey dashed lin
-es cor-re-spond to the mean plus or
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/cmr/m/n/9 of the EW com-po-nent with the ver-ti-cal com-po-nent, and bot-t
+om pan-els are the cross-correlation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-\OT1/cmr/m/n/9 mi-nus the stan-dard de-vi-a-tion. The ar-ray and the grid cell 
-are the same as in Fig-ures 1 and 2 of
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/cmr/m/n/9 of the NS com-po-nent with the ver-ti-cal com-po-nent. The grey 
+dashed lines cor-re-spond to the mean
  []
 
-No file supplementary_material.bbl.
-[2 <./figures/BH_PWS_PWS_0-eps-converted-to.pdf> <./figures/CL_PWS_PWS_0-eps-co
-nverted-to.pdf>] [3 <./figures/DR_PWS_PWS_0-eps-converted-to.pdf>] [4 <./figure
-s/GC_PWS_PWS_0-eps-converted-to.pdf>] [5 <./figures/LC_PWS_PWS_0-eps-converted-
-to.pdf>] [6 <./figures/PA_PWS_PWS_0-eps-converted-to.pdf>] [7 <./figures/TB_PWS
-_PWS_0-eps-converted-to.pdf>] [8 <./figures/BS_-05_-05_PWS_PWS_cluster_timelags
--eps-converted-to.pdf>] (./supplementary_material.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+\OT1/cmr/m/n/9 plus or mi-nus the stan-dard de-vi-a-tion. The ar-ray and the gr
+id cell are the same as in Fig-ures 1
+ []
+
+[2] [3 <./figures/BH_PWS_PWS_0-eps-converted-to.pdf> <./figures/CL_PWS_PWS_0-ep
+s-converted-to.pdf>] [4 <./figures/DR_PWS_PWS_0-eps-converted-to.pdf>] [5 <./fi
+gures/GC_PWS_PWS_0-eps-converted-to.pdf>] [6 <./figures/LC_PWS_PWS_0-eps-conver
+ted-to.pdf>] [7 <./figures/PA_PWS_PWS_0-eps-converted-to.pdf>] [8 <./figures/TB
+_PWS_PWS_0-eps-converted-to.pdf>] [9 <./figures/BS_-05_-05_PWS_PWS_cluster_time
+lags-eps-converted-to.pdf>] (./supplementary_material.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3321 strings out of 493117
- 46909 string characters out of 6135433
- 115860 words of memory out of 5000000
- 6723 multiletter control sequences out of 15000+600000
+ 3430 strings out of 493117
+ 48247 string characters out of 6135433
+ 137072 words of memory out of 5000000
+ 6827 multiletter control sequences out of 15000+600000
  8108 words of font info for 29 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
- 43i,8n,37p,809b,265s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,8n,37p,930b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on supplementary_material.pdf (8 pages, 340252 bytes).
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on supplementary_material.pdf (9 pages, 358666 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
+ 367 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

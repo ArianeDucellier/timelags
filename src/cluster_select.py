@@ -264,7 +264,7 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
                 len(times)), fontsize=24)
             plt.axvline(m + s, color='grey', linestyle='--')
             plt.axvline(m - s, color='grey', linestyle='--')
-            plt.xlabel('Lag time difference (s)', fontsize=24)
+            plt.xlabel('Time lag (s)', fontsize=24)
         # End figure
         plt.tight_layout()
         plt.savefig( \
