@@ -316,6 +316,8 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         # Plot
         if (draw_cc == True):
             plt.subplot2grid((2, nc), (0, j))
+            plt.axvline(Tmin, color='grey', linestyle='--')
+            plt.axvline(Tmax, color='grey', linestyle='--')
             plt.plot(t, EW_UD_stack.data, 'k-', label='All')
             plt.plot(t, EWselect_stack.data, color=palette[j], \
                 label='Cluster {:d}'.format(j))
@@ -369,6 +371,8 @@ def cluster_select(arrayName, x0, y0, type_stack, w, cc_stack, ncor, Tmin, \
         # Plot
         if (draw_cc == True):
             plt.subplot2grid((2, nc), (1, j))
+            plt.axvline(Tmin, color='grey', linestyle='--')
+            plt.axvline(Tmax, color='grey', linestyle='--')
             plt.plot(t, NS_UD_stack.data, 'k-', label='All')
             plt.plot(t, NSselect_stack.data, color=palette[j], \
                 label='Cluster {:d}'.format(j, ))

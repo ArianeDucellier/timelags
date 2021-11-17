@@ -4,6 +4,8 @@ and the direct S-wave using cross-correlation of seismic
 signal recorded during tectonic tremor
 """
 
+import matplotlib.pylab as pylab
+import matplotlib.pyplot as plt
 import numpy as np
 import obspy
 import os
@@ -19,7 +21,7 @@ from stacking import linstack, powstack, PWstack
 
 # Set parameters
 #arrayNames = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
-arrayNames = ['BS']
+arrayNames = ['TB']
 w = 2.0
 Tmax = 15.0
 ds = 5.0
@@ -89,7 +91,7 @@ for arrayName in arrayNames:
             'ntremor_PWS_lin', 'ntremor_PWS_pow', 'ntremor_PWS_PWS'])
                 
     # Loop on tremor location
-    for i in range(-1, 0): #range(-5, 6):
+    for i in range(3, 4): #range(-5, 6):
         for j in range(-1, 0): #range(-5, 6):
             x0 = i * ds
             y0 = j * ds
@@ -265,6 +267,34 @@ for arrayName in arrayNames:
                                 t_PWS_lin_NS, t_PWS_pow_NS, t_PWS_PWS_NS]) \
                         + 1.0
 
+                    # Plot stacks
+                    params = {'legend.fontsize': 24, \
+                              'xtick.labelsize': 24, \
+                              'ytick.labelsize': 24}
+                    pylab.rcParams.update(params)
+                    plt.figure(0, figsize=(10, 8))
+                    plt.axvline(Tmin, color='grey', linestyle='--')
+                    plt.axvline(Tmax, color='grey', linestyle='--')
+                    plt.plot(t, EW_PWS.data, 'r-', label='EW')
+                    plt.plot(t, NS_PWS.data, 'b-', label='NS')
+                    plt.xlim(xmin, xmax)
+                    origin = int((len(EW_PWS.data) - 1) / 2)
+                    dt = EW_PWS.stats.delta
+                    i1 = origin + int(Tmin / EW_PWS.stats.delta)
+                    i2 = origin + int(Tmax / EW_PWS.stats.delta) + 1
+                    ymin = min(np.min(EW_PWS.data[i1:i2]), np.min(NS_PWS.data[i1:i2]))
+                    ymax = max(np.max(EW_PWS.data[i1:i2]), np.max(NS_PWS.data[i1:i2]))
+                    plt.ylim(ymin, ymax)
+                    plt.title('Stacks for {} at ({:d} - {:d}) km)'.format( \
+                        arrayName, int(x0), int(y0)), fontsize=24)
+                    plt.xlabel('Lag time (s)', fontsize=24)
+                    plt.legend(loc=1)
+                    plt.tight_layout()
+                    plt.savefig( 'intervals/{}_{:03d}_{:03d}_stacks.eps'. \
+                        format(arrayName, int(x0), int(y0)), format='eps')
+                    plt.close(0)
+
+                    nlincc = 1
                     # Cluster tremor for better peak
                     if (nlincc >= 2):
                     # Linear stack
@@ -278,7 +308,7 @@ for arrayName in arrayNames:
                             x0, y0, 'lin', w, 'lin', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -0.06, 0.06, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            False, False, True, False, False, False, False)
                         (clusters, t_lin_pow_EW_cluster, \
                                    t_lin_pow_NS_cluster, \
                             cc_lin_pow_EW, cc_lin_pow_NS, \
@@ -288,7 +318,7 @@ for arrayName in arrayNames:
                             x0, y0, 'lin', w, 'pow', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -2.0, 2.0, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            False, False, True, False, False, False, False)
                         (clusters, t_lin_PWS_EW_cluster, \
                                    t_lin_PWS_NS_cluster, \
                             cc_lin_PWS_EW, cc_lin_PWS_NS, \
@@ -298,7 +328,7 @@ for arrayName in arrayNames:
                             x0, y0, 'lin', w, 'PWS', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -0.04, 0.04, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            False, False, True, False, False, False, False)
 
                         # Power stack
                         amp = 2.0
@@ -311,7 +341,7 @@ for arrayName in arrayNames:
                             x0, y0, 'pow', w, 'lin', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -0.3, 0.3, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            False, False, True, False, False, False, False)
                         (clusters, t_pow_pow_EW_cluster, \
                                    t_pow_pow_NS_cluster, \
                             cc_pow_pow_EW, cc_pow_pow_NS, \
@@ -321,7 +351,7 @@ for arrayName in arrayNames:
                             x0, y0, 'pow', w, 'pow', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -10.0, 10.0, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            False, False, True, False, False, False, False)
                         (clusters, t_pow_PWS_EW_cluster, \
                                    t_pow_PWS_NS_cluster, \
                             cc_pow_PWS_EW, cc_pow_PWS_NS, \
@@ -331,7 +361,7 @@ for arrayName in arrayNames:
                             x0, y0, 'pow', w, 'PWS', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -0.16, 0.16, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            False, False, True, False, False, False, False)
 
                         # Phase-weighted stack
                         amp = 100.0
@@ -344,7 +374,7 @@ for arrayName in arrayNames:
                             x0, y0, 'PWS', w, 'lin', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -0.02, 0.02, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            False, False, True, False, False, False, False)
                         (clusters, t_PWS_pow_EW_cluster, \
                                    t_PWS_pow_NS_cluster, \
                             cc_PWS_pow_EW, cc_PWS_pow_NS, \
@@ -354,7 +384,7 @@ for arrayName in arrayNames:
                             x0, y0, 'PWS', w, 'pow', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -0.4, 0.4, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, False, False, False, False)
+                            False, False, True, False, False, False, False)
                         (clusters, t_PWS_PWS_EW_cluster, \
                                    t_PWS_PWS_NS_cluster, \
                             cc_PWS_PWS_EW, cc_PWS_PWS_NS, \
@@ -364,7 +394,7 @@ for arrayName in arrayNames:
                             x0, y0, 'PWS', w, 'PWS', ncor_cluster, \
                             Tmin, Tmax, RMSmin, RMSmax, xmin, xmax, \
                             -0.004, 0.021, 'kmeans', nc, palette, amp, n1, n2, \
-                            True, True, True, True, False, True, False)
+                            False, False, True, False, False, False, False)
 
                         i0 = len(df.index)
                         df.loc[i0] = [x0, y0, ntremor, \
