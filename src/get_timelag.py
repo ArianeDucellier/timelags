@@ -19,9 +19,16 @@ from plot_stack_acorr import plot_stack_acorr
 from plot_stack_ccorr import plot_stack_ccorr
 from stacking import linstack, powstack, PWstack
 
+from misc import get_travel_time
+
 # Set parameters
 #arrayNames = ['BH', 'BS', 'CL', 'DR', 'GC', 'LC', 'PA', 'TB']
-arrayNames = ['BS']
+arrayNames = ['TB']
+
+h0 = np.array([0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60])
+vp0 = np.array([4.8802, 5.0365, 5.3957, 6.2648, 6.8605, 6.7832, 6.4347, 6.1937, 6.0609, 6.029, 6.1562, 6.5261, 6.8914, 7.2201, 7.5902, 7.99, 7.8729, 7.9578, 8.0181, 8.0238, 8.0381])
+vs0 = 1.00 * np.array([2.3612, 2.5971, 2.9289, 3.3382, 3.7488, 3.8076, 3.6282, 3.5566, 3.5032, 3.4848, 3.5262, 3.6438, 3.8624, 4.103, 4.316, 4.5194, 4.5373, 4.6046, 4.6349, 4.6381, 4.6461])
+
 w = 2.0
 Tmax = 15.0
 ds = 5.0
@@ -43,6 +50,15 @@ for arrayName in arrayNames:
     depth = pd.read_csv('../data/depth/McCrory/' + arrayName + '_depth.txt', \
         sep=' ', header=None)
     depth.columns = ['x', 'y', 'depth']
+
+    # Preston model
+    depth_pb_P = pd.read_csv('../data/depth/Preston/' + arrayName + '_depth.txt', sep=' ', \
+        header=None)
+    depth_pb_P.columns = ['x', 'y', 'depth']
+
+    # Final results
+    df_width = pickle.load(open('cc/{}/{}_{}_{}_width_0.pkl'.format( \
+        arrayName, arrayName, 'PWS', 'PWS'), 'rb'))
 
     # Store results in pandas dataframe
     namefile = arrayName + '_timelag.pkl'
@@ -92,12 +108,31 @@ for arrayName in arrayNames:
                 
     # Loop on tremor location
     for i in range(-1, 0): #range(-5, 6):
-        for j in range(-1, 0): #range(-5, 6):
+        for j in range(-5, -2): #range(-5, 6):
             x0 = i * ds
             y0 = j * ds
-            print(x0, y0)
             filename = '{}/{}_{:03d}_{:03d}/{}_{:03d}_{:03d}'.format( \
                 arrayName, arrayName, int(x0), int(y0), arrayName, int(x0), int(y0))
+
+            # Get depth of plate boundary (Preston model)
+            myx = depth_pb_P['x'] == x0
+            myy = depth_pb_P['y'] == y0
+            myline = depth_pb_P[myx & myy]
+            d0_P = - myline['depth'].iloc[0]
+            # Theoretical time lag
+            ts = get_travel_time(sqrt(x0 ** 2 + y0 ** 2), d0_P, h0, vs0)
+            tp = get_travel_time(sqrt(x0 ** 2 + y0 ** 2), d0_P, h0, vp0)
+            time_P = ts - tp
+            # Get computed time lag
+            myx = df_width['i'] == i
+            myy = df_width['j'] == j
+            myline = df_width[myx & myy]
+            if myline['maxE'].iloc[0] >= myline['maxN'].iloc[0]:
+                timelag = myline['time_EW'].iloc[0]
+            else:
+                timelag = myline['time_NS'].iloc[0]
+
+            print(x0, y0, time_P, timelag)
 
             # Get the depth of the plate boundary
             myx = depth['x'] == x0
@@ -268,31 +303,33 @@ for arrayName in arrayNames:
                         + 1.0
 
                     # Plot stacks
-#                    params = {'legend.fontsize': 24, \
-#                              'xtick.labelsize': 24, \
-#                              'ytick.labelsize': 24}
-#                    pylab.rcParams.update(params)
-#                    plt.figure(0, figsize=(10, 8))
-#                    plt.axvline(Tmin, color='grey', linestyle='--')
-#                    plt.axvline(Tmax, color='grey', linestyle='--')
-#                    plt.plot(t, EW_PWS.data, 'r-', label='EW')
-#                    plt.plot(t, NS_PWS.data, 'b-', label='NS')
-#                    plt.xlim(xmin, xmax)
-#                    origin = int((len(EW_PWS.data) - 1) / 2)
-#                    dt = EW_PWS.stats.delta
-#                    i1 = origin + int(Tmin / EW_PWS.stats.delta)
-#                    i2 = origin + int(Tmax / EW_PWS.stats.delta) + 1
-#                    ymin = min(np.min(EW_PWS.data[i1:i2]), np.min(NS_PWS.data[i1:i2]))
-#                    ymax = max(np.max(EW_PWS.data[i1:i2]), np.max(NS_PWS.data[i1:i2]))
-#                    plt.ylim(ymin, ymax)
-#                    plt.title('Stacks for {} at ({:d} - {:d}) km)'.format( \
-#                        arrayName, int(x0), int(y0)), fontsize=24)
-#                    plt.xlabel('Lag time (s)', fontsize=24)
-#                    plt.legend(loc=1)
-#                    plt.tight_layout()
-#                    plt.savefig( 'intervals/{}_{:03d}_{:03d}_stacks.eps'. \
-#                        format(arrayName, int(x0), int(y0)), format='eps')
-#                    plt.close(0)
+                    params = {'legend.fontsize': 24, \
+                              'xtick.labelsize': 24, \
+                              'ytick.labelsize': 24}
+                    pylab.rcParams.update(params)
+                    plt.figure(0, figsize=(10, 8))
+                    plt.axvline(timelag, color='black')
+                    plt.axvline(time_P, color='black', linestyle=':')
+                    plt.axvline(Tmin, color='grey', linestyle='--')
+                    plt.axvline(Tmax, color='grey', linestyle='--')
+                    plt.plot(t, EW_PWS.data, 'r-', label='EW')
+                    plt.plot(t, NS_PWS.data, 'b-', label='NS')
+                    plt.xlim(xmin, xmax)
+                    origin = int((len(EW_PWS.data) - 1) / 2)
+                    dt = EW_PWS.stats.delta
+                    i1 = origin + int(Tmin / EW_PWS.stats.delta)
+                    i2 = origin + int(Tmax / EW_PWS.stats.delta) + 1
+                    ymin = min(np.min(EW_PWS.data[i1:i2]), np.min(NS_PWS.data[i1:i2]))
+                    ymax = max(np.max(EW_PWS.data[i1:i2]), np.max(NS_PWS.data[i1:i2]))
+                    plt.ylim(ymin, ymax)
+                    plt.title('Stacks for {} at ({:d} - {:d}) km)'.format( \
+                        arrayName, int(x0), int(y0)), fontsize=24)
+                    plt.xlabel('Lag time (s)', fontsize=24)
+                    plt.legend(loc=1)
+                    plt.tight_layout()
+                    plt.savefig( 'intervals/{}_{:03d}_{:03d}_stacks.eps'. \
+                        format(arrayName, int(x0), int(y0)), format='eps')
+                    plt.close(0)
 
                     # Cluster tremor for better peak
                     if (nlincc >= 2):

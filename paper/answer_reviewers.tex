@@ -1,6 +1,7 @@
 \documentclass[letterpaper, 12pt]{article}
 
 \usepackage{caption}
+\usepackage{float}
 \usepackage[T1]{fontenc}
 \usepackage[lmargin=1 in, rmargin=1 in, tmargin=1 in, bmargin=1 in]{geometry}
 \usepackage{graphicx}
@@ -18,7 +19,11 @@
 
 \bigskip
 
-To be more precise, when we plot the cross-correlation of the horizontal-to-vertical components, we see a primary peak around time lag 0, and a secondary peak around time lag 4-5 s, corresponding to the time lag between the P-wave and the S-wave. To be sure to pick the secondary peak and not the main one, we first look for a local maximum close to the theoretical time lag. Once we have found the secondary peak, we select a time window around this peak to do the clustering, and compute the moment centroid. The width of the time window selected to compute the moment centroid may have an effect on the estimation of the depth of the tremor. To verify this, we varied the width of the time window and computed the corresponding variations of the depth of the tremor. We added this precision in the text.
+You bring up a very important point regarding the potential of bias in our results and we have explored this in some detail.  We have rewritten our method to include an important detail that we left out of the text of the submitted version which we now explain on lines 263-275.  We have also sent figures to show more clearly the windows we analyze for the clustering relative to the theoretical time and our final observation.  The highest peak in the absolute value of the phase-weighted stacks of the cross correlation functions $S_i(\tau)$ within the defined window is the same as the highest peak between 3 and  8 seconds for every array / tremor grid  except for one (BH 5, -5) so using the theoretical S-P time as a guide to define the time window has very little or no effect on the final travel-time observation. 
+
+\smallskip
+
+The width of the time window selected to compute the moment centroid may have an effect on the estimation of the depth of the tremor. To verify this, we varied the width of the time window and computed the corresponding variations of the depth of the tremor. We added this discussion in the text at lines 368-377.
 
 \bigskip
 
@@ -89,5 +94,396 @@ We modified the symbols for Three Bumps.
 \bigskip
 
 There are two papers by Chestler and Creager in 2017. We added the reference in the text. Here, we are considering the range over all LFE families of the distance between the location of the LFE family and the plate boundary, not the depth range of the source of the LFEs within a single LFE family. The LFE families are close to the plate boundary, but not exactly on a plane. We modified the text and we added the comparison with the thickness of the flow channel.
+
+\bigskip
+
+\textbf{Additional figures related to first comment from Reviewer 1}
+
+\bigskip
+
+\begin{figure}
+\includegraphics[width=\linewidth]{figures/intervals/BS_-05_-05_stacks.eps}
+\caption{Stack of the cross-correlation functions for the Big Skidder array for the 110 one-minute long time windows when tremor was detected in a 5 km by 5 km grid cell located 7 kilometers southwest of the array. Red line corresponds to the cross-correlation of the East-West component with the vertical component, and blue line corresponds to the cross-correlation of the North-South component with the vertical component. The solid black line corresponds to the final observed S-P time, the black dotted line is the theoretical SP time if the source is on the plate boundary, and the grey dashed lines are the intervals $\left[T_{min} ; T_{max}\right]$ where we look for a secondary peak. For all the remaining figures, the two letters abbreviation in the title corresponds to the name of the array, and the numbers in parenthesis indicate the distance from the array to the grid cell in the east direction and the north direction.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-05_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-05_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-05_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-10_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-10_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-10_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-10_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-10_010_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-15_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-15_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-15_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-15_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-15_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-15_010_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-20_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-20_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-20_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-20_010_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-25_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_-25_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_000_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_000_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_005_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_005_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_005_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_010_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_010_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_010_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BH_020_-20_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-05_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-05_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-10_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-10_-20_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-10_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-10_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-15_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-20_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-20_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-20_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-20_-20_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-20_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-20_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-25_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_-25_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_000_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_000_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/BS_000_010_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/DR_000_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/DR_005_005_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/DR_005_010_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/DR_005_020_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/DR_005_025_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/DR_010_010_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/DR_010_015_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/DR_010_020_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/GC_010_010_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/GC_010_015_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/PA_-05_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/PA_000_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-05_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-05_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-05_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-05_-20_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-05_-25_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-10_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-10_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-10_-15_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-10_-20_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_-15_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_000_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_000_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_005_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_005_000_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_010_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_010_-10_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{figures/intervals/TB_015_-05_stacks.eps}
+\caption{See caption of Figure 1 for an explanation of this figure.}
+\end{figure}
 
 \end{document}

@@ -196,6 +196,34 @@ Chestler, S.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Ducellier%
+}{%
+Ducellier%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+ariane_ducellier_2021_5062659}
+\APACinsertmetastar {%
+ariane_ducellier_2021_5062659}%
+\begin{APACrefauthors}%
+Ducellier, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{{\APACmonth{07}}}{}.
+\newblock
+\APACrefbtitle {ArianeDucellier/timelags: Paper submission.}
+  {Arianeducellier/timelags: Paper submission.}
+\newblock
+\APACaddressPublisher{}{Zenodo}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.5281/zenodo.5062659}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.5281/zenodo.5062659} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Fagereng%
 \ \BBA {} Diener%
 }{%
