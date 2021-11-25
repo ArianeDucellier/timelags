@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  23 NOV 2021 18:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  24 NOV 2021 19:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -245,7 +245,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-No file answer_reviewers.aux.
+(./answer_reviewers.aux)
 \openout1 = `answer_reviewers.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -263,6 +263,7 @@ LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 12.
+
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -347,6 +348,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 12.
 LaTeX Info: Redefining \pageref on input line 12.
 LaTeX Info: Redefining \nameref on input line 12.
+
+(./answer_reviewers.out) (./answer_reviewers.out)
 \@outlinefile=\write3
 \openout3 = `answer_reviewers.out'.
 
@@ -358,8 +361,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 22.
-
-[1
+ [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package epstopdf Info: Source file: <figures/intervals/BS_-05_-05_stacks.eps>
@@ -1994,16 +1996,12 @@ Package epstopdf Info: Source file: <figures/intervals/TB_010_-10_stacks.eps>
 (epstopdf)                    size: 29669 bytes
 (epstopdf)             Output file: <figures/intervals/TB_010_-10_stacks-eps-co
 nverted-to.pdf>
+(epstopdf)                    date: 2021-11-23 18:40:23
+(epstopdf)                    size: 20677 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/intervals/TB_010_-
 10_stacks-eps-converted-to.pdf figures/intervals/TB_010_-10_stacks.eps>
 (epstopdf)             \includegraphics on input line 480.
-runsystem(repstopdf --outfile=figures/intervals/TB_010_-10_stacks-eps-converted
--to.pdf figures/intervals/TB_010_-10_stacks.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <figures/intervals/TB_010_-10_stacks-eps-co
-nverted-to.pdf>
-(epstopdf)                    date: 2021-11-23 18:40:23
-(epstopdf)                    size: 20677 bytes.
+Package epstopdf Info: Output file is already uptodate.
 
 <figures/intervals/TB_010_-10_stacks-eps-converted-to.pdf, id=3336, 722.7pt x 5
 78.16pt>
@@ -2020,16 +2018,12 @@ Package epstopdf Info: Source file: <figures/intervals/TB_015_-05_stacks.eps>
 (epstopdf)                    size: 30213 bytes
 (epstopdf)             Output file: <figures/intervals/TB_015_-05_stacks-eps-co
 nverted-to.pdf>
+(epstopdf)                    date: 2021-11-23 18:40:24
+(epstopdf)                    size: 20628 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/intervals/TB_015_-
 05_stacks-eps-converted-to.pdf figures/intervals/TB_015_-05_stacks.eps>
 (epstopdf)             \includegraphics on input line 485.
-runsystem(repstopdf --outfile=figures/intervals/TB_015_-05_stacks-eps-converted
--to.pdf figures/intervals/TB_015_-05_stacks.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <figures/intervals/TB_015_-05_stacks-eps-co
-nverted-to.pdf>
-(epstopdf)                    date: 2021-11-23 18:40:24
-(epstopdf)                    size: 20628 bytes.
+Package epstopdf Info: Output file is already uptodate.
 
 <figures/intervals/TB_015_-05_stacks-eps-converted-to.pdf, id=3382, 722.7pt x 5
 78.16pt>
@@ -2047,25 +2041,18 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 489.
  (./answer_reviewers.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 489.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 489.
-
-
-Package rerunfilecheck Warning: File `answer_reviewers.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `answer_reviewers.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `answer_reviewers.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 489.
  ) 
 Here is how much of TeX's memory you used:
- 7756 strings out of 493117
- 130612 string characters out of 6135433
- 198642 words of memory out of 5000000
+ 7762 strings out of 493117
+ 130738 string characters out of 6135433
+ 198746 words of memory out of 5000000
  10935 multiletter control sequences out of 15000+600000
  15513 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,7n,38p,1074b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,7n,38p,1075b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texl
@@ -2073,7 +2060,7 @@ ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on answer_reviewers.pdf (79 pages, 1432467 bytes).
+Output written on answer_reviewers.pdf (79 pages, 1432537 bytes).
 PDF statistics:
  3531 PDF objects out of 3580 (max. 8388607)
  696 compressed objects within 7 object streams
