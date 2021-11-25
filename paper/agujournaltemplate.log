@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  24 NOV 2021 19:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  24 NOV 2021 19:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3890,15 +3890,9 @@ ys-tems\OT1/cmr/m/n/10 , \OT1/cmr/m/it/10 18\OT1/cmr/m/n/10 , 4690-4708.
  []
 
 
-Underfull \hbox (badness 5077) in paragraph at lines 209--225
-[]\OT1/cmr/m/n/10 Ducellier, A.  (2021, July).  \OT1/cmr/m/it/10 Ar-i-ane-du-ce
-l-lier/timelags: Pa-per sub-mis-sion.  \OT1/cmr/m/n/10 Zen- 
- []
-
-
 Underfull \hbox (badness 2310) in paragraph at lines 209--225
 \OT1/cmr/m/n/10 odo.  Re-trieved from $\OT1/cmtt/m/n/10 https :// doi [] .org /
- 10 [] .5281 / zenodo [] .5062659$   \OT1/cmr/m/n/10 doi: $10 [] 
+ 10 [] .5281 / zenodo [] .5725990$   \OT1/cmr/m/n/10 doi: $10 [] 
  []
 
 Missing character: There is no â in font cmr10!
@@ -4126,7 +4120,7 @@ dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2014/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on agujournaltemplate.pdf (23 pages, 2740502 bytes).
+Output written on agujournaltemplate.pdf (23 pages, 2740520 bytes).
 PDF statistics:
  442 PDF objects out of 1000 (max. 8388607)
  182 compressed objects within 2 object streams
