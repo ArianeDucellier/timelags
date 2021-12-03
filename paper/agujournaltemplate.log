@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  24 NOV 2021 19:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.15)  29 NOV 2021 15:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -397,27 +397,15 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 104.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (10.73784pt too wide) in paragraph at lines 141--142
+Overfull \hbox (32.40457pt too wide) in paragraph at lines 141--142
 []\OT1/cmr/m/n/10 We use seis-mic data from small-aperture ar-rays in the Olymp
-ic Penin-sula, Wash- 
+ic Penin-sula, and tremor 
  []
 
 
-Overfull \hbox (7.01567pt too wide) in paragraph at lines 141--142
-\OT1/cmr/m/n/10 ing-ton and tremor epi-cen-ters de-ter-mined pre-vi-ously by a 
-multi-beam back-pro-jec- 
- []
-
-
-Overfull \hbox (0.5989pt too wide) in paragraph at lines 142--143
-[]\OT1/cmr/m/n/10 We com-pute the depth of the tremor source from es-ti-mates o
-f S mi-nus P times 
- []
-
-
-Overfull \hbox (10.3212pt too wide) in paragraph at lines 142--143
-\OT1/cmr/m/n/10 de-ter-mined from stack-ing horizontal-to-vertical cross-correl
-ations of seis-mic data.  
+Overfull \hbox (19.40453pt too wide) in paragraph at lines 142--143
+[]\OT1/cmr/m/n/10 We com-pute the depth of the tremor from S mi-nus P times de-
+ter-mined from stack- 
  []
 
 
@@ -445,96 +433,168 @@ ter-mine the depth of the tremor
  []
 
 
-Overfull \hbox (26.59894pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 source and the dis-tance of the source to the plate in-ter-face
- with great pre-ci-sion. The thick- 
+Overfull \hbox (27.09895pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 source with great pre-ci-sion. The thick-ness of the tremor re-
+gion is also not well con-strained. 
  []
 
 
-Overfull \hbox (6.96007pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 ness of the tremor re-gion is also not well con-strained. The t
-remor may be lo-cated on a 
+Overfull \hbox (7.37679pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 The tremor may be lo-cated on a nar-row fault as the low-freque
+ncy earth-quakes ap-pear 
  []
 
 
-Overfull \hbox (1.62675pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 nar-row fault as the low-frequency earth-quakes ap-pear to be, 
-or dis-tributed over a few 
+Overfull \hbox (11.01558pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 to be, or dis-tributed over a few kilo-me-ters wide low shear-w
+ave ve-loc-ity layer in the up- 
  []
 
 
-Overfull \hbox (21.32117pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 kilo-me-ters wide low shear-wave ve-loc-ity layer in the up-per
- oceanic crust, which is thought 
+Overfull \hbox (23.76567pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 per oceanic crust, which is thought to be a re-gion with high p
+ore-fluid pres-sure. Lag times 
  []
 
 
-Overfull \hbox (9.68233pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 to be a re-gion with high pore-fluid pres-sure. Lag times of pe
-aks in the cross-correlation 
+Overfull \hbox (17.59901pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 of peaks in the cross-correlation of the hor-i-zon-tal and ver-
+ti-cal com-po-nents of tremor seis- 
  []
 
 
-Overfull \hbox (34.82132pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 of the hor-i-zon-tal and ver-ti-cal com-po-nents of tremor seis
--mo-grams, recorded by small-aperture 
+Overfull \hbox (11.87686pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 mo-grams, recorded by small-aperture ar-rays in the Olympic Pen
+in-sula, Wash-ing-ton, are 
  []
 
 
-Overfull \hbox (0.26569pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 ar-rays in the Olympic Penin-sula, Wash-ing-ton, are in-ter-pre
-ted to be S mi-nus P times. 
+Overfull \hbox (6.73782pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 in-ter-preted to be S mi-nus P times. Tremor depths are es-ti-m
+ated from these S mi-nus P 
  []
 
 
-Overfull \hbox (2.51556pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 Tremor depths are es-ti-mated from these S mi-nus P times us-in
-g epi-cen-ters from a pre- 
+Overfull \hbox (13.07132pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 times us-ing epi-cen-ters from a pre-vi-ous study us-ing a mult
+i-beam back-pro-jec-tion method. 
  []
 
 
-Overfull \hbox (3.26573pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 vi-ous study us-ing a multi-beam back-pro-jec-tion method. The 
-tremor is lo-cated close to 
+Overfull \hbox (8.98792pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 The tremor is lo-cated close to the plate bound-ary in a re-gio
+n no more than 2-3 kilo-me- 
  []
 
 
-Overfull \hbox (0.15459pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 the plate bound-ary in a re-gion no more than 2-3 kilo-me-ters 
-thick and is very close to 
+Overfull \hbox (2.29335pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 ters thick and is very close to the depths of low-frequency ear
+th-quakes. The tremor is 
  []
 
 
-Overfull \hbox (6.65451pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 the depths of low-frequency earth-quakes. The tremor is dis-tri
-buted over a wider depth 
+Overfull \hbox (12.09897pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 dis-tributed over a wider depth range than the low-frequency ea
+rth-quakes. How-ever, due 
  []
 
 
-Overfull \hbox (20.32123pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 range than the low-frequency earth-quakes. How-ever, due to the
- un-cer-tainty on the depth, 
+Overfull \hbox (25.65456pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 to the un-cer-tainty on the depth, it is dif-fi-cult to con-clu
+de whether the source of the tremor 
  []
 
 
-Overfull \hbox (1.51561pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 it is dif-fi-cult to con-clude whether the source of the tremor
- is lo-cated at the top of the 
- []
-
-
-Overfull \hbox (6.84903pt too wide) in paragraph at lines 167--169
-\OT1/cmr/m/n/10 sub-duct-ing oceanic crust, in the lower con-ti-nen-tal crust j
-ust above the plate bound-ary, 
+Overfull \hbox (9.93231pt too wide) in paragraph at lines 167--169
+\OT1/cmr/m/n/10 is lo-cated at the top of the sub-duct-ing oceanic crust, in th
+e lower con-ti-nen-tal crust just 
  []
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 205.
+(Font)              size <10.95> substituted on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 205.
+(Font)              size <10.95> substituted on input line 171.
+
+
+Overfull \hbox (11.7656pt too wide) in paragraph at lines 172--173
+[]\OT1/cmr/m/n/10 Tectonic tremor is a long, low am-pli-tude seis-mic sig-nal, 
+with emer-gent on-sets, and 
+ []
+
+
+Overfull \hbox (13.09895pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 an ab-sence of clear im-pul-sive phases. It has been ex-plained
+ as a swarm of low-frequency 
+ []
+
+
+Overfull \hbox (6.26569pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 earth-quakes, which are lo-cated on a nar-row fault at the plat
+e bound-ary. It is there-fore 
+ []
+
+
+Overfull \hbox (2.18231pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 as-sumed that the source of the tec-tonic tremor is lo-cated cl
+ose to the plate bound-ary. 
+ []
+
+
+Overfull \hbox (8.57118pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 How-ever, due to the lack of clear im-pul-sive phases in the tr
+emor sig-nal, it is dif-fi-cult to 
+ []
+
+
+Overfull \hbox (11.82117pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 de-ter-mine the depth of the tremor source and the dis-tance of
+ the source to the plate in- 
+ []
+
+
+Overfull \hbox (6.15448pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 ter-face with great pre-ci-sion. The thick-ness of the tremor r
+e-gion is not well con-strained 
+ []
+
+
+Overfull \hbox (15.37679pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 ei-ther. The tremor may be lo-cated on a nar-row fault like the
+ low-frequency earth-quakes, 
+ []
+
+
+Overfull \hbox (9.65453pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 or dis-tributed through a few kilo-me-ters wide low shear-wave 
+ve-loc-ity layer in the up-per 
+ []
+
+
+Overfull \hbox (9.15453pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 oceanic crust, which is thought to be a re-gion with high pore-
+fluid pres-sure. In this pa- 
+ []
+
+
+Overfull \hbox (11.84898pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 per, we show that the tremor is lo-cated close to the plate bou
+nd-ary in a re-gion no more 
+ []
+
+
+Overfull \hbox (6.34898pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 than 2-3 kilo-me-ters thick and is very close to the depths of 
+low-frequency earth-quakes. 
+ []
+
+
+Overfull \hbox (7.09901pt too wide) in paragraph at lines 172--173
+\OT1/cmr/m/n/10 Know-ing the depth of the tremor source will help un-der-stand 
+the mech-a-nism that pro- 
+ []
 
 
 Overfull \hbox (9.6545pt too wide) in paragraph at lines 207--207
@@ -960,6 +1020,9 @@ ng of the plate bound-ary  []Audet
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
 Overfull \hbox (7.34895pt too wide) in paragraph at lines 217--217
 []\OT1/cmr/m/n/10 Whereas the po-si-tion of the sub-duc-tion zone ETS does not 
 seem to co-in-cide with 
@@ -1062,9 +1125,6 @@ at depth and ris-ing up the sub-duc-
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
 Overfull \hbox (21.29343pt too wide) in paragraph at lines 219--219
 []\OT1/cmr/m/n/10 Quartz veins have in-deed been ob-served in ex-humed sub-duc-
 tion zones. For in-stance, 
@@ -1293,6 +1353,9 @@ c-curs in a wider zone than
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
 Overfull \hbox (15.59897pt too wide) in paragraph at lines 225--225
 []\OT1/cmr/m/n/10 Several meth-ods have been de-vel-oped to de-tect and lo-cate
  tec-tonic tremor or LFEs 
@@ -1365,9 +1428,6 @@ d-ing to the S-wave travel time
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
 Overfull \hbox (9.15456pt too wide) in paragraph at lines 227--227
 []\OT1/cmr/m/n/10 A sec-ond method is based on the as-sump-tion that re-peat-in
 g tremor or LFEs with 
@@ -1560,6 +1620,9 @@ Overfull \hbox (3.18227pt too wide) in paragraph at lines 231--232
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
 Overfull \hbox (5.90453pt too wide) in paragraph at lines 235--236
 []\OT1/cmr/m/n/10 The data were col-lected dur-ing the 2009-2011 Ar-ray of Ar-r
 ays ex-per-i-ment. Eight 
@@ -1655,10 +1718,6 @@ Overfull \hbox (1.90459pt too wide) in paragraph at lines 235--236
 -ing Au-gust - Septem-ber, 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
 Package epstopdf Info: Source file: <figures/arrays_location.eps>
 (epstopdf)                    date: 2021-05-26 18:05:13
 (epstopdf)                    size: 1155985 bytes
@@ -1840,10 +1899,6 @@ Overfull \hbox (14.54343pt too wide) in paragraph at lines 245--245
 een for the pos-i-tive time lag, 
  []
 
-
-Underfull \vbox (badness 4913) has occurred while \output is active []
-
- [6 <./figures/arrays_location-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/BS_-05_-05_PWS_PWS_cluster_ccwin.e
 ps>
 (epstopdf)                    date: 2020-07-24 00:35:10
@@ -1858,7 +1913,7 @@ s>
 (epstopdf)             \includegraphics on input line 248.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/BS_-05_-05_PWS_PWS_cluster_ccwin-eps-converted-to.pdf, id=46, 1445.4pt
+<figures/BS_-05_-05_PWS_PWS_cluster_ccwin-eps-converted-to.pdf, id=34, 1445.4pt
  x 1156.32pt>
 File: figures/BS_-05_-05_PWS_PWS_cluster_ccwin-eps-converted-to.pdf Graphic fil
 e (type pdf)
@@ -1927,7 +1982,7 @@ Overfull \hbox (20.32115pt too wide) in paragraph at lines 253--253
 , or be-cause the signal-to-noise 
  []
 
-[7 <./figures/BS_-05_-05_PWS_PWS_cluster_ccwin-eps-converted-to.pdf>]
+
 Overfull \hbox (8.54335pt too wide) in paragraph at lines 255--255
 []\OT1/cmr/m/n/10 To de-ter-mine which time win-dow to use for fur-ther con-sid
 -er-a-tion we com-pute the 
@@ -2011,7 +2066,8 @@ Overfull \hbox (7.84903pt too wide) in paragraph at lines 255--255
 d forc-ing our fi-nal ob-served S 
  []
 
-
+[6] [7 <./figures/arrays_location-eps-converted-to.pdf>] [8 <./figures/BS_-05_-
+05_PWS_PWS_cluster_ccwin-eps-converted-to.pdf>]
 Overfull \hbox (0.93225pt too wide) in paragraph at lines 257--257
 []\OT1/cmr/m/n/10 To im-prove the signal-to-noise ra-tio of the peak in the sta
 cked cross-correlation, 
@@ -2213,7 +2269,7 @@ c.eps>
 (epstopdf)             \includegraphics on input line 260.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/BS_-05_-05_PWS_PWS_cluster_stackcc-eps-converted-to.pdf, id=87, 1445.4
+<figures/BS_-05_-05_PWS_PWS_cluster_stackcc-eps-converted-to.pdf, id=90, 1445.4
 pt x 1156.32pt>
 File: figures/BS_-05_-05_PWS_PWS_cluster_stackcc-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -2340,8 +2396,8 @@ s-son's ra-tio in the East-West
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8]
-[9 <./figures/BS_-05_-05_PWS_PWS_cluster_stackcc-eps-converted-to.pdf>]
+ [9]
+[10 <./figures/BS_-05_-05_PWS_PWS_cluster_stackcc-eps-converted-to.pdf>]
 Overfull \hbox (14.15443pt too wide) in paragraph at lines 269--269
 []\OT1/cmr/m/n/10 To ob-tain ro-bust re-sults, we limit our anal-y-sis to grid 
 cells where there are at least 
@@ -2520,7 +2576,7 @@ Package epstopdf Info: Source file: <figures/BS_PWS_PWS_0.eps>
 onverted-to.pdf figures/BS_PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 274.
 Package epstopdf Info: Output file is already uptodate.
-<figures/BS_PWS_PWS_0-eps-converted-to.pdf, id=140, 1517.67pt x 1011.78pt>
+<figures/BS_PWS_PWS_0-eps-converted-to.pdf, id=143, 1517.67pt x 1011.78pt>
 File: figures/BS_PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/BS_PWS_PWS_0-eps-converted-to.pdf>
@@ -2710,8 +2766,8 @@ n the anal-y-sis in or-der to have
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
-[11 <./figures/BS_PWS_PWS_0-eps-converted-to.pdf>]
+ [11]
+[12 <./figures/BS_PWS_PWS_0-eps-converted-to.pdf>]
 Overfull \hbox (16.0156pt too wide) in paragraph at lines 281--281
 []\OT1/cmr/m/n/10 To es-ti-mate the un-cer-tainty on the depth of the source of
  the tremor, we com-puted 
@@ -2801,7 +2857,7 @@ S-eps-converted-to.pdf figures/uncertainty_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 284.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/uncertainty_PWS_PWS-eps-converted-to.pdf, id=183, 597.23125pt x 845.15
+<figures/uncertainty_PWS_PWS-eps-converted-to.pdf, id=186, 597.23125pt x 845.15
 75pt>
 File: figures/uncertainty_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/uncertainty_PWS_PWS-eps-converted-to.pdf>
@@ -2898,7 +2954,7 @@ converted-to.pdf figures/depth_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 292.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/depth_PWS_PWS-eps-converted-to.pdf, id=185, 597.23125pt x 845.1575pt>
+<figures/depth_PWS_PWS-eps-converted-to.pdf, id=188, 597.23125pt x 845.1575pt>
 File: figures/depth_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/depth_PWS_PWS-eps-converted-to.pdf>
@@ -2941,7 +2997,7 @@ _PWS-eps-converted-to.pdf figures/section_strike_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 298.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/section_strike_PWS_PWS-eps-converted-to.pdf, id=187, 597.23125pt x 845
+<figures/section_strike_PWS_PWS-eps-converted-to.pdf, id=190, 597.23125pt x 845
 .1575pt>
 File: figures/section_strike_PWS_PWS-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -3009,7 +3065,7 @@ eps-converted-to.pdf figures/d_to_pb_PWS_PWS_P.eps>
 (epstopdf)             \includegraphics on input line 304.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/d_to_pb_PWS_PWS_P-eps-converted-to.pdf, id=189, 597.23125pt x 845.1575
+<figures/d_to_pb_PWS_PWS_P-eps-converted-to.pdf, id=192, 597.23125pt x 845.1575
 pt>
 File: figures/d_to_pb_PWS_PWS_P-eps-converted-to.pdf Graphic file (type pdf)
  <use figures/d_to_pb_PWS_PWS_P-eps-converted-to.pdf>
@@ -3259,8 +3315,8 @@ th). The cor-re-spond-ing
 
 Underfull \vbox (badness 1552) has occurred while \output is active []
 
- [12]
-[13 <./figures/uncertainty_PWS_PWS-eps-converted-to.pdf>] [14 <./figures/depth_
+ [13]
+[14 <./figures/uncertainty_PWS_PWS-eps-converted-to.pdf>] [15 <./figures/depth_
 PWS_PWS-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/PWS_PWS_0.eps>
 (epstopdf)                    date: 2021-05-24 14:36:26
@@ -3273,7 +3329,7 @@ erted-to.pdf figures/PWS_PWS_0.eps>
 (epstopdf)             \includegraphics on input line 314.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/PWS_PWS_0-eps-converted-to.pdf, id=217, 1084.05pt x 1084.05pt>
+<figures/PWS_PWS_0-eps-converted-to.pdf, id=220, 1084.05pt x 1084.05pt>
 File: figures/PWS_PWS_0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/PWS_PWS_0-eps-converted-to.pdf>
@@ -3350,7 +3406,7 @@ Package epstopdf Info: Source file: <figures/PWS_PWS.eps>
 ted-to.pdf figures/PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 322.
 Package epstopdf Info: Output file is already uptodate.
-<figures/PWS_PWS-eps-converted-to.pdf, id=219, 867.24pt x 433.62pt>
+<figures/PWS_PWS-eps-converted-to.pdf, id=222, 867.24pt x 433.62pt>
 File: figures/PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/PWS_PWS-eps-converted-to.pdf>
@@ -3532,8 +3588,8 @@ Overfull \hbox (12.15457pt too wide) in paragraph at lines 327--327
 st val-ues for the thick-ness are 
  []
 
-[15 <./figures/section_strike_PWS_PWS-eps-converted-to.pdf>] [16 <./figures/d_t
-o_pb_PWS_PWS_P-eps-converted-to.pdf>] [17 <./figures/PWS_PWS_0-eps-converted-to
+[16 <./figures/section_strike_PWS_PWS-eps-converted-to.pdf>] [17 <./figures/d_t
+o_pb_PWS_PWS_P-eps-converted-to.pdf>] [18 <./figures/PWS_PWS_0-eps-converted-to
 .pdf>]
 Package epstopdf Info: Source file: <figures/Q_PWS_PWS.eps>
 (epstopdf)                    date: 2021-11-01 23:30:02
@@ -3546,7 +3602,7 @@ erted-to.pdf figures/Q_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 330.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/Q_PWS_PWS-eps-converted-to.pdf, id=292, 597.23125pt x 845.1575pt>
+<figures/Q_PWS_PWS-eps-converted-to.pdf, id=295, 597.23125pt x 845.1575pt>
 File: figures/Q_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/Q_PWS_PWS-eps-converted-to.pdf>
@@ -3601,7 +3657,7 @@ converted-to.pdf figures/error_PWS_PWS.eps>
 (epstopdf)             \includegraphics on input line 338.
 Package epstopdf Info: Output file is already uptodate.
 
-<figures/error_PWS_PWS-eps-converted-to.pdf, id=294, 597.23125pt x 845.1575pt>
+<figures/error_PWS_PWS-eps-converted-to.pdf, id=297, 597.23125pt x 845.1575pt>
 File: figures/error_PWS_PWS-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/error_PWS_PWS-eps-converted-to.pdf>
@@ -3713,8 +3769,8 @@ rea-ger (2017a, 2017b) to
 
 Underfull \vbox (badness 7814) has occurred while \output is active []
 
- [18 <./figures/PWS_PWS-eps-converted-to.pdf>] [19 <./figures/Q_PWS_PWS-eps-con
-verted-to.pdf>] [20 <./figures/error_PWS_PWS-eps-converted-to.pdf>]
+ [19 <./figures/PWS_PWS-eps-converted-to.pdf>] [20 <./figures/Q_PWS_PWS-eps-con
+verted-to.pdf>] [21 <./figures/error_PWS_PWS-eps-converted-to.pdf>]
 Overfull \hbox (14.59895pt too wide) in paragraph at lines 362--362
 []\OT1/cmr/m/n/10 We de-vel-oped a method to es-ti-mate the depth of the source
  of the tec-tonic tremor, 
@@ -3864,7 +3920,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--59
  sub-duc-tion zone slow- 
  []
 
-[21]
+[22]
 Underfull \hbox (badness 4181) in paragraph at lines 97--112
 \OT1/cmr/m/n/10 be-low south-ern Van-cou-ver Is-land.  \OT1/cmr/m/it/10 Geo-che
 m-istry Geo-physics Geosys-tems\OT1/cmr/m/n/10 , \OT1/cmr/m/it/10 13\OT1/cmr/m/
@@ -3995,7 +4051,7 @@ Underfull \hbox (badness 4647) in paragraph at lines 589--607
 f Geo-phys-i-cal Re-search: Solid Earth\OT1/cmr/m/n/10 , 
  []
 
-[22]
+[23]
 Underfull \hbox (badness 4832) in paragraph at lines 699--711
 []\OT1/cmr/m/n/10 Peacock, S.  (2009).  Ther-mal and meta-mor-phic en-vi-ron-me
 nt of sub-duc-tion zone 
@@ -4082,7 +4138,7 @@ Underfull \hbox (badness 1681) in paragraph at lines 1114--1126
 map and dis-play data. 
  []
 
-) [23] (./agujournaltemplate.aux)
+) [24] (./agujournaltemplate.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.45pt have occurred.
@@ -4098,7 +4154,7 @@ Here is how much of TeX's memory you used:
  7765 multiletter control sequences out of 15000+600000
  13452 words of font info for 52 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
- 43i,9n,37p,3141b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,9n,37p,3141b,347s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -4120,10 +4176,10 @@ dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2014/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on agujournaltemplate.pdf (23 pages, 2740520 bytes).
+Output written on agujournaltemplate.pdf (24 pages, 2741170 bytes).
 PDF statistics:
- 442 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
+ 445 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

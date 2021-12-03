@@ -1,6 +1,7 @@
 data/Clusters/*
 data/Clusters2/*
 data/velocitymodel.txt.txt
+figures_files/*.eps
 matlab/*
 src/cc/BH/BH_*/*
 src/cc/BS/BS_*/*
