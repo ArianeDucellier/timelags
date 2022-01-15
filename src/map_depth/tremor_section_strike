@@ -1,5 +1,5 @@
 #!/bin/csh -f
-set output = section_strike_PWS_PWS.eps
+set output = section_strike_PWS_PWS_middle.eps
 set cpt = strike.cpt
 
 # Boundaries
@@ -30,34 +30,34 @@ END
 
 # First cross-section
 
-gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Longitude":/a20f5:"Depth (km)":WeSn -J$Jop -St0.4 -Gblack -Y10 -K >! $output
+#gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Longitude":/a20f5:"Depth (km)":WeSn -J$Jop -St0.4 -Gblack -Y10 -K >! $output
 
-gmt psxy mccrory_1.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
-gmt psxy preston_1.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
+#gmt psxy mccrory_1.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
+#gmt psxy preston_1.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
 
-gmt psxy section_sweet_1.txt -R$Rop -J$Jop -Sc0.1 -C$cpt -W -O -K >> $output
-gmt psxy section_chestler_1.txt -R$Rop -J$Jop -Sc0.1 -C$cpt -W -O -K >> $output
+#gmt psxy section_sweet_1.txt -R$Rop -J$Jop -Sc0.1 -C$cpt -W -O -K >> $output
+#gmt psxy section_chestler_1.txt -R$Rop -J$Jop -Sc0.1 -C$cpt -W -O -K >> $output
 
-gmt psxy section_strike_PWS_PWS_BH_1.txt -R$Rop -J$Jop -Ss0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_BS_1.txt -R$Rop -J$Jop -Sa0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_DR_1.txt -R$Rop -J$Jop -Si0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_GC_1.txt -R$Rop -J$Jop -Sc0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_PA_1.txt -R$Rop -J$Jop -Sd0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_TB_1.txt -R$Rop -J$Jop -Sh0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_BH_1.txt -R$Rop -J$Jop -Ss0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_BS_1.txt -R$Rop -J$Jop -Sa0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_DR_1.txt -R$Rop -J$Jop -Si0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_GC_1.txt -R$Rop -J$Jop -Sc0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_PA_1.txt -R$Rop -J$Jop -Sd0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_TB_1.txt -R$Rop -J$Jop -Sh0.3 -C$cpt -O -K >> $output
 
-gmt psxy ground.dat -R$Rop -J$Jop -Wthicker -O -K >> $output
+#gmt psxy ground.dat -R$Rop -J$Jop -Wthicker -O -K >> $output
 
 cat << END >> mytext.dat
 -123.55 -5.0 A
 -122.85 -5.0 A'
 END
 
-gmt pstext mytext.dat -R$Rop -J$Jop -F+f15p -O -K >> $output
+#gmt pstext mytext.dat -R$Rop -J$Jop -F+f15p -O -K >> $output
 rm mytext.dat
 
 # Second cross-section
 
-gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Longitude":/a20f5:"Depth (km)":weSn -J$Jop -St0.4 -Gblack -X8.5 -O -K >> $output
+gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Longitude":/a20f5:"Depth (km)":WeSn -J$Jop -St0.4 -Gblack -Y10 -X8.5 -K >! $output
 
 gmt psxy mccrory_2.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
 gmt psxy preston_2.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
@@ -84,32 +84,32 @@ rm mytext.dat
 
 # Third cross-section
 
-gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Longitude":/a20f5:"Depth (km)":wESn -J$Jop -St0.4 -Gblack -X8.5 -O -K >> $output
+#gmt psxy arrays.dat -R$Rop -Ba0.25f0.125:"Longitude":/a20f5:"Depth (km)":wESn -J$Jop -St0.4 -Gblack -X8.5 -O -K >> $output
 
-gmt psxy mccrory_3.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
-gmt psxy preston_3.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
+#gmt psxy mccrory_3.txt -R$Rop -J$Jop -Wthicker,black -O -K >> $output
+#gmt psxy preston_3.txt -R$Rop -J$Jop -Wthicker,black,dashed -O -K >> $output
 
-gmt psxy section_sweet_3.txt -R$Rop -J$Jop -Sc0.1 -C$cpt -W -O -K >> $output
-gmt psxy section_chestler_3.txt -R$Rop -J$Jop -Sc0.1 -C$cpt -W -O -K >> $output
+#gmt psxy section_sweet_3.txt -R$Rop -J$Jop -Sc0.1 -C$cpt -W -O -K >> $output
+#gmt psxy section_chestler_3.txt -R$Rop -J$Jop -Sc0.1 -C$cpt -W -O -K >> $output
 
-gmt psxy section_strike_PWS_PWS_BH_3.txt -R$Rop -J$Jop -Ss0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_BS_3.txt -R$Rop -J$Jop -Sa0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_DR_3.txt -R$Rop -J$Jop -Si0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_GC_3.txt -R$Rop -J$Jop -Sc0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_PA_3.txt -R$Rop -J$Jop -Sd0.3 -C$cpt -O -K >> $output
-gmt psxy section_strike_PWS_PWS_TB_3.txt -R$Rop -J$Jop -Sh0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_BH_3.txt -R$Rop -J$Jop -Ss0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_BS_3.txt -R$Rop -J$Jop -Sa0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_DR_3.txt -R$Rop -J$Jop -Si0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_GC_3.txt -R$Rop -J$Jop -Sc0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_PA_3.txt -R$Rop -J$Jop -Sd0.3 -C$cpt -O -K >> $output
+#gmt psxy section_strike_PWS_PWS_TB_3.txt -R$Rop -J$Jop -Sh0.3 -C$cpt -O -K >> $output
 
-gmt psxy ground.dat -R$Rop -J$Jop -Wthicker -O -K >> $output
+#gmt psxy ground.dat -R$Rop -J$Jop -Wthicker -O -K >> $output
 
 cat << END >> mytext.dat
 -123.55 -5.0 C
 -122.85 -5.0 C'
 END
 
-gmt pstext mytext.dat -R$Rop -J$Jop -F+f15p -O -K >> $output
+#gmt pstext mytext.dat -R$Rop -J$Jop -F+f15p -O -K >> $output
 rm mytext.dat
 
-gmt psscale -C$cpt -D-4.5/-2.0/10/0.5h -O -L -B:"Distance along strike in km": >> $output
+gmt psscale -C$cpt -D+4/-2.0/10/0.5h -O -L -B:"Distance along strike in km": >> $output
 
 rm arrays.dat
 rm ground.dat
